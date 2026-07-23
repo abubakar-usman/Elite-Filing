@@ -1,0 +1,179 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
+import { servicesData } from "@/lib/data/services";
+import { countriesData } from "@/lib/data/countries";
+import { industriesData } from "@/lib/data/industries";
+
+export function Footer() {
+  const [subscribed, setSubscribed] = useState(false);
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) setSubscribed(true);
+  };
+
+  return (
+    <footer className="mt-24 bg-slate-950 text-white border-t border-slate-800">
+      
+      {/* Top Newsletter & Global Banner */}
+      <div className="border-b border-slate-800/80 bg-slate-900/60 py-12">
+        <div className="container-page flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="max-w-xl text-center lg:text-left">
+            <h3 className="text-2xl font-bold font-display text-white">Subscribe to Global Corporate Insights</h3>
+            <p className="mt-2 text-sm text-slate-300">
+              Receive monthly tax compliance updates, international expansion strategies, and trademark tips across US, UK, UAE, Canada, and Pakistan.
+            </p>
+          </div>
+
+          <div className="w-full lg:w-auto">
+            {subscribed ? (
+              <div className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-semibold">
+                <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                <span>Thank you for subscribing! Check your inbox soon.</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2.5 w-full max-w-md">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your work email"
+                  className="px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 grow"
+                />
+                <button
+                  type="submit"
+                  className="px-5 py-3 rounded-xl font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 text-sm shrink-0 shadow-md"
+                >
+                  <span>Subscribe</span>
+                  <Send className="w-4 h-4" />
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Mega Footer Columns Grid */}
+      <div className="container-page py-16 grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+        
+        {/* Column 1: Brand & Office Hubs */}
+        <div className="lg:col-span-1 space-y-4">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="bg-white rounded-xl p-1.5 shrink-0">
+              <Image src="/logo.png" alt="Elite Filing" width={36} height={36} className="h-9 w-9 object-contain" />
+            </div>
+            <div>
+              <div className="font-display text-lg font-bold text-white">Elite Filing</div>
+              <div className="text-[9px] tracking-[0.2em] font-bold text-orange-400 uppercase">Form · Launch · Grow</div>
+            </div>
+          </Link>
+
+          <p className="text-xs text-slate-400 leading-relaxed">
+            A corporate services and consulting firm helping founders form, structure, and scale businesses across the US, UK, UAE, Canada, and Pakistan.
+          </p>
+
+          <div className="space-y-2 text-xs text-slate-300 pt-2">
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-orange-400 shrink-0" />
+              <span>hello@elitefiling.co</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-orange-400 shrink-0" />
+              <span>+1 (302) 555-0134</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+              <span>Delaware · London · Dubai · Toronto · Karachi</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 2: 9 Services */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Services</h4>
+          <ul className="mt-4 space-y-2 text-xs text-slate-300">
+            {servicesData.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/services/${s.slug}`} className="hover:text-white transition-colors">
+                  {s.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 3: 5 Countries */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Jurisdictions</h4>
+          <ul className="mt-4 space-y-2.5 text-xs text-slate-300">
+            {countriesData.map((c) => (
+              <li key={c.slug}>
+                <Link href={`/countries/${c.slug}`} className="hover:text-white transition-colors flex items-center gap-2">
+                  <span className="text-sm leading-none">{c.flag}</span>
+                  <span>{c.name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 4: 6 Industries */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Industries</h4>
+          <ul className="mt-4 space-y-2.5 text-xs text-slate-300">
+            {industriesData.map((ind) => (
+              <li key={ind.slug}>
+                <Link href={`/industries/${ind.slug}`} className="hover:text-white transition-colors">
+                  {ind.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Column 5: Company & Legal */}
+        <div>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Company & Resources</h4>
+          <ul className="mt-4 space-y-2.5 text-xs text-slate-300">
+            <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+            <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing & Packages</Link></li>
+            <li><Link href="/resources" className="hover:text-white transition-colors">Knowledge Center</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors">Global Office Locations</Link></li>
+          </ul>
+
+          <div className="mt-6 pt-4 border-t border-slate-800">
+            <h5 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Connect</h5>
+            <div className="flex gap-3 text-slate-400 text-xs">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">LinkedIn</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Twitter/X</a>
+              <a href="https://wa.me/13025550134" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom Bar Legal */}
+      <div className="border-t border-slate-800/80 bg-slate-950 py-6">
+        <div className="container-page flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>
+            © {new Date().getFullYear()} Elite Filing Co. All rights reserved.
+          </div>
+          <div className="flex flex-wrap gap-6 text-slate-400">
+            <span className="hover:text-slate-300 cursor-pointer">Privacy Policy</span>
+            <span className="hover:text-slate-300 cursor-pointer">Terms of Service</span>
+            <span className="hover:text-slate-300 cursor-pointer">Compliance Disclaimer</span>
+            <span className="hover:text-slate-300 cursor-pointer">Cookie Settings</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

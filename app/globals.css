@@ -1,0 +1,198 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-navy-soft: var(--navy-soft);
+  --color-orange: var(--orange);
+  --color-orange-soft: var(--orange-soft);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --shadow-elevated: 0 20px 60px -30px color-mix(in oklab, var(--navy-deep) 45%, transparent);
+  --shadow-card: 0 8px 30px -18px color-mix(in oklab, var(--navy-deep) 30%, transparent);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Brand — navy + orange, sampled from the Elite Filing logo */
+  --navy-deep: oklch(0.28 0.09 260);
+  --navy: oklch(0.36 0.11 260);
+  --navy-soft: oklch(0.55 0.09 260);
+  --orange: oklch(0.72 0.17 52);
+  --orange-soft: oklch(0.86 0.09 55);
+
+  --background: oklch(0.995 0.003 90);
+  --foreground: oklch(0.22 0.05 260);
+  --surface: oklch(0.98 0.006 80);
+  --surface-alt: oklch(0.955 0.012 75);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.05 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.05 260);
+
+  --primary: var(--navy-deep);
+  --primary-foreground: oklch(0.99 0.005 90);
+  --secondary: oklch(0.955 0.012 75);
+  --secondary-foreground: var(--navy-deep);
+  --muted: oklch(0.96 0.008 260);
+  --muted-foreground: oklch(0.5 0.03 260);
+  --accent: var(--orange);
+  --accent-foreground: oklch(0.99 0.005 90);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.99 0.005 90);
+  --border: oklch(0.9 0.015 260);
+  --input: oklch(0.92 0.012 260);
+  --ring: var(--orange);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--navy-deep);
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 1200px;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+}
+
+@utility eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  background: var(--navy-deep);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  font-size: 0.925rem;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+  box-shadow: 0 10px 30px -14px color-mix(in oklab, var(--navy-deep) 60%, transparent);
+  &:hover { background: var(--navy); transform: translateY(-1px); }
+}
+
+@utility btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--accent-foreground);
+  font-weight: 600;
+  font-size: 0.925rem;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+  box-shadow: 0 12px 32px -14px color-mix(in oklab, var(--orange) 70%, transparent);
+  &:hover { transform: translateY(-1px); filter: brightness(1.03); }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--navy-deep) 18%, transparent);
+  color: var(--navy-deep);
+  font-weight: 600;
+  font-size: 0.925rem;
+  transition: background .2s ease, border-color .2s ease;
+  &:hover { background: var(--surface-alt); border-color: color-mix(in oklab, var(--navy-deep) 30%, transparent); }
+}
+
+@utility card-surface {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  &:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); border-color: color-mix(in oklab, var(--orange) 35%, var(--border)); }
+}
+
+@utility section-pad {
+  padding-block: 5rem;
+  @media (min-width: 768px) { padding-block: 7rem; }
+}
+
+@utility grad-hero {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, color-mix(in oklab, var(--orange) 22%, transparent), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, color-mix(in oklab, var(--navy) 35%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--navy-deep), oklch(0.22 0.08 260));
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@utility animate-floaty { animation: floaty 6s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@utility animate-fade-up { animation: fadeUp .7s ease-out both; }
