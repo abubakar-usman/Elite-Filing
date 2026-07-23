@@ -6,6 +6,23 @@ import Link from "next/link";
 import { FileText, ArrowLeft, Download, ShieldCheck } from "lucide-react";
 import { DocumentUploader } from "./DocumentUploader";
 
+export interface DocumentItem {
+  id: string;
+  name: string;
+  url: string;
+  status: string;
+  createdAt: Date | string;
+  userId?: string | null;
+  filingId?: string | null;
+}
+
+export interface UserWithDocuments {
+  id: string;
+  email: string;
+  name?: string | null;
+  documents: DocumentItem[];
+}
+
 export default async function DocumentsPage() {
   const session = await getServerSession(authOptions);
   const sessionUser = session?.user as { id?: string; email?: string } | undefined;
@@ -15,7 +32,7 @@ export default async function DocumentsPage() {
   }
 
   // Fetch real User and their Documents from Supabase PostgreSQL via Prisma
-  const user = await prisma.user.findUnique({
+  const user: UserWithDocuments | null = await prisma.user.findUnique({
     where: { email: sessionUser.email.toLowerCase() },
     include: {
       documents: {
@@ -83,7 +100,7 @@ export default async function DocumentsPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800">
-                  {user.documents.map((doc) => (
+                  {user.documents.map((doc: DocumentItem) => (
                     <tr key={doc.id} className="hover:bg-slate-800/40 transition-colors">
                       <td className="p-4 font-semibold text-white flex items-center gap-2">
                         <FileText className="w-4 h-4 text-orange-400 shrink-0" />
@@ -120,3 +137,4 @@ export default async function DocumentsPage() {
     </div>
   );
 }
+
