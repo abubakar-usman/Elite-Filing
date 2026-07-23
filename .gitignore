@@ -8,3 +8,4 @@ build
 Supabase.txt
 .data
 .DS_Store
+tsconfig.tsbuildinfo
