@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, ArrowUpRight, ChevronRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ChevronRight, Search, UserCheck } from "lucide-react";
 import Image from "next/image";
 
 const nav = [
@@ -11,9 +11,9 @@ const nav = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/countries", label: "Countries" },
-  { to: "/industries", label: "Industries" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/resources", label: "Resources" },
+  { to: "/track", label: "Track Status" },
+  { to: "/dashboard", label: "Dashboard" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -28,7 +28,7 @@ export function Header({ onOpenConsultation }: HeaderProps) {
   const isActive = (to: string) => (to === "/" ? pathname === "/" : pathname?.startsWith(to));
 
   return (
-    <div className="w-full sticky top-4 z-50 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto transition-all duration-300">
+    <div className="w-full sticky top-4 z-50 px-3 sm:px-6 lg:px-8 max-w-8xl mx-auto transition-all duration-300">
       <header className="relative bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 shadow-lg shadow-slate-900/5 rounded-full px-4 sm:px-6 lg:px-10 py-2.5 flex items-center justify-between transition-all duration-300">
         
         {/* Logo */}
@@ -54,25 +54,33 @@ export function Header({ onOpenConsultation }: HeaderProps) {
             <Link
               key={n.to}
               href={n.to}
-              className={`px-2 xl:px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-200 whitespace-nowrap ${
+              className={`px-2 xl:px-3 py-1.5 rounded-full text-xs xl:text-sm font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-1 ${
                 isActive(n.to)
                   ? "text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 font-semibold shadow-xs"
                   : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/60 dark:hover:bg-slate-800/60"
               }`}
             >
-              {n.label}
+              {n.to === "/track" && <Search className="w-3.5 h-3.5 text-orange-500" />}
+              {n.to === "/dashboard" && <UserCheck className="w-3.5 h-3.5 text-orange-500" />}
+              <span>{n.label}</span>
             </Link>
           ))}
         </nav>
 
         {/* Action Button */}
-        <div className="hidden lg:flex items-center shrink-0">
+        <div className="hidden lg:flex items-center shrink-0 gap-2">
+          <Link
+            href="/login"
+            className="px-3.5 py-2 rounded-full text-xs xl:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+          >
+            Sign In
+          </Link>
           <button
             type="button"
             onClick={onOpenConsultation}
             className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-2 rounded-full text-xs xl:text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 shadow-md shadow-orange-500/20 hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <span className="whitespace-nowrap">Book a Consultation</span>
+            <span className="whitespace-nowrap">Book Consultation</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
@@ -101,11 +109,22 @@ export function Header({ onOpenConsultation }: HeaderProps) {
                       : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
                   }`}
                 >
-                  <span>{n.label}</span>
+                  <span className="flex items-center gap-2">
+                    {n.to === "/track" && <Search className="w-4 h-4 text-orange-500" />}
+                    {n.to === "/dashboard" && <UserCheck className="w-4 h-4 text-orange-500" />}
+                    <span>{n.label}</span>
+                  </span>
                   {isActive(n.to) && <ChevronRight className="w-4 h-4 text-orange-500" />}
                 </Link>
               ))}
-              <div className="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800">
+              <div className="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 space-y-2">
+                <Link
+                  href="/login"
+                  onClick={() => setOpen(false)}
+                  className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-2xl text-sm font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 text-center"
+                >
+                  Sign In to Portal
+                </Link>
                 <button
                   type="button"
                   onClick={() => {

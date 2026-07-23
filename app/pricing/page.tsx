@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, HelpCircle, Calculator } from "lucide-react";
+import { CheckCircle2, HelpCircle, Calculator, ArrowRight } from "lucide-react";
+import { OrderModal } from "@/components/site/OrderModal";
 
 type CountryKey = "us" | "uk" | "uae" | "ca" | "pk";
 
@@ -11,6 +12,10 @@ export default function PricingPage() {
   const [calcNeedBank, setCalcNeedBank] = useState(true);
   const [calcNeedTrademark, setCalcNeedTrademark] = useState(false);
   const [calcNeedTax, setCalcNeedTax] = useState(true);
+
+  // Modal State
+  const [orderModalOpen, setOrderModalOpen] = useState(false);
+  const [modalTier, setModalTier] = useState<"starter" | "growth" | "scale">("growth");
 
   // Country price matrix
   const pricingData: Record<CountryKey, {
@@ -59,13 +64,17 @@ export default function PricingPage() {
 
   const curr = pricingData[selectedCountry];
 
-  // Calculator estimated quote calculation
   const calculateTotal = () => {
     let base = selectedCountry === "pk" ? 45000 : selectedCountry === "uae" ? 1850 : selectedCountry === "uk" ? 149 : 199;
     if (calcNeedBank) base += selectedCountry === "pk" ? 20000 : selectedCountry === "uae" ? 500 : 150;
     if (calcNeedTrademark) base += selectedCountry === "pk" ? 35000 : selectedCountry === "uae" ? 1500 : 350;
     if (calcNeedTax) base += selectedCountry === "pk" ? 25000 : selectedCountry === "uae" ? 450 : 250;
     return base;
+  };
+
+  const openOrder = (tier: "starter" | "growth" | "scale") => {
+    setModalTier(tier);
+    setOrderModalOpen(true);
   };
 
   return (
@@ -93,7 +102,7 @@ export default function PricingPage() {
             <button
               key={c.id}
               onClick={() => setSelectedCountry(c.id)}
-              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 selectedCountry === c.id
                   ? "bg-orange-500 text-white shadow-md shadow-orange-500/20"
                   : "text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
@@ -130,9 +139,12 @@ export default function PricingPage() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
-              <Link href="/contact" className="w-full py-3 rounded-xl font-semibold text-xs text-center text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 block">
+              <button
+                onClick={() => openOrder("starter")}
+                className="w-full py-3 rounded-xl font-semibold text-xs text-center text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+              >
                 Select Starter Package
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -162,9 +174,12 @@ export default function PricingPage() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-800">
-              <Link href="/contact" className="w-full py-3 rounded-xl font-semibold text-xs text-center text-white bg-orange-500 hover:bg-orange-600 block shadow-md">
+              <button
+                onClick={() => openOrder("growth")}
+                className="w-full py-3 rounded-xl font-semibold text-xs text-center text-white bg-orange-500 hover:bg-orange-600 transition-colors shadow-md cursor-pointer"
+              >
                 Select Complete Package
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -189,9 +204,12 @@ export default function PricingPage() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800">
-              <Link href="/contact" className="w-full py-3 rounded-xl font-semibold text-xs text-center text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 block">
+              <button
+                onClick={() => openOrder("scale")}
+                className="w-full py-3 rounded-xl font-semibold text-xs text-center text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+              >
                 Select Scale Package
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -270,12 +288,13 @@ export default function PricingPage() {
                 <p className="text-[11px] text-slate-500 mt-2">Transparent quote with zero hidden charges.</p>
               </div>
 
-              <Link
-                href="/contact"
-                className="mt-6 py-3 px-4 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-600 shadow-md block text-center"
+              <button
+                onClick={() => openOrder("growth")}
+                className="mt-6 py-3 px-4 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
-                Lock In This Estimate Quote
-              </Link>
+                <span>Lock In This Estimate Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
@@ -308,6 +327,19 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+
+      {/* Order Modal Component */}
+      <OrderModal
+        isOpen={orderModalOpen}
+        onClose={() => setOrderModalOpen(false)}
+        selectedCountry={selectedCountry}
+        selectedTier={modalTier}
+        initialAddons={{
+          bankAccount: calcNeedBank,
+          trademark: calcNeedTrademark,
+          taxFiling: calcNeedTax,
+        }}
+      />
 
     </div>
   );

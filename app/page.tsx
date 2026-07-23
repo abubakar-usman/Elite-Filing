@@ -79,7 +79,7 @@ export default function HomePage() {
 function Hero() {
   return (
     <section className="relative min-h-[620px] text-white overflow-hidden bg-slate-900">
-      
+
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -89,7 +89,7 @@ function Hero() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[2px]" /> 
+        <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[2px]" />
       </div>
 
       <div className="container-page pt-20 md:pt-28 pb-24 md:pb-36 relative z-10">
@@ -107,7 +107,7 @@ function Hero() {
             companies, manage compliance, and expand with confidence across the US, UK, UAE, Canada,
             and Pakistan.
           </p>
-          
+
           <div className="mt-9 flex flex-wrap gap-3.5">
             <Link href="/pricing" className="btn-accent text-sm">
               Start Your Company <ArrowRight className="w-4 h-4" />
@@ -116,7 +116,7 @@ function Hero() {
               Book a Free Consultation
             </Link>
           </div>
-          
+
           <p className="mt-6 text-xs text-white/60 max-w-xl">
             Transparent upfront pricing, zero hidden charges, and a dedicated in-country specialist managing every filing.
           </p>

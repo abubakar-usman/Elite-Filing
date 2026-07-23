@@ -5,12 +5,14 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ConsultationModal } from "@/components/site/ConsultationModal";
 import { StickyCTA } from "@/components/site/StickyCTA";
+import { Toaster } from "sonner";
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Toaster position="top-right" richColors />
       <Header onOpenConsultation={() => setModalOpen(true)} />
       <main className="flex-1">{children}</main>
       <Footer />

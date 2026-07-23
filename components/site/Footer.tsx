@@ -3,18 +3,42 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Phone, Send, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Phone, Send, CheckCircle2, Loader2 } from "lucide-react";
 import { servicesData } from "@/lib/data/services";
 import { countriesData } from "@/lib/data/countries";
 import { industriesData } from "@/lib/data/industries";
+import { toast } from "sonner";
 
 export function Footer() {
   const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) setSubscribed(true);
+    if (!email) return;
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "footer" }),
+      });
+
+      const json = await res.json();
+      if (!res.ok || !json.success) {
+        throw new Error(json.error || "Subscription failed.");
+      }
+
+      setSubscribed(true);
+      toast.success("Subscribed to global tax & compliance alerts!");
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Error subscribing";
+      toast.error(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -48,10 +72,17 @@ export function Footer() {
                 />
                 <button
                   type="submit"
-                  className="px-5 py-3 rounded-xl font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 text-sm shrink-0 shadow-md"
+                  disabled={loading}
+                  className="px-5 py-3 rounded-xl font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 text-sm shrink-0 shadow-md disabled:opacity-50 cursor-pointer"
                 >
-                  <span>Subscribe</span>
-                  <Send className="w-4 h-4" />
+                  {loading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <>
+                      <span>Subscribe</span>
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -139,13 +170,23 @@ export function Footer() {
 
         {/* Column 5: Company & Legal */}
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Company & Resources</h4>
+          <h4 className="text-xs font-bold uppercase tracking-widest text-orange-400">Client Portal & Company</h4>
           <ul className="mt-4 space-y-2.5 text-xs text-slate-300">
+            <li>
+              <Link href="/track" className="font-semibold text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-1.5">
+                <span>Track Filing Status</span>
+                <span className="text-[10px] bg-orange-500/20 text-orange-400 border border-orange-500/30 px-1.5 py-0.5 rounded font-mono">LIVE</span>
+              </Link>
+            </li>
+            <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing & Calculator</Link></li>
             <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-            <li><Link href="/pricing" className="hover:text-white transition-colors">Pricing & Packages</Link></li>
             <li><Link href="/resources" className="hover:text-white transition-colors">Knowledge Center</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
-            <li><Link href="/contact" className="hover:text-white transition-colors">Global Office Locations</Link></li>
+            <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us & Offices</Link></li>
+            <li className="pt-2 border-t border-slate-800">
+              <Link href="/admin" className="text-slate-400 hover:text-slate-200 transition-colors">
+                Specialist Portal (Admin)
+              </Link>
+            </li>
           </ul>
 
           <div className="mt-6 pt-4 border-t border-slate-800">

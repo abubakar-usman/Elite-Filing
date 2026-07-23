@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Calendar, Clock, CheckCircle2, Phone, Mail, User, Globe, ArrowRight, MessageSquare } from "lucide-react";
+import { X, Calendar, Clock, CheckCircle2, Phone, Mail, User, Globe, ArrowRight, MessageSquare, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface ConsultationModalProps {
   isOpen: boolean;
@@ -11,7 +12,8 @@ interface ConsultationModalProps {
 
 export function ConsultationModal({ isOpen, onClose, defaultService = "Company Formation" }: ConsultationModalProps) {
   const [activeTab, setActiveTab] = useState<"calendly" | "form">("calendly");
-  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [bookingResult, setBookingResult] = useState<{ bookingId: string; name: string } | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,9 +37,34 @@ export function ConsultationModal({ isOpen, onClose, defaultService = "Company F
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/consultation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const json = await res.json();
+
+      if (!res.ok || !json.success) {
+        throw new Error(json.error || "Failed to submit booking request.");
+      }
+
+      setBookingResult({
+        bookingId: json.data.bookingId,
+        name: json.data.name,
+      });
+      toast.success("Strategy session requested! Ref: " + json.data.bookingId);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Error submitting request";
+      toast.error(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -45,10 +72,10 @@ export function ConsultationModal({ isOpen, onClose, defaultService = "Company F
       <div className="relative w-full max-w-3xl bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col max-h-[90vh]">
         
         {/* Header */}
-        <div className="px-6 py-5 bg-gradient-to-r from-navy-deep to-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
+        <div className="px-6 py-5 bg-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center border border-orange-500/30">
-              <Calendar className="w-5 h-5 text-orange" />
+              <Calendar className="w-5 h-5 text-orange-500" />
             </div>
             <div>
               <h3 className="text-lg font-semibold text-white leading-snug">Book a Free 1-on-1 Strategy Session</h3>
@@ -70,7 +97,7 @@ export function ConsultationModal({ isOpen, onClose, defaultService = "Company F
             onClick={() => setActiveTab("calendly")}
             className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
               activeTab === "calendly"
-                ? "bg-white dark:bg-slate-800 text-navy-deep dark:text-white shadow-sm"
+                ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
@@ -80,7 +107,7 @@ export function ConsultationModal({ isOpen, onClose, defaultService = "Company F
             onClick={() => setActiveTab("form")}
             className={`flex-1 py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center justify-center gap-2 ${
               activeTab === "form"
-                ? "bg-white dark:bg-slate-800 text-navy-deep dark:text-white shadow-sm"
+                ? "bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm"
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             }`}
           >
@@ -125,17 +152,21 @@ export function ConsultationModal({ isOpen, onClose, defaultService = "Company F
             </div>
           ) : (
             <div>
-              {submitted ? (
+              {bookingResult ? (
                 <div className="py-12 text-center space-y-4 animate-fade-in">
                   <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto border border-emerald-500/20">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h4 className="text-2xl font-semibold text-slate-900 dark:text-white">Consultation Requested!</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto">
-                    Thank you, <span className="font-semibold text-slate-900 dark:text-white">{formData.name}</span>. A senior corporate strategist will reach out to <span className="font-semibold">{formData.email}</span> within 4 business hours.
+                    Thank you, <span className="font-semibold text-slate-900 dark:text-white">{bookingResult.name}</span>. Reference ID:{" "}
+                    <span className="font-mono font-bold text-orange-500">{bookingResult.bookingId}</span>. A corporate strategist will reach out within 4 business hours.
                   </p>
                   <button
-                    onClick={onClose}
+                    onClick={() => {
+                      setBookingResult(null);
+                      onClose();
+                    }}
                     className="mt-4 px-6 py-2.5 rounded-xl font-semibold text-white bg-slate-900 dark:bg-slate-800 hover:bg-slate-800 text-sm"
                   >
                     Close Window
@@ -242,9 +273,17 @@ export function ConsultationModal({ isOpen, onClose, defaultService = "Company F
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3 px-6 rounded-xl font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 shadow-md shadow-orange-500/20 text-sm transition-all"
+                      disabled={loading}
+                      className="w-full py-3 px-6 rounded-xl font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 shadow-md shadow-orange-500/20 text-sm flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer"
                     >
-                      Submit Consultation Request
+                      {loading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Submitting Request...</span>
+                        </>
+                      ) : (
+                        <span>Submit Consultation Request</span>
+                      )}
                     </button>
                   </div>
                 </form>
