@@ -43,7 +43,7 @@ export function Header({ onOpenConsultation }: HeaderProps) {
           <div className="leading-tight hidden sm:block">
             <div className="font-semibold text-slate-900 dark:text-white text-base sm:text-lg">Elite Filing</div>
             <div className="text-[9px] tracking-[0.2em] font-bold text-orange-500 uppercase">
-              Form · Launch · Grow
+              Start · Operate · Scale · Expand
             </div>
           </div>
         </Link>

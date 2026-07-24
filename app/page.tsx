@@ -99,7 +99,7 @@ function Hero() {
       <div className="container-page pt-20 md:pt-32 pb-24 md:pb-40 relative z-10">
         <div className="max-w-4xl animate-fade-up">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm">
-            <span>Form</span> · <span>Launch</span> · <span>Grow</span>
+            <span>Start</span> · <span>Operate</span> · <span>Scale</span> · <span>Expand</span>
           </div>
 
           <h1 className="font-display text-5xl sm:text-7xl md:text-8xl leading-[1.05] font-semibold text-white tracking-tight">
