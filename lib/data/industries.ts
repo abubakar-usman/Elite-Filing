@@ -277,7 +277,7 @@ export const industriesData: IndustryItem[] = [
   },
   {
     slug: "manufacturing",
-    image: "https://images.unsplash.com/photo-1565514020179-026b92b2d701?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1717386255773-1e3037c81788?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Manufacturing & Industrial",
     shortDesc: "Corporate advisory for industrial expansion, facility setups, and equipment leasing.",
     heroDesc: "Expand industrial capacity globally with strategic entity formation, capital equipment leasing structures, and operational governance.",
@@ -305,7 +305,7 @@ export const industriesData: IndustryItem[] = [
   },
   {
     slug: "enterprise-technology",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1744627049721-73c27008ad28?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Enterprise Technology",
     shortDesc: "Advisory for mature tech firms, AI integrators, and IT infrastructure providers.",
     heroDesc: "Scale your enterprise tech firm with robust M&A advisory, intellectual property holding structures, and digital transformation capabilities.",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { servicesData } from "@/lib/data/services";
 import { ArrowRight, CheckCircle2, Building2, Receipt, Shield, MapPin, Landmark, Calculator, ShoppingBag, Sparkles, Briefcase, LucideIcon } from "lucide-react";
 
@@ -42,10 +43,17 @@ export default function ServicesPage() {
             return (
               <article
                 key={service.slug}
-                className="card-surface p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col justify-between group hover:border-orange-500/50 hover:shadow-xl transition-all"
+                className="group rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-orange-500/50 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col"
               >
-                <div>
-                  <div className="w-14 h-14 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-all mb-6">
+                {/* Card Image */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image src={service.image || "/back.jpg"} alt={service.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 to-transparent group-hover:from-transparent transition-all duration-500" />
+                </div>
+                {/* Card Body */}
+                <div className="p-8 flex flex-col flex-1">
+                  <div>
+                    <div className="w-14 h-14 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-all mb-6">
                     <IconComponent className="w-7 h-7" />
                   </div>
 
@@ -79,6 +87,7 @@ export default function ServicesPage() {
                     <span>View Dedicated Page & Pricing</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </Link>
+                </div>
                 </div>
               </article>
             );
