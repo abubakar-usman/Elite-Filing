@@ -5,6 +5,7 @@ import { sendContactNotificationEmail } from "@/lib/email";
 export async function submitContactForm(formData: {
   name: string;
   email: string;
+  phone?: string;
   company?: string;
   country: string;
   service: string;
@@ -19,6 +20,7 @@ export async function submitContactForm(formData: {
     const resendResult = await sendContactNotificationEmail({
       name: formData.name,
       email: formData.email,
+      phone: formData.phone,
       company: formData.company,
       country: formData.country,
       service: formData.service,

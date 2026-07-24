@@ -50,7 +50,7 @@ export function Footer() {
           <div className="max-w-xl text-center lg:text-left">
             <h3 className="text-2xl font-bold font-display text-white">Subscribe to Global Corporate Insights</h3>
             <p className="mt-2 text-sm text-slate-300">
-              Receive monthly tax compliance updates, international expansion strategies, and trademark tips across US, UK, UAE, Canada, and Pakistan.
+              Get formation and compliance tips for global founders, straight to your inbox.
             </p>
           </div>
 
@@ -112,7 +112,7 @@ export function Footer() {
           <div className="space-y-2 text-xs text-slate-300 pt-2">
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-orange-400 shrink-0" />
-              <span>hello@elitefiling.co</span>
+              <span>hello@elite-filing.com</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-orange-400 shrink-0" />
@@ -120,7 +120,7 @@ export function Footer() {
             </div>
             <div className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
-              <span>Delaware · London · Dubai · Toronto · Karachi</span>
+              <span>Delaware · London · Dubai · Toronto · Rawalpindi</span>
             </div>
           </div>
         </div>
@@ -193,8 +193,9 @@ export function Footer() {
             <h5 className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Connect</h5>
             <div className="flex gap-3 text-slate-400 text-xs">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">LinkedIn</a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Twitter/X</a>
-              <a href="https://wa.me/13025550134" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Instagram</a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Facebook</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">X (Twitter)</a>
             </div>
           </div>
         </div>
@@ -208,10 +209,10 @@ export function Footer() {
             © {new Date().getFullYear()} Elite Filing Co. All rights reserved.
           </div>
           <div className="flex flex-wrap gap-6 text-slate-400">
-            <span className="hover:text-slate-300 cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-slate-300 cursor-pointer">Terms of Service</span>
-            <span className="hover:text-slate-300 cursor-pointer">Compliance Disclaimer</span>
-            <span className="hover:text-slate-300 cursor-pointer">Cookie Settings</span>
+            <Link href="/privacy" className="hover:text-slate-300">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-slate-300">Terms of Service</Link>
+            <Link href="/refund" className="hover:text-slate-300">Refund Policy</Link>
+            <Link href="/cookies" className="hover:text-slate-300">Cookie Policy</Link>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { countriesData } from "@/lib/data/countries";
 import { industriesData } from "@/lib/data/industries";
 import { articlesData } from "@/lib/data/resources";
 
-const BASE_URL = "https://elitefiling.co";
+const BASE_URL = "https://elite-filing.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = [

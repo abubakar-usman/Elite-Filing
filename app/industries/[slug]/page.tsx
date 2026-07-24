@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { industriesData } from "@/lib/data/industries";
 import { CheckCircle2, ArrowRight, ChevronRight, ShoppingBag, Cpu, Briefcase, Globe2, Building, Landmark, LucideIcon } from "lucide-react";
 import { TrustSignals } from "@/components/site/TrustSignals";
@@ -58,8 +59,20 @@ export default async function DedicatedIndustryPage({ params }: IndustryPageProp
       </div>
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-slate-900 to-slate-950 text-white py-16 md:py-24 border-b border-slate-800">
-        <div className="container-page max-w-4xl">
+      <section className="relative bg-slate-900 text-white py-16 md:py-24 border-b border-slate-800 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={ind.image || "/back.jpg"}
+            alt={ind.title}
+            fill
+            priority
+            className="object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-transparent" />
+        </div>
+
+        <div className="container-page max-w-4xl relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-semibold uppercase tracking-wider mb-6">
             <IconComponent className="w-4 h-4" />
             <span>Dedicated Industry Blueprint</span>

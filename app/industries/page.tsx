@@ -76,6 +76,22 @@ export default function IndustriesOverviewPage() {
           })}
         </div>
       </section>
+      {/* CTA Section */}
+      <section className="container-page py-16">
+        <div className="rounded-3xl bg-surface-alt p-10 md:p-14 text-center border border-border">
+          <h2 className="text-3xl md:text-4xl font-semibold max-w-2xl mx-auto text-navy-deep dark:text-white">
+            Don&apos;t See Your Industry Listed?
+          </h2>
+          <p className="mt-4 text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
+            Our corporate structure team can build a custom blueprint for specialized sectors including web3, healthcare, and education.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Link href="/contact" className="btn-accent">
+              Talk to Our Team <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

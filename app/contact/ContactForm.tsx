@@ -19,6 +19,7 @@ export function ContactForm() {
     const data = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
+      phone: (formData.get("phone") as string) || "",
       company: (formData.get("company") as string) || "",
       country: formData.get("country") as string,
       service: formData.get("service") as string,
@@ -76,12 +77,13 @@ export function ContactForm() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <Field label="Full name" name="name" required placeholder="e.g. John Smith" />
             <Field label="Email address" type="email" name="email" required placeholder="john@company.com" />
+            <Field label="Phone number" type="tel" name="phone" placeholder="e.g. +1 234 567 890" />
             <Field label="Company (optional)" name="company" placeholder="e.g. Acme Corp" />
             <SelectField
               label="Country of interest"
               name="country"
               required
-              options={["United States", "United Kingdom", "United Arab Emirates", "Canada", "Pakistan", "Not sure yet"]}
+              options={["United States", "United Kingdom", "United Arab Emirates", "Canada", "Pakistan", "Other"]}
             />
           </div>
 

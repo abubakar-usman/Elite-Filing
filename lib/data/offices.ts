@@ -20,7 +20,7 @@ export const officesData: OfficeItem[] = [
     address: "1201 North Orange Street, Suite 7100, Wilmington, DE 19801",
     hours: "Mon - Fri: 9:00 AM - 6:00 PM EST",
     phone: "+1 (302) 555-0134",
-    email: "us@elitefiling.co",
+    email: "us@elite-filing.com",
     mapCoordinates: { lat: 39.7459, lng: -75.5466 },
     badge: "US Headquarters & Registered Agent Center"
   },
@@ -32,7 +32,7 @@ export const officesData: OfficeItem[] = [
     address: "71-75 Shelton Street, Covent Garden, London WC2H 9JQ",
     hours: "Mon - Fri: 9:00 AM - 5:30 PM GMT",
     phone: "+44 20 7946 0912",
-    email: "uk@elitefiling.co",
+    email: "uk@elite-filing.com",
     mapCoordinates: { lat: 51.5147, lng: -0.1246 },
     badge: "UK & European Legal Hub"
   },
@@ -44,7 +44,7 @@ export const officesData: OfficeItem[] = [
     address: "Meydan Grandstand, 6th Floor, Meydan Road, Nad Al Sheba, Dubai",
     hours: "Mon - Fri: 8:30 AM - 5:30 PM GST",
     phone: "+971 4 800 3548",
-    email: "uae@elitefiling.co",
+    email: "uae@elite-filing.com",
     mapCoordinates: { lat: 25.1558, lng: 55.3003 },
     badge: "GCC & Free Zone Operations Center"
   },
@@ -56,20 +56,20 @@ export const officesData: OfficeItem[] = [
     address: "100 King Street West, Suite 5600, Toronto, ON M5X 1C9",
     hours: "Mon - Fri: 9:00 AM - 5:00 PM EST",
     phone: "+1 (416) 555-0189",
-    email: "ca@elitefiling.co",
+    email: "ca@elite-filing.com",
     mapCoordinates: { lat: 43.6487, lng: -79.3817 },
     badge: "Canadian Federal Incorporation Office"
   },
   {
     id: "pk",
-    city: "Karachi",
+    city: "Rawalpindi",
     country: "Pakistan",
     flag: "🇵🇰",
-    address: "Suite 402, FTC Building, Shahrah-e-Faisal, Karachi 74400",
+    address: "NASTP, Alpha 17, Old Airport Road, Rawalpindi",
     hours: "Mon - Sat: 9:00 AM - 6:00 PM PKT",
-    phone: "+92 21 3555 0122",
-    email: "pk@elitefiling.co",
-    mapCoordinates: { lat: 24.8607, lng: 67.0011 },
+    phone: "+92 51 555 0122", // Updated area code for Rawalpindi (51)
+    email: "pk@elite-filing.com",
+    mapCoordinates: { lat: 33.6263, lng: 73.0725 }, // Updated to Rawalpindi coordinates
     badge: "SECP & FBR Compliance Division"
   }
 ];

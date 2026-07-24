@@ -75,7 +75,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-slate-400 uppercase">General & Sales Inquiries</div>
-                  <div className="text-base font-semibold text-slate-900 dark:text-white mt-0.5">hello@elitefiling.co</div>
+                  <div className="text-base font-semibold text-slate-900 dark:text-white mt-0.5">hello@elite-filing.com</div>
                   <div className="text-xs text-slate-500 mt-1">For new company formations, quotes, & strategy</div>
                 </div>
               </div>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-slate-400 uppercase">Tax & Compliance Helpdesk</div>
-                  <div className="text-base font-semibold text-slate-900 dark:text-white mt-0.5">compliance@elitefiling.co</div>
+                  <div className="text-base font-semibold text-slate-900 dark:text-white mt-0.5">compliance@elite-filing.com</div>
                   <div className="text-xs text-slate-500 mt-1">For existing client tax returns, filings, & legal notices</div>
                 </div>
               </div>

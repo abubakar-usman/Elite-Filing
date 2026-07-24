@@ -1,5 +1,6 @@
 export interface IndustryItem {
   slug: string;
+  image: string;
   title: string;
   shortDesc: string;
   heroDesc: string;
@@ -17,6 +18,7 @@ export interface IndustryItem {
 export const industriesData: IndustryItem[] = [
   {
     slug: "ecommerce",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop",
     title: "Ecommerce & D2C Brands",
     shortDesc: "Structures for Amazon FBA, Shopify Payments, Walmart Marketplace, and cross-border DTC sellers.",
     heroDesc: "Navigate global sales tax compliance, resale certificates, merchant gateway approvals, and multi-currency payouts for Amazon, Walmart, Etsy, and custom Shopify storefronts.",
@@ -46,6 +48,7 @@ export const industriesData: IndustryItem[] = [
   },
   {
     slug: "technology",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
     title: "Technology & SaaS Startups",
     shortDesc: "Venture-ready corporate structures, IP assignment, equity pools, and global talent hiring.",
     heroDesc: "Scale your software or AI startup with Delaware C-Corporation holding structures, Y-Combinator compliant founder vesting agreements, USPTO trademark shields, and R&D tax optimization.",
@@ -74,6 +77,7 @@ export const industriesData: IndustryItem[] = [
   },
   {
     slug: "professional-services",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
     title: "Professional Services & Agencies",
     shortDesc: "Corporate structures for marketing agencies, IT consultants, design studios, and recruiters.",
     heroDesc: "Protect agency founders from client liability, issue professional multi-currency invoices, access top tier payment processors, and minimize global tax drag.",
@@ -102,6 +106,7 @@ export const industriesData: IndustryItem[] = [
   },
   {
     slug: "import-export",
+    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2070&auto=format&fit=crop",
     title: "Import / Export & International Trade",
     shortDesc: "Trade licenses, customs registrations, EORI, WebOC, and cross-border logistics support.",
     heroDesc: "Streamline international supply chains with commercial trade licenses, customs clearance registrations (WebOC, EORI, CRA Import/Export), and trade financing accounts.",
@@ -130,6 +135,7 @@ export const industriesData: IndustryItem[] = [
   },
   {
     slug: "real-estate",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
     title: "Real Estate & Holding Companies",
     shortDesc: "Asset protection, property holding LLCs, SPVs, and tax-efficient real estate ownership.",
     heroDesc: "Isolate real estate liabilities, optimize property income taxes, and structure multi-jurisdictional Special Purpose Vehicles (SPVs) for individual properties or investor syndicates.",
@@ -158,6 +164,7 @@ export const industriesData: IndustryItem[] = [
   },
   {
     slug: "financial-services",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     title: "Financial Services & Fintech",
     shortDesc: "Regulatory compliance, money services licensing, advisory entity setups, and fund SPVs.",
     heroDesc: "Build compliant foundations for fintech platforms, investment advisory practices, payment institutions, and cross-border wealth management firms.",
@@ -182,6 +189,174 @@ export const industriesData: IndustryItem[] = [
       client: "PayGlobal Technologies",
       metrics: "ADGM Innovation License Approved in 3 Weeks",
       summary: "Guided a multi-currency payment platform through ADGM innovation licensing, drafting AML policies and securing corporate banking with Wio Bank."
+    }
+  },
+  {
+    slug: "healthcare",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop",
+    title: "Healthcare & Life Sciences",
+    shortDesc: "Corporate structures for digital health, biotech, and medical device companies.",
+    heroDesc: "Navigate the complex regulatory environments of global healthcare with compliant holding structures, IP protection for medical innovations, and cross-border data privacy frameworks.",
+    iconName: "Stethoscope",
+    recommendedEntities: [
+      { country: "United States", entity: "Delaware C-Corp", why: "Required for venture backing in biotech and FDA-regulated medical devices." },
+      { country: "United Kingdom", entity: "UK LTD", why: "Access to NHS procurement frameworks and Life Sciences innovation grants." },
+      { country: "UAE", entity: "Dubai Healthcare City (DHCC)", why: "Specialized free zone for medical technology and healthcare providers." }
+    ],
+    keyChallenges: [
+      { title: "Stringent Data Privacy", desc: "Compliance with HIPAA (US), GDPR (EU), and local health data regulations is mandatory." },
+      { title: "IP Protection", desc: "Medical patents and proprietary algorithms require robust, multi-jurisdictional IP strategies." }
+    ],
+    solutionsProvided: [
+      "Regulatory mapping and compliance audits",
+      "IP holding company structures",
+      "Data privacy governance frameworks",
+      "Cross-border R&D entity setups"
+    ],
+    caseStudy: {
+      client: "MediSync Global",
+      metrics: "Expanded to 3 Continents in 12 Months",
+      summary: "Structured a global IP holding company to protect proprietary AI diagnostic algorithms while operating compliant subsidiaries in the US, UK, and UAE."
+    }
+  },
+  {
+    slug: "fintech",
+    image: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=2070&auto=format&fit=crop",
+    title: "FinTech & Web3",
+    shortDesc: "Regulatory compliance and entity formation for digital assets and financial platforms.",
+    heroDesc: "Build compliant foundations for neo-banks, payment processors, and Web3 protocols in progressive regulatory jurisdictions.",
+    iconName: "Bitcoin",
+    recommendedEntities: [
+      { country: "UAE", entity: "ADGM / VARA", why: "Progressive regulatory frameworks for digital assets and Web3 protocols." },
+      { country: "United Kingdom", entity: "UK LTD (FCA)", why: "Global financial credibility and open banking access." },
+      { country: "United States", entity: "Delaware C-Corp", why: "Standard for raising venture capital from Tier 1 FinTech funds." }
+    ],
+    keyChallenges: [
+      { title: "Licensing Complexity", desc: "Navigating MSB, money transmitter, and digital asset licensing requirements." },
+      { title: "Banking Access", desc: "Securing operational banking for high-risk FinTech and Web3 business models." }
+    ],
+    solutionsProvided: [
+      "Regulatory sandbox applications",
+      "VARA / ADGM licensing support",
+      "AML / KYC policy drafting",
+      "Correspondent banking introductions"
+    ],
+    caseStudy: {
+      client: "BlockYield Protocol",
+      metrics: "Secured VARA License in Record Time",
+      summary: "Guided a decentralized finance protocol through the UAE's VARA regulatory framework, achieving full operational compliance."
+    }
+  },
+  {
+    slug: "logistics",
+    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2070&auto=format&fit=crop",
+    title: "Logistics & Supply Chain",
+    shortDesc: "Cross-border entity structuring for global freight, 3PL, and maritime operations.",
+    heroDesc: "Optimize international trade routes with strategic corporate hubs, tax-efficient transfer pricing, and customs clearance entity setups.",
+    iconName: "Truck",
+    recommendedEntities: [
+      { country: "UAE", entity: "JAFZA / DWC", why: "Premier global logistics hubs connecting Asia, Europe, and Africa." },
+      { country: "United Kingdom", entity: "UK LTD", why: "Strategic gateway for European and transatlantic freight operations." },
+      { country: "Canada", entity: "Canada Federal Inc", why: "USMCA duty-free access across North American borders." }
+    ],
+    keyChallenges: [
+      { title: "Transfer Pricing", desc: "Managing inter-company transactions across different tax jurisdictions." },
+      { title: "Customs Compliance", desc: "Securing EORI, WebOC, and CRA import/export numbers to prevent delays." }
+    ],
+    solutionsProvided: [
+      "Free zone logistics setups",
+      "Transfer pricing advisory",
+      "Customs registration support",
+      "Cross-border joint venture structuring"
+    ],
+    caseStudy: {
+      client: "TransGlobal Freight",
+      metrics: "22% Reduction in Corporate Tax Drag",
+      summary: "Restructured a regional 3PL provider with a UAE holding company, optimizing tax flows across their Asian and European subsidiaries."
+    }
+  },
+  {
+    slug: "manufacturing",
+    image: "https://images.unsplash.com/photo-1565514020179-026b92b2d701?q=80&w=2070&auto=format&fit=crop",
+    title: "Manufacturing & Industrial",
+    shortDesc: "Corporate advisory for industrial expansion, facility setups, and equipment leasing.",
+    heroDesc: "Expand industrial capacity globally with strategic entity formation, capital equipment leasing structures, and operational governance.",
+    iconName: "Factory",
+    recommendedEntities: [
+      { country: "United States", entity: "LLC / C-Corp", why: "Access to advanced manufacturing grants and federal incentives." },
+      { country: "Pakistan", entity: "SECP Pvt Ltd", why: "Cost-effective manufacturing hubs with export incentives." },
+      { country: "UAE", entity: "Industrial Free Zones", why: "Zero corporate tax on qualifying manufacturing income." }
+    ],
+    keyChallenges: [
+      { title: "Capital Intensity", desc: "Structuring entities to efficiently hold and depreciate heavy capital assets." },
+      { title: "Labor Compliance", desc: "Navigating complex employment laws and union regulations in new jurisdictions." }
+    ],
+    solutionsProvided: [
+      "Equipment holding SPVs",
+      "Industrial free zone setups",
+      "Employment law compliance advisory",
+      "Supply chain contract drafting"
+    ],
+    caseStudy: {
+      client: "AeroParts Manufacturing",
+      metrics: "Seamless Expansion to UAE",
+      summary: "Established an industrial free zone entity in Dubai for an aerospace parts manufacturer, securing land lease and operational permits."
+    }
+  },
+  {
+    slug: "enterprise-technology",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop",
+    title: "Enterprise Technology",
+    shortDesc: "Advisory for mature tech firms, AI integrators, and IT infrastructure providers.",
+    heroDesc: "Scale your enterprise tech firm with robust M&A advisory, intellectual property holding structures, and digital transformation capabilities.",
+    iconName: "Monitor",
+    recommendedEntities: [
+      { country: "United States", entity: "Delaware C-Corp", why: "The ultimate structure for public listings and major acquisitions." },
+      { country: "United Kingdom", entity: "UK LTD", why: "Strong IP protection laws and tech-friendly tax incentives." },
+      { country: "Canada", entity: "Canada Federal Inc", why: "Access to top-tier AI talent and SR&ED tax credits." }
+    ],
+    keyChallenges: [
+      { title: "M&A Integration", desc: "Consolidating tech stacks, cultures, and legal entities post-acquisition." },
+      { title: "Global IP Management", desc: "Optimizing the tax location of valuable software patents and algorithms." }
+    ],
+    solutionsProvided: [
+      "IP Holding SPVs",
+      "M&A Due Diligence",
+      "Post-merger integration",
+      "AI readiness audits (via Operant Labs)"
+    ],
+    caseStudy: {
+      client: "Nexus Enterprise AI",
+      metrics: "Successfully Acquired for $85M",
+      summary: "Provided pre-acquisition restructuring to optimize Nexus's IP portfolio, resulting in a clean due diligence process for the acquiring firm."
+    }
+  },
+  {
+    slug: "enterprise-professional-services",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    title: "Global Professional Services",
+    shortDesc: "Structures for international consulting firms, legal practices, and global agencies.",
+    heroDesc: "Unify your global partnership with centralized holding structures, standardized operating procedures, and cross-border tax optimization.",
+    iconName: "Building2",
+    recommendedEntities: [
+      { country: "United Kingdom", entity: "UK LLP", why: "Flexible partnership structure ideal for global consulting and legal firms." },
+      { country: "United States", entity: "Delaware LLC", why: "Pass-through taxation and liability protection for US partners." },
+      { country: "UAE", entity: "DIFC / ADGM", why: "Prestigious jurisdiction for regional consulting headquarters." }
+    ],
+    keyChallenges: [
+      { title: "Partner Profit Distribution", desc: "Structuring tax-efficient profit repatriation for partners in different countries." },
+      { title: "Brand Consistency", desc: "Maintaining standardized policies and service quality across international offices." }
+    ],
+    solutionsProvided: [
+      "LLP and Partnership structuring",
+      "Inter-company service agreements",
+      "Global SOP development",
+      "Transfer pricing strategies"
+    ],
+    caseStudy: {
+      client: "Meridian Strategy Group",
+      metrics: "Unified 4 Global Offices",
+      summary: "Restructured a fragmented group of regional consulting firms into a unified UK LLP holding structure, streamlining global partner distributions."
     }
   }
 ];

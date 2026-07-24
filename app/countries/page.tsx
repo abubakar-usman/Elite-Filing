@@ -73,6 +73,23 @@ export default function CountriesOverviewPage() {
               </div>
             </article>
           ))}
+          {/* Coming Soon Card */}
+          <article className="p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex flex-col justify-center items-center text-center opacity-80">
+            <div className="flex gap-2 text-4xl mb-4">
+              <span>🇫🇷</span>
+              <span>🇩🇪</span>
+              <span>🇹🇷</span>
+            </div>
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+              France, Germany & Turkey
+            </h2>
+            <span className="mt-3 text-xs font-bold px-3 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+              Launching Soon
+            </span>
+            <p className="mt-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              We are finalizing our in-country specialist networks. Join the waitlist for early access.
+            </p>
+          </article>
         </div>
       </section>
     </div>

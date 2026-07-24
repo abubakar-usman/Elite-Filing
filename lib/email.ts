@@ -23,7 +23,7 @@ export async function sendWelcomeEmail(toEmail: string, userName: string, servic
             </ol>
           </div>
           <p style="font-size: 13px; color: #64748b;">
-            If you have any questions, reply directly to this email or contact hello@elitefiling.co.
+            If you have any questions, reply directly to this email or contact hello@elite-filing.com.
           </p>
         </div>
       `,
@@ -38,6 +38,7 @@ export async function sendWelcomeEmail(toEmail: string, userName: string, servic
 export async function sendContactNotificationEmail(data: {
   name: string;
   email: string;
+  phone?: string;
   company?: string;
   country: string;
   service: string;
@@ -55,6 +56,7 @@ export async function sendContactNotificationEmail(data: {
           <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
             <tr><td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Name:</td><td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">${data.name}</td></tr>
             <tr><td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Email:</td><td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">${data.email}</td></tr>
+            <tr><td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Phone:</td><td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">${data.phone || "N/A"}</td></tr>
             <tr><td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Company:</td><td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">${data.company || "N/A"}</td></tr>
             <tr><td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Country:</td><td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">${data.country}</td></tr>
             <tr><td style="padding: 8px; border-bottom: 1px solid #e2e8f0; font-weight: bold;">Service:</td><td style="padding: 8px; border-bottom: 1px solid #e2e8f0;">${data.service}</td></tr>

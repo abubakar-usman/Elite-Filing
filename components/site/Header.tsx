@@ -11,9 +11,9 @@ const nav = [
   { to: "/about", label: "About" },
   { to: "/services", label: "Services" },
   { to: "/countries", label: "Countries" },
+  { to: "/industries", label: "Industries" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/track", label: "Track Status" },
-  { to: "/dashboard", label: "Dashboard" },
+  { to: "/resources", label: "Resources" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -28,7 +28,7 @@ export function Header({ onOpenConsultation }: HeaderProps) {
   const isActive = (to: string) => (to === "/" ? pathname === "/" : pathname?.startsWith(to));
 
   return (
-    <div className="w-full sticky top-4 z-50 px-3 sm:px-6 lg:px-8 max-w-8xl mx-auto transition-all duration-300">
+    <div className="w-full sticky top-0 z-50 px-3 sm:px-6 lg:px-8 pt-3 max-w-8xl mx-auto transition-all duration-300">
       <header className="relative bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800 shadow-lg shadow-slate-900/5 rounded-full px-4 sm:px-6 lg:px-10 py-2.5 flex items-center justify-between transition-all duration-300">
         
         {/* Logo */}
@@ -60,8 +60,6 @@ export function Header({ onOpenConsultation }: HeaderProps) {
                   : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/60 dark:hover:bg-slate-800/60"
               }`}
             >
-              {n.to === "/track" && <Search className="w-3.5 h-3.5 text-orange-500" />}
-              {n.to === "/dashboard" && <UserCheck className="w-3.5 h-3.5 text-orange-500" />}
               <span>{n.label}</span>
             </Link>
           ))}
@@ -110,8 +108,6 @@ export function Header({ onOpenConsultation }: HeaderProps) {
                   }`}
                 >
                   <span className="flex items-center gap-2">
-                    {n.to === "/track" && <Search className="w-4 h-4 text-orange-500" />}
-                    {n.to === "/dashboard" && <UserCheck className="w-4 h-4 text-orange-500" />}
                     <span>{n.label}</span>
                   </span>
                   {isActive(n.to) && <ChevronRight className="w-4 h-4 text-orange-500" />}

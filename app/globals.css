@@ -43,14 +43,14 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.25rem; /* Sharper borders for executive feel */
 
-  /* Brand — navy + orange, sampled from the Elite Filing logo */
-  --navy-deep: oklch(0.28 0.09 260);
-  --navy: oklch(0.36 0.11 260);
-  --navy-soft: oklch(0.55 0.09 260);
-  --orange: oklch(0.72 0.17 52);
-  --orange-soft: oklch(0.86 0.09 55);
+  /* Brand — deep navy + gold/bronze for corporate aesthetic */
+  --navy-deep: oklch(0.25 0.06 260);
+  --navy: oklch(0.32 0.08 260);
+  --navy-soft: oklch(0.45 0.06 260);
+  --orange: oklch(0.72 0.14 75); /* Shifted to Gold/Bronze */
+  --orange-soft: oklch(0.88 0.08 75);
 
   --background: oklch(0.995 0.003 90);
   --foreground: oklch(0.22 0.05 260);

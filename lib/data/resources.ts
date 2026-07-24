@@ -1,7 +1,7 @@
 export interface ArticleItem {
   slug: string;
   title: string;
-  category: "formation" | "tax" | "trademark" | "banking" | "comparison";
+  category: "formation" | "tax" | "trademark" | "banking" | "comparison" | "playbook" | "governance" | "manual" | "insight" | "whitepaper";
   categoryLabel: string;
   readTime: string;
   publishedDate: string;
@@ -284,5 +284,145 @@ Choosing where to incorporate your international business is one of your most cr
 - You need a **prestigious London address** for European marketing credibility.
 `,
     relatedSlugs: ["non-us-resident-wyoming-llc-guide", "trademark-registration-uspto-ukipo-guide"]
+  },
+  {
+    slug: "scaling-ecommerce-brand-wyoming-llc",
+    title: "How We Scaled Our E-commerce Brand with a Wyoming LLC",
+    category: "comparison",
+    categoryLabel: "Founder Stories",
+    readTime: "5 min read",
+    publishedDate: "August 2026",
+    author: "Alex & Sarah Jensen",
+    authorRole: "E-commerce Founders",
+    summary: "A real-world case study of how a dropshipping brand used a Wyoming LLC to protect their assets, access US payment gateways, and scale internationally.",
+    contentMarkdown: `
+## The Challenge
+
+When we started our dropshipping business, we were operating as sole proprietors in Europe. As our revenue grew, so did our problems. We couldn't access US-based payment gateways like Stripe easily, our personal assets were exposed, and dealing with multi-currency conversions was eating into our profit margins.
+
+## The Solution: Wyoming LLC
+
+We partnered with Elite Filing to set up a Wyoming LLC. Why Wyoming? It offered the privacy we wanted, low annual fees, and most importantly, it gave us a formal US entity without the burden of state income tax since we are non-US residents.
+
+### Execution Steps
+1. **Formation:** Elite Filing handled the Articles of Organization and provided a Registered Agent.
+2. **Tax ID:** They secured our EIN from the IRS within days.
+3. **Banking & Payments:** Armed with our EIN, we opened a Mercury bank account and finally got approved for a US Stripe account.
+
+## The Results
+
+Within six months, having access to seamless US payment processing reduced our transaction failures by 15%. Holding our funds in USD and paying suppliers directly from our Mercury account saved us thousands in FX fees. Elite Filing continues to handle our annual Form 5472 compliance, allowing us to focus entirely on scaling.
+`,
+    relatedSlugs: ["non-us-resident-wyoming-llc-guide", "us-vs-uk-company-comparison"]
+  },
+  {
+    slug: "market-entry-playbook",
+    title: "The Enterprise Playbook for US Market Entry",
+    category: "playbook",
+    categoryLabel: "Business Playbooks",
+    readTime: "15 min read",
+    publishedDate: "August 2026",
+    author: "David Sterling",
+    authorRole: "Managing Director, US",
+    summary: "A comprehensive playbook for international enterprises structuring a US holding company and operating subsidiaries.",
+    contentMarkdown: `
+## Structuring for Scale
+
+Entering the US market requires a robust corporate structure that minimizes tax drag while protecting intellectual property. The standard approach for high-growth enterprises is the "Delaware C-Corp Holding / Operating Subsidiary" model.
+
+### Key Considerations
+- **Intellectual Property (IP) Migration:** How and when to license IP to the US entity.
+- **Transfer Pricing:** Ensuring cross-border intercompany agreements meet IRS and OECD standards.
+- **Executive Visas:** Structuring the US entity to support L-1 Intracompany Transferee or E-2 Investor visas.
+    `,
+    relatedSlugs: []
+  },
+  {
+    slug: "board-governance-template",
+    title: "Corporate Governance: Board Charter Template",
+    category: "governance",
+    categoryLabel: "Governance Templates",
+    readTime: "5 min read",
+    publishedDate: "August 2026",
+    author: "Victoria Kensington",
+    authorRole: "Head of Corporate Governance",
+    summary: "Standardize your board meetings with this enterprise-grade Board Charter and Minutes template.",
+    contentMarkdown: `
+## Why Board Governance Matters
+
+As your company transitions from a founder-led startup to a board-managed enterprise, informal decision-making poses severe compliance risks. A formal Board Charter establishes the mandate, composition, and operating procedures of the Board of Directors.
+
+### Download the Template
+This template includes:
+1. Director Fiduciary Duties overview.
+2. Standard agenda for Quarterly Board Meetings.
+3. Conflict of Interest disclosure forms.
+    `,
+    relatedSlugs: []
+  },
+  {
+    slug: "sop-financial-controls",
+    title: "Operational Manual: Implementing Internal Financial Controls",
+    category: "manual",
+    categoryLabel: "Operational Manuals",
+    readTime: "12 min read",
+    publishedDate: "August 2026",
+    author: "Tariq Siddiqui, CPA",
+    authorRole: "Senior Tax Director",
+    summary: "Step-by-step SOPs for establishing internal financial controls to prevent fraud and prepare for audits.",
+    contentMarkdown: `
+## Securing the Treasury
+
+As transaction volume scales, relying on a single founder or CFO to approve all expenses becomes a bottleneck. Implementing internal financial controls is critical for operational maturity.
+
+### Key SOPs Covered
+- **Segregation of Duties:** Ensuring the person who approves an invoice is not the person who executes the payment.
+- **Approval Matrices:** Defining expense thresholds requiring dual-signature authorizations.
+- **Monthly Reconciliation Checklists:** Standardized steps for closing the books within 5 days of month-end.
+    `,
+    relatedSlugs: []
+  },
+  {
+    slug: "fintech-regulatory-insight",
+    title: "Industry Insight: The Future of FinTech Licensing in the UAE",
+    category: "insight",
+    categoryLabel: "Industry Insights",
+    readTime: "8 min read",
+    publishedDate: "August 2026",
+    author: "Tariq Al-Mansoor",
+    authorRole: "Director, Middle East Operations",
+    summary: "An analysis of the evolving regulatory landscape for digital assets and payment institutions in ADGM and DIFC.",
+    contentMarkdown: `
+## The Rise of Middle Eastern FinTech Hubs
+
+The UAE has rapidly emerged as a global leader in financial technology regulation. The Abu Dhabi Global Market (ADGM) and Dubai International Financial Centre (DIFC) offer English Common Law jurisdictions with progressive frameworks for digital assets and open banking.
+
+### Key Trends for 2026
+- **VARA Maturation:** The Virtual Assets Regulatory Authority is setting global standards for Web3 compliance.
+- **Open Banking:** New mandates forcing traditional banks to provide API access to licensed FinTechs.
+    `,
+    relatedSlugs: []
+  },
+  {
+    slug: "ai-transformation-whitepaper",
+    title: "Whitepaper: AI-Native Corporate Structuring",
+    category: "whitepaper",
+    categoryLabel: "Whitepapers",
+    readTime: "20 min read",
+    publishedDate: "August 2026",
+    author: "Operant Labs Integration Team",
+    authorRole: "Strategic Partners",
+    summary: "How enterprise architecture must adapt to fully leverage artificial intelligence and automated governance.",
+    contentMarkdown: `
+## The AI-Native Enterprise
+
+Digital transformation is no longer about migrating to the cloud; it's about structuring data and governance to enable AI agents to execute operational tasks securely.
+
+### Strategic Priorities
+- **Data Governance:** AI models require structured, compliant data lakes free from PII contamination.
+- **Automated Compliance:** Deploying LLMs to continuously monitor regulatory changes and flag operational deviations.
+- **Smart Contracts:** Utilizing distributed ledgers for intercompany transfer pricing agreements.
+    `,
+    relatedSlugs: []
   }
 ];

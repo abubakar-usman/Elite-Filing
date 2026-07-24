@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/site/PageHero";
-import { Compass, HeartHandshake, ShieldCheck, Sparkles } from "lucide-react";
+import { Compass, HeartHandshake, ShieldCheck, Sparkles, Globe2, FileCheck, Users, Lock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Elite Filing — Built for Founders Who Refuse to Cut Corners",
@@ -15,10 +15,17 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { icon: ShieldCheck, t: "Precision", d: "Filings prepared meticulously and reviewed twice before submission." },
-  { icon: HeartHandshake, t: "Partnership", d: "You get a dedicated specialist, not a ticket number in a queue." },
-  { icon: Compass, t: "Clarity", d: "Every fee, every timeline, and every decision explained in plain English." },
-  { icon: Sparkles, t: "Ambition", d: "We back founders who want to build something that outlasts them." },
+  { icon: Compass, t: "Transparency", d: "Clear pricing, clear timelines, no fine print surprises." },
+  { icon: ShieldCheck, t: "Precision", d: "Every filing checked against the current requirements of the relevant authority." },
+  { icon: Lock, t: "Confidentiality", d: "Your business and personal information is handled with strict discretion." },
+  { icon: HeartHandshake, t: "Partnership", d: "We aim to be a long-term partner, not a one-time transaction." },
+];
+
+const differentiators = [
+  { icon: Globe2, t: "Multi-Jurisdictional Expertise", d: "Deep, practical experience across offshore formations, international tax compliance, and cross-border structuring, not just knowledge of a single market." },
+  { icon: FileCheck, t: "Compliance-First Approach", d: "We build your structure to stay compliant, not just to get approved. That means fewer surprises down the line." },
+  { icon: Users, t: "Personalised Support", d: "Every client is assigned a point of contact who understands their business, not a rotating queue of support agents." },
+  { icon: Lock, t: "Confidentiality and Trust", d: "We treat every document and detail you share with the discretion it deserves." },
 ];
 
 export default function AboutPage() {
@@ -51,9 +58,41 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="section-pad bg-surface-alt">
+        <div className="container-page text-center max-w-4xl mx-auto">
+          <div className="eyebrow">Our Mission</div>
+          <p className="mt-6 text-2xl md:text-3xl font-medium leading-relaxed text-navy-deep">
+            Give businesses of every size access to the same level of corporate expertise, compliance discipline, and personalised service that was once reserved for companies with in-house legal and finance teams.
+          </p>
+          <p className="mt-6 text-lg text-foreground/70">
+            Whether you are filing your first LLC or managing entities across four countries, we hold ourselves to the same standard of precision and care.
+          </p>
+        </div>
+      </section>
+
+      <section className="section-pad">
+        <div className="container-page">
+          <div className="eyebrow">What Sets Us Apart</div>
+          <h2 className="mt-3 text-3xl md:text-4xl font-semibold max-w-2xl">A standard of service you won&apos;t find elsewhere.</h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {differentiators.map((d) => (
+              <div key={d.t} className="flex gap-4 p-6 rounded-2xl border border-border">
+                <div className="w-12 h-12 shrink-0 rounded-xl bg-orange/10 text-orange flex items-center justify-center">
+                  <d.icon className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-navy-deep">{d.t}</h3>
+                  <p className="mt-2 text-foreground/70 leading-relaxed">{d.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section-pad bg-surface">
         <div className="container-page">
-          <div className="eyebrow">What we stand for</div>
+          <div className="eyebrow">Our Values</div>
           <h2 className="mt-3 text-3xl md:text-4xl font-semibold max-w-2xl">Four values that show up in every filing we touch.</h2>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (

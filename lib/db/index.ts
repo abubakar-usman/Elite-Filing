@@ -81,7 +81,7 @@ const INITIAL_DB: DatabaseStructure = {
       status: "government_processing",
       specialistAssigned: {
         name: "David Sterling",
-        email: "d.sterling@elitefiling.co",
+        email: "d.sterling@elite-filing.com",
         officeLocation: "Delaware Corporate Hub, USA",
       },
       createdAt: new Date(Date.now() - 86400000 * 3).toISOString(),
@@ -155,7 +155,7 @@ const INITIAL_DB: DatabaseStructure = {
       status: "ein_vat_issuance",
       specialistAssigned: {
         name: "Hamza Tariq",
-        email: "h.tariq@elitefiling.co",
+        email: "h.tariq@elite-filing.com",
         officeLocation: "Karachi Corporate Hub, PK",
       },
       createdAt: new Date(Date.now() - 86400000 * 6).toISOString(),
@@ -322,11 +322,11 @@ export const db = {
     if (input.addons.expressProcessing) total += cfg.base * 0.2; // 20% express add-on
 
     const specialists: Record<string, { name: string; email: string; officeLocation: string }> = {
-      us: { name: "David Sterling", email: "d.sterling@elitefiling.co", officeLocation: "Delaware Corporate Hub, USA" },
-      uk: { name: "Victoria Kensington", email: "v.kensington@elitefiling.co", officeLocation: "London City Hub, UK" },
-      uae: { name: "Tariq Al-Mansoor", email: "t.mansoor@elitefiling.co", officeLocation: "Dubai Marina Hub, UAE" },
-      ca: { name: "Michael Tremblay", email: "m.tremblay@elitefiling.co", officeLocation: "Toronto Business Hub, Canada" },
-      pk: { name: "Hamza Tariq", email: "h.tariq@elitefiling.co", officeLocation: "Karachi Financial Hub, Pakistan" },
+      us: { name: "David Sterling", email: "d.sterling@elite-filing.com", officeLocation: "Delaware Corporate Hub, USA" },
+      uk: { name: "Victoria Kensington", email: "v.kensington@elite-filing.com", officeLocation: "London City Hub, UK" },
+      uae: { name: "Tariq Al-Mansoor", email: "t.mansoor@elite-filing.com", officeLocation: "Dubai Marina Hub, UAE" },
+      ca: { name: "Michael Tremblay", email: "m.tremblay@elite-filing.com", officeLocation: "Toronto Business Hub, Canada" },
+      pk: { name: "Hamza Tariq", email: "h.tariq@elite-filing.com", officeLocation: "Karachi Financial Hub, Pakistan" },
     };
 
     const newOrder: OrderFiling = {

@@ -1,5 +1,6 @@
 export interface ServiceItem {
   slug: string;
+  image: string;
   title: string;
   shortDesc: string;
   fullDesc: string;
@@ -15,6 +16,7 @@ export interface ServiceItem {
 export const servicesData: ServiceItem[] = [
   {
     slug: "company-formation",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
     title: "Company Formation & Registration",
     shortDesc: "LLCs, C-Corps, LTDs, Free Zone, and SECP entities across five major jurisdictions.",
     fullDesc: "Form your legal business entity seamlessly in the US, UK, UAE, Canada, or Pakistan. We handle name reservation, Articles of Organization/Incorporation, registered agent appointment, government submission, and delivery of official incorporation certificates.",
@@ -65,6 +67,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "tax-compliance",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
     title: "Tax Registration & Compliance",
     shortDesc: "EIN, NTN, VAT, Sales Tax, and annual filings managed by in-country tax specialists.",
     fullDesc: "Stay 100% tax compliant across international tax authorities including IRS (US), HMRC (UK), FTA (UAE), CRA (Canada), and FBR (Pakistan). We secure tax identification numbers, register sales tax / VAT, and file annual tax returns.",
@@ -101,6 +104,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "trademark-ip",
+    image: "https://images.unsplash.com/photo-1768839723311-3a05ab496804?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Trademark & Intellectual Property",
     shortDesc: "Comprehensive trademark search, registration, and monitoring across global IP offices.",
     fullDesc: "Protect your brand name, logo, and slogan from infringement. Our IP attorneys handle comprehensive trademark searches, classification drafting, official submissions to USPTO, UKIPO, UAE Ministry of Economy, CIPO, and IPO Pakistan, and manage office actions.",
@@ -137,6 +141,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "registered-agent",
+    image: "https://images.unsplash.com/photo-1570126618953-d437176e8c79?q=80&w=2070&auto=format&fit=crop",
     title: "Registered Agent & Virtual Address",
     shortDesc: "Maintain a professional legal presence and compliance shield without renting physical offices.",
     fullDesc: "Fulfill legal state requirements with reliable Registered Agent services and commercial virtual addresses in key states like Delaware, Wyoming, London, Dubai, Toronto, and Karachi. Receive official mail scanning, legal service notices, and annual renewal compliance reminders.",
@@ -173,6 +178,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "banking-payments",
+    image: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?q=80&w=2070&auto=format&fit=crop",
     title: "Business Banking & Payment Gateways",
     shortDesc: "Seamless setup support for multi-currency accounts, Stripe, PayPal, Wise, and Mercury.",
     fullDesc: "Unlock global corporate banking and payment gateway capabilities. We assist international founders in opening multi-currency business bank accounts (Mercury, Relay Financial, Wise Business, Payoneer) and integrating Stripe and PayPal payment gateways smoothly.",
@@ -209,6 +215,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "accounting",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
     title: "Accounting & Bookkeeping",
     shortDesc: "Dedicated monthly bookkeeping, financial statements, and QuickBooks / Xero management.",
     fullDesc: "Keep your company's financials crystal clear and tax-ready year-round. Our certified accountants manage monthly reconciliation, income statements, balance sheets, payroll processing, and QuickBooks / Xero integrations so you never face end-of-year tax panic.",
@@ -245,6 +252,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "ecommerce-setup",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop",
     title: "Ecommerce Business Setup",
     shortDesc: "End-to-end entity, tax, and merchant configuration for Amazon, Shopify, Walmart & Etsy.",
     fullDesc: "Launch your cross-border ecommerce empire with full structural compliance. We handle corporate entity creation, EIN/VAT, resale certificates, utility bill verifications, and merchant account registrations for Amazon FBA, Shopify Payments, Walmart Marketplace, and Etsy.",
@@ -279,6 +287,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "growth-marketing",
+    image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=2074&auto=format&fit=crop",
     title: "Growth & Marketing Add-Ons",
     shortDesc: "High-converting web development, SEO, corporate branding, and lead generation.",
     fullDesc: "Accelerate your newly formed business with high-impact digital marketing assets. We build premium, responsive web applications, establish professional corporate visual identities, optimize for search engines (SEO), and execute multi-channel growth campaigns.",
@@ -311,6 +320,7 @@ export const servicesData: ServiceItem[] = [
   },
   {
     slug: "business-consultancy",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
     title: "Business Consultancy & Strategy",
     shortDesc: "Cross-border strategy, corporate restructuring, pitch decks, and operational advisory.",
     fullDesc: "Navigate complex global expansion with experienced corporate advisors. We provide strategic consulting on corporate structuring, holding company setups, investor pitch decks, international tax optimization, and operational scale across global markets.",
@@ -339,6 +349,161 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Who conducts the consultancy sessions?", a: "Consultations are conducted by senior corporate strategists and legal/compliance specialists with 10+ years of international experience." },
       { q: "Can you help structure a US Holding company with overseas subsidiaries?", a: "Yes, we frequently design Delaware C-Corp holding structures owning UK, UAE, or Pakistani operational subsidiaries." }
+    ]
+  },
+  {
+    slug: "corporate-advisory",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop",
+    title: "Corporate Advisory",
+    shortDesc: "Strategic guidance for international expansion, holding structures, and corporate governance.",
+    fullDesc: "Our Corporate Advisory practice serves as a long-term strategic partner for global enterprises. We design optimal holding company structures, develop robust corporate governance frameworks, and execute market entry strategies for private equity firms, venture-backed startups, and multinational corporations.",
+    iconName: "Network",
+    category: "core",
+    features: [
+      { title: "International Expansion Strategy", desc: "Comprehensive risk assessments and feasibility modeling for entering new international jurisdictions." },
+      { title: "Holding Company Structures", desc: "Tax-optimized holding and subsidiary relationships designed for maximum asset protection." },
+      { title: "Corporate Governance", desc: "Implementation of board charters, shareholder agreements, and compliance oversight frameworks." },
+      { title: "Market Entry Strategy", desc: "End-to-end strategic planning including competitive analysis, regulatory mapping, and launch execution." }
+    ],
+    processSteps: [
+      { step: "01", title: "Strategic Audit", desc: "Deep analysis of your current corporate structure and long-term expansion objectives." },
+      { step: "02", title: "Blueprint Design", desc: "Development of a customized advisory roadmap detailing restructuring and compliance requirements." },
+      { step: "03", title: "Execution & Restructuring", desc: "Coordinated implementation of new legal entities, governance policies, and financial flows." },
+      { step: "04", title: "Ongoing Board Advisory", desc: "Continuous executive support to adapt the structure as market conditions evolve." }
+    ],
+    jurisdictionSupport: [
+      { country: "Global Coverage", flag: "🌍", duration: "Custom timeline", priceStarting: "Custom Quote", note: "Multi-jurisdictional advisory across US, UK, UAE, EU, and APAC." }
+    ],
+    packages: [
+      { name: "Market Entry Assessment", price: "$2,500", features: ["Jurisdictional analysis", "Regulatory feasibility report", "Tax implication overview", "Executive briefing session"] },
+      { name: "Corporate Restructuring", price: "Custom", popular: true, features: ["Holding/Subsidiary design", "Asset transfer strategy", "Governance framework creation", "Cross-border compliance alignment"] }
+    ],
+    faqs: [
+      { q: "Who is the Corporate Advisory service for?", a: "This is designed for established businesses, high-net-worth founders, and institutional investors looking to optimize their global corporate architecture." }
+    ]
+  },
+  {
+    slug: "business-solutions",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop",
+    title: "Business Solutions",
+    shortDesc: "Operational excellence through SOP development, org design, and process optimization.",
+    fullDesc: "We transform how your company operates from the inside out. Our Business Solutions practice focuses on developing scalable operating manuals, refining organizational design, and optimizing internal processes to ensure your business runs efficiently as it scales globally.",
+    iconName: "Workflow",
+    category: "growth",
+    features: [
+      { title: "Business Model Design", desc: "Refining revenue streams, cost structures, and value propositions for new market entries." },
+      { title: "Operating Manuals & SOPs", desc: "Comprehensive documentation of core business processes to ensure consistency and quality." },
+      { title: "Corporate Policies", desc: "Drafting internal policies covering HR, IT security, and operational compliance." },
+      { title: "Organizational Design", desc: "Structuring reporting lines, departmental functions, and KPIs for maximum efficiency." }
+    ],
+    processSteps: [
+      { step: "01", title: "Operational Assessment", desc: "Reviewing existing workflows, bottlenecks, and structural inefficiencies." },
+      { step: "02", title: "Process Mapping", desc: "Visualizing and redesigning core business processes for scale and automation." },
+      { step: "03", title: "Documentation Synthesis", desc: "Drafting detailed Standard Operating Procedures (SOPs) and corporate manuals." },
+      { step: "04", title: "Implementation & Training", desc: "Rolling out new policies and ensuring team alignment across all departments." }
+    ],
+    jurisdictionSupport: [
+      { country: "Global Organizations", flag: "🏢", duration: "4 - 8 weeks", priceStarting: "$5,000+", note: "Applicable to remote teams and multi-national offices." }
+    ],
+    packages: [
+      { name: "Process Audit", price: "$3,000", features: ["Current state assessment", "Inefficiency identification", "High-level optimization roadmap"] },
+      { name: "Comprehensive SOP Build", price: "Custom", popular: true, features: ["End-to-end process mapping", "Detailed operating manual creation", "Policy documentation", "Implementation support"] }
+    ],
+    faqs: [
+      { q: "Do you help implement the SOPs?", a: "Yes, our team can assist with the rollout phase, including team training and process compliance tracking." }
+    ]
+  },
+  {
+    slug: "regulatory-compliance",
+    image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop",
+    title: "Regulatory & Compliance",
+    shortDesc: "Enterprise-grade compliance audits, risk mitigation, and international regulatory strategy.",
+    fullDesc: "Navigate complex international regulations with confidence. We provide ongoing regulatory monitoring, compliance audits, and risk mitigation strategies to ensure your operations adhere to local laws, financial regulations, and data privacy standards across all operating jurisdictions.",
+    iconName: "ShieldCheck",
+    category: "compliance",
+    features: [
+      { title: "Global Compliance Audits", desc: "Comprehensive reviews of your corporate activities against local regulatory frameworks." },
+      { title: "Data Privacy & Security", desc: "Structuring operations to comply with GDPR, CCPA, and emerging global data laws." },
+      { title: "Financial Regulatory Strategy", desc: "Advisory for FinTechs and regulated entities on licensing and reporting requirements." },
+      { title: "Risk Mitigation Planning", desc: "Identifying and hedging against corporate liability and operational risks." }
+    ],
+    processSteps: [
+      { step: "01", title: "Regulatory Mapping", desc: "Identifying all applicable laws and regulations based on your industry and locations." },
+      { step: "02", title: "Gap Analysis", desc: "Comparing current operations against required compliance standards." },
+      { step: "03", title: "Remediation Strategy", desc: "Developing a prioritized action plan to address vulnerabilities and secure licenses." },
+      { step: "04", title: "Continuous Monitoring", desc: "Ongoing surveillance of regulatory changes to maintain proactive compliance." }
+    ],
+    jurisdictionSupport: [
+      { country: "Multi-Jurisdictional", flag: "⚖️", duration: "Ongoing", priceStarting: "Retainer", note: "Continuous compliance management for complex cross-border entities." }
+    ],
+    packages: [
+      { name: "Compliance Gap Analysis", price: "$4,500", features: ["Regulatory mapping", "Current state audit", "Vulnerability report", "Executive recommendations"] },
+      { name: "Managed Compliance Office", price: "Custom", popular: true, features: ["Dedicated compliance officer", "Quarterly audits", "Policy updates", "Regulatory liaison services"] }
+    ],
+    faqs: [
+      { q: "Can you assist with FinTech licensing?", a: "Yes, we specialize in regulatory mapping and application support for financial licenses in jurisdictions like the UK (FCA) and UAE (ADGM/DIFC)." }
+    ]
+  },
+  {
+    slug: "digital-transformation",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+    title: "Digital Transformation",
+    shortDesc: "Modernizing legacy systems through AI integration and operational automation.",
+    fullDesc: "Future-proof your enterprise through strategic digital transformation. In partnership with Operant Labs, we advise on AI readiness, system automation, and digital infrastructure modernization to dramatically increase operational efficiency and data leverage.",
+    iconName: "Cpu",
+    category: "growth",
+    features: [
+      { title: "AI Readiness Assessment", desc: "Evaluating current data structures and processes for artificial intelligence integration." },
+      { title: "Workflow Automation", desc: "Implementing RPA and automated sequences to eliminate repetitive manual tasks." },
+      { title: "Legacy System Modernization", desc: "Strategic planning for migrating outdated infrastructure to modern cloud environments." },
+      { title: "Data Governance", desc: "Establishing secure, compliant data pipelines to support advanced analytics." }
+    ],
+    processSteps: [
+      { step: "01", title: "Digital Audit", desc: "Assessing current technology stacks, data silos, and manual workflows." },
+      { step: "02", title: "Transformation Roadmap", desc: "Designing a phased approach to implementing new digital tools and AI models." },
+      { step: "03", title: "Vendor Selection & Oversight", desc: "Assisting in the selection and management of technical implementation partners." },
+      { step: "04", title: "Adoption & Change Management", desc: "Ensuring team adoption and process alignment with new digital capabilities." }
+    ],
+    jurisdictionSupport: [
+      { country: "Global Infrastructure", flag: "☁️", duration: "3 - 6 months", priceStarting: "Custom", note: "Transformation advisory for mid-market and enterprise clients." }
+    ],
+    packages: [
+      { name: "Digital Readiness Audit", price: "$5,000", features: ["Tech stack review", "Automation opportunity map", "AI feasibility study"] },
+      { name: "Transformation Advisory", price: "Custom", popular: true, features: ["End-to-end digital strategy", "Implementation oversight", "Change management support", "Operant Labs technical integration"] }
+    ],
+    faqs: [
+      { q: "Do you build the software yourselves?", a: "We provide the strategic advisory and architecture. For deep technical execution and AI development, we seamlessly integrate with our engineering partner, Operant Labs." }
+    ]
+  },
+  {
+    slug: "growth-expansion",
+    image: "https://images.unsplash.com/photo-1768839724256-28cd4a373209?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Growth & Expansion Services",
+    shortDesc: "Strategic initiatives for M&A, joint ventures, and rapid market scaling.",
+    fullDesc: "Accelerate your corporate trajectory. We provide strategic advisory for Mergers & Acquisitions (M&A), Joint Ventures, and aggressive market scaling initiatives. We help structure deals, perform due diligence, and integrate operations post-expansion.",
+    iconName: "TrendingUp",
+    category: "growth",
+    features: [
+      { title: "M&A Advisory & Structuring", desc: "Strategic guidance on target identification, deal structuring, and acquisition integration." },
+      { title: "Joint Ventures & Partnerships", desc: "Drafting frameworks and operational agreements for cross-border joint ventures." },
+      { title: "Commercial Due Diligence", desc: "Deep-dive analysis into the commercial viability and risks of expansion targets." },
+      { title: "Post-Merger Integration", desc: "Consolidating operations, corporate cultures, and compliance frameworks post-deal." }
+    ],
+    processSteps: [
+      { step: "01", title: "Expansion Strategy", desc: "Defining growth targets, acquisition criteria, or joint venture objectives." },
+      { step: "02", title: "Target Sourcing & Diligence", desc: "Identifying opportunities and conducting rigorous commercial and legal due diligence." },
+      { step: "03", title: "Deal Structuring", desc: "Designing the optimal legal and financial structure to execute the transaction." },
+      { step: "04", title: "Integration Management", desc: "Overseeing the unification of entities to realize projected synergies." }
+    ],
+    jurisdictionSupport: [
+      { country: "Cross-Border", flag: "📈", duration: "6 - 12 months", priceStarting: "Retainer + Success Fee", note: "Advisory for mid-market M&A and international joint ventures." }
+    ],
+    packages: [
+      { name: "Commercial Due Diligence", price: "Custom", features: ["Market analysis", "Target operational review", "Risk assessment", "Synergy modeling"] },
+      { name: "End-to-End M&A Advisory", price: "Custom", popular: true, features: ["Target identification", "Deal structuring", "Negotiation support", "Post-merger integration planning"] }
+    ],
+    faqs: [
+      { q: "Do you act as investment bankers?", a: "We act as strategic corporate advisors, focusing on the legal structuring, operational due diligence, and post-merger integration aspects of the transaction." }
     ]
   }
 ];

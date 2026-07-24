@@ -4,27 +4,27 @@ export function TrustSignals() {
   const items = [
     {
       icon: Globe2,
-      metric: "20+ Countries",
-      label: "Founders served globally",
-      desc: "Trusted by entrepreneurs across North America, Europe, Middle East, and Asia."
+      metric: "50+ Jurisdictions",
+      label: "Global Corporate Coverage",
+      desc: "Structuring cross-border entities across North America, Europe, Middle East, and Asia."
     },
     {
       icon: FileCheck,
-      metric: "5,000+ Filings",
-      label: "Registrations completed",
-      desc: "Proven track record with zero registration rejections."
+      metric: "$2B+ Assets",
+      label: "Under Advisory Structures",
+      desc: "Protecting corporate wealth through optimized holding companies and SPVs."
     },
     {
       icon: ShieldCheck,
       metric: "99.8% Compliance",
-      label: "Regulatory audit score",
-      desc: "Rigorous state & federal annual filing management."
+      label: "Regulatory Audit Success",
+      desc: "Rigorous state, federal, and international annual compliance management."
     },
     {
       icon: Users,
-      metric: "50+ Specialists",
-      label: "In-country legal & tax pros",
-      desc: "Work directly with dedicated specialists in each market."
+      metric: "500+ Enterprises",
+      label: "Long-term Strategic Partners",
+      desc: "Advising private equity, venture-backed startups, and multinational corporations."
     }
   ];
 
@@ -32,10 +32,11 @@ export function TrustSignals() {
     <section className="py-10 border-y border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/40">
       <div className="container-page">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((item) => (
+          {items.map((item, idx) => (
             <div
               key={item.metric}
-              className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm"
+              className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-orange-500/30 hover:shadow-md hover:-translate-y-1 transition-all animate-fade-up"
+              style={{ animationDelay: `${idx * 150}ms`, animationFillMode: "both" }}
             >
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center shrink-0">
                 <item.icon className="w-6 h-6" />

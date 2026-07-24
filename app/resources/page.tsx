@@ -66,6 +66,22 @@ export default function ResourcesPage() {
           ))}
         </div>
       </section>
+      {/* CTA Section */}
+      <section className="container-page py-16">
+        <div className="rounded-3xl bg-surface-alt p-10 md:p-14 text-center border border-border">
+          <h2 className="text-3xl md:text-4xl font-semibold max-w-2xl mx-auto text-navy-deep dark:text-white">
+            Have a Question We Haven&apos;t Answered?
+          </h2>
+          <p className="mt-4 text-base md:text-lg text-foreground/70 max-w-2xl mx-auto">
+            Our corporate specialists are ready to provide custom advice for your exact situation.
+          </p>
+          <div className="mt-8 flex justify-center">
+            <Link href="/contact" className="btn-accent">
+              Ask Our Team <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
