@@ -1,7 +1,7 @@
 export interface ArticleItem {
   slug: string;
   title: string;
-  category: "formation" | "tax" | "trademark" | "banking" | "comparison" | "playbook" | "governance" | "manual" | "insight" | "whitepaper";
+  category: "formation" | "tax" | "trademark" | "banking" | "comparison" | "playbook" | "governance" | "manual" | "insight" | "whitepaper" | "founder-stories";
   categoryLabel: string;
   readTime: string;
   publishedDate: string;
@@ -288,7 +288,7 @@ Choosing where to incorporate your international business is one of your most cr
   {
     slug: "scaling-ecommerce-brand-wyoming-llc",
     title: "How We Scaled Our E-commerce Brand with a Wyoming LLC",
-    category: "comparison",
+    category: "founder-stories",
     categoryLabel: "Founder Stories",
     readTime: "5 min read",
     publishedDate: "August 2026",

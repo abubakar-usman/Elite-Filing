@@ -16,13 +16,12 @@ import {
   Lock,
   Users2,
   LucideIcon,
+  Phone,
 } from "lucide-react";
-// import { FAQSection } from "./FAQSection";
 import { TrustSignals } from "@/components/site/TrustSignals";
 import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { servicesData } from "@/lib/data/services";
 import { countriesData } from "@/lib/data/countries";
-// import { IndustriesSlider } from "@/components/site/IndustriesSlider";
 
 export const metadata: Metadata = {
   title: "Elite Filing — Form, Launch, and Scale Your Business Globally",
@@ -67,13 +66,11 @@ export default function HomePage() {
       <TrustSignals />
       <Overview />
       <ServicesGrid />
-      {/* <IndustriesSlider /> */}
       <Countries />
       <WhyChoose />
       <HowItWorks />
       <TestimonialsSection />
       <ConsultationCTA />
-      {/* <FAQSection /> */}
       <FinalCTA />
     </>
   );
@@ -92,24 +89,25 @@ function Hero() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/85 to-blue-950/80" />
       </div>
 
       <div className="container-page pt-20 md:pt-32 pb-24 md:pb-40 relative z-10">
         <div className="max-w-4xl animate-fade-up">
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-semibold text-white tracking-tight">
-            Form, Structure, and Scale Your Business Across <span className="text-orange-500">Global Markets.</span>
+            Form, Structure, and Scale Your Business Across <span className="text-blue-400">Global Markets.</span>
           </h1>
 
           <p className="mt-8 text-xl md:text-2xl text-slate-300 max-w-3xl leading-relaxed font-light">
-            Elite Filing is a corporate services and business consulting firm that helps entrepreneurs, established companies, and global investors register companies, manage tax and regulatory compliance, and expand with confidence across the United States, United Kingdom, United Arab Emirates, Canada, and Pakistan, with additional markets launching soon.
+            Elite Filing is a corporate services and business consulting firm that helps first-time founders, established companies, and global investors register companies, manage tax and regulatory compliance, and expand with confidence across the United States, United Kingdom, United Arab Emirates, Canada, and Pakistan, with additional markets launching soon.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <Link href="/pricing" className="btn-accent text-base px-8 py-4 shadow-xl shadow-orange-500/20">
-              Start Your Company <ArrowRight className="w-5 h-5 ml-2" />
+            <Link href="/pricing" className="inline-flex items-center gap-2 text-base px-8 py-4 rounded-lg font-semibold text-white bg-orange-500 hover:bg-orange-600 shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/25 transition-all hover:-translate-y-0.5">
+              Start Your Company <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/schedule" className="btn-ghost !text-white !border-white/20 hover:!bg-white/10 text-base px-8 py-4 backdrop-blur-md">
+            <Link href="/schedule" className="inline-flex items-center gap-2 text-base px-8 py-4 rounded-lg font-semibold text-white border border-white/20 hover:bg-white/10 backdrop-blur-md transition-all">
+              <Phone className="w-4 h-4" />
               Book a Free Consultation
             </Link>
           </div>
@@ -119,7 +117,7 @@ function Hero() {
           </p>
         </div>
 
-        <div className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] rounded-full bg-orange-500/20 blur-3xl animate-floaty" />
+        <div className="pointer-events-none absolute -top-24 -right-24 w-[520px] h-[520px] rounded-full bg-blue-500/15 blur-3xl animate-floaty" />
       </div>
     </section>
   );
@@ -163,7 +161,7 @@ function ServicesGrid() {
           {servicesData.map((s) => {
             const IconComponent = iconMap[s.iconName] || Building2;
             return (
-              <article key={s.slug} className="group rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-orange-500/50 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col">
+              <article key={s.slug} className="group rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden hover:border-blue-500/40 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col">
                 {/* Card Image */}
                 <div className="relative h-48 w-full overflow-hidden">
                   <Image src={s.image || "/back.jpg"} alt={s.title} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -172,14 +170,14 @@ function ServicesGrid() {
                 {/* Card Body */}
                 <div className="p-8 flex flex-col flex-1">
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-colors mb-5">
-                      <IconComponent className="w-6 h-6" />
+                    <div className="w-11 h-11 rounded-lg bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors mb-5">
+                      <IconComponent className="w-5 h-5" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors">{s.title}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">{s.title}</h3>
                     <p className="mt-2.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{s.shortDesc}</p>
                   </div>
                   <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 mt-6">
-                    <Link href={`/services/${s.slug}`} className="inline-flex items-center gap-1 text-xs font-semibold text-orange-500 hover:text-orange-600">
+                    <Link href={`/services/${s.slug}`} className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400">
                       <span>View Category Details</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
@@ -210,12 +208,12 @@ function Countries() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {countriesData.map((c) => (
-            <Link key={c.slug} href={`/countries/${c.slug}`} className="card-surface p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-orange-500/50 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <Link key={c.slug} href={`/countries/${c.slug}`} className="card-surface p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 flex items-start gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <div className="text-4xl leading-none">{c.flag}</div>
               <div>
                 <div className="font-bold text-slate-900 dark:text-white text-lg">{c.name}</div>
-                <div className="text-xs text-orange-500 font-medium mt-0.5">{c.tagline}</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">{c.stats[0]?.label}: <strong>{c.stats[0]?.key}</strong></div>
+                <div className="text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">{c.tagline}</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">{c.stats?.[0]?.label}: <strong>{c.stats?.[0]?.key}</strong></div>
               </div>
             </Link>
           ))}
@@ -238,16 +236,25 @@ function Countries() {
 function WhyChoose() {
   return (
     <section className="section-pad bg-slate-950 text-white relative overflow-hidden animate-fade-up">
-      <div className="pointer-events-none absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-orange-500/15 blur-3xl" />
-      <div className="container-page relative">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069&auto=format&fit=crop"
+          alt="Business collaboration"
+          fill
+          className="object-cover opacity-10"
+        />
+      </div>
+      <div className="pointer-events-none absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-blue-500/15 blur-3xl" />
+      <div className="container-page relative z-10">
         <div className="max-w-2xl">
-          <div className="eyebrow !text-orange-400">Why Elite Filing</div>
+          <div className="eyebrow !text-blue-400">Why Elite Filing</div>
           <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-white">Why Founders Choose Elite Filing</h2>
         </div>
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {why.map((w) => (
-            <div key={w.title} className="group hover:-translate-y-1 transition-transform duration-300 p-6 rounded-2xl hover:bg-white/5">
-              <div className="w-12 h-12 rounded-xl bg-white/10 text-orange-400 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-colors">
+            <div key={w.title} className="group hover:-translate-y-1 transition-transform duration-300 p-6 rounded-2xl hover:bg-white/5 border border-transparent hover:border-white/10">
+              <div className="w-12 h-12 rounded-xl bg-white/10 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
                 <w.icon className="w-6 h-6" />
               </div>
               <h3 className="mt-5 text-xl font-semibold text-white">{w.title}</h3>
@@ -272,10 +279,10 @@ function HowItWorks() {
           {howItWorksSteps.map((s, idx) => (
             <div 
               key={s.n} 
-              className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative hover:border-orange-500/30 hover:shadow-lg hover:-translate-y-1 transition-all animate-fade-up"
+              className="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative hover:border-blue-500/30 hover:shadow-lg hover:-translate-y-1 transition-all animate-fade-up"
               style={{ animationDelay: `${idx * 150}ms`, animationFillMode: "both" }}
             >
-              <div className="font-display text-orange-500 text-5xl font-bold opacity-80">{s.n}</div>
+              <div className="font-display text-blue-600 dark:text-blue-400 text-5xl font-bold opacity-80">{s.n}</div>
               <h3 className="mt-4 text-xl font-bold text-slate-900 dark:text-white">{s.t}</h3>
               <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{s.d}</p>
             </div>
@@ -290,10 +297,19 @@ function FinalCTA() {
   return (
     <section className="section-pad animate-fade-up">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 to-slate-950 p-10 md:p-16 text-white border border-slate-800 shadow-2xl">
-          <div className="pointer-events-none absolute -right-20 -top-20 w-[420px] h-[420px] rounded-full bg-orange-500/25 blur-3xl" />
-          <div className="relative max-w-2xl">
-            <div className="eyebrow !text-orange-400">Ready when you are</div>
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 to-slate-950 p-10 md:p-16 text-white border border-slate-800 shadow-2xl">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+              alt="Modern skyscraper"
+              fill
+              className="object-cover opacity-15"
+            />
+          </div>
+          <div className="pointer-events-none absolute -right-20 -top-20 w-[420px] h-[420px] rounded-full bg-blue-500/20 blur-3xl" />
+          <div className="relative max-w-2xl z-10">
+            <div className="eyebrow !text-blue-400">Ready when you are</div>
             <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-white">
               Your Business, Registered Right, Wherever You Want to Grow
             </h2>
@@ -312,7 +328,7 @@ function FinalCTA() {
 
 function ConsultationCTA() {
   return (
-    <section className="section-pad bg-orange-500/5 dark:bg-orange-500/10 border-y border-orange-500/10">
+    <section className="section-pad bg-blue-50/50 dark:bg-blue-950/10 border-y border-blue-100/50 dark:border-blue-900/20">
       <div className="container-page text-center">
         <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white">
           Not Sure Where to Start?

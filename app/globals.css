@@ -40,22 +40,36 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --shadow-elevated: 0 20px 60px -30px color-mix(in oklab, var(--navy-deep) 45%, transparent);
   --shadow-card: 0 8px 30px -18px color-mix(in oklab, var(--navy-deep) 30%, transparent);
+
+  /* Overwrite default blue with professional corporate blue */
+  --color-blue-50: oklch(0.97 0.01 250);
+  --color-blue-100: oklch(0.93 0.02 250);
+  --color-blue-200: oklch(0.88 0.04 250);
+  --color-blue-300: oklch(0.78 0.08 250);
+  --color-blue-400: oklch(0.65 0.12 250);
+  --color-blue-500: oklch(0.55 0.13 250);
+  --color-blue-600: oklch(0.48 0.14 250); /* Matches var(--accent) */
+  --color-blue-700: oklch(0.40 0.14 250);
+  --color-blue-800: oklch(0.32 0.10 250);
+  --color-blue-900: oklch(0.26 0.06 250);
+  --color-blue-950: oklch(0.20 0.04 250);
 }
 
 :root {
-  --radius: 0.25rem; /* Sharper borders for executive feel */
+  --radius: 0.375rem;
 
-  /* Brand — deep navy + gold/bronze for corporate aesthetic */
-  --navy-deep: oklch(0.25 0.06 260);
-  --navy: oklch(0.32 0.08 260);
-  --navy-soft: oklch(0.45 0.06 260);
-  --orange: oklch(0.72 0.14 75); /* Shifted to Gold/Bronze */
-  --orange-soft: oklch(0.88 0.08 75);
+  /* Brand — Corporate Slate/Navy (primary) + Elegant Blue (accent) + Orange (CTAs only) */
+  --navy-deep: oklch(0.21 0.03 260);   /* Extremely professional dark slate/navy */
+  --navy: oklch(0.30 0.04 260);        
+  --navy-soft: oklch(0.40 0.04 260);
+  
+  --orange: oklch(0.68 0.16 45);       /* Elegant orange for buttons, not too bright */
+  --orange-soft: oklch(0.88 0.08 45);
 
-  --background: oklch(0.995 0.003 90);
+  --background: oklch(0.995 0.003 260);
   --foreground: oklch(0.22 0.05 260);
-  --surface: oklch(0.98 0.006 80);
-  --surface-alt: oklch(0.955 0.012 75);
+  --surface: oklch(0.975 0.006 260);
+  --surface-alt: oklch(0.955 0.010 260);
 
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.22 0.05 260);
@@ -63,18 +77,18 @@
   --popover-foreground: oklch(0.22 0.05 260);
 
   --primary: var(--navy-deep);
-  --primary-foreground: oklch(0.99 0.005 90);
-  --secondary: oklch(0.955 0.012 75);
+  --primary-foreground: oklch(0.99 0.005 260);
+  --secondary: oklch(0.955 0.012 260);
   --secondary-foreground: var(--navy-deep);
   --muted: oklch(0.96 0.008 260);
   --muted-foreground: oklch(0.5 0.03 260);
-  --accent: var(--orange);
-  --accent-foreground: oklch(0.99 0.005 90);
+  --accent: oklch(0.48 0.14 250);      /* Professional Royal Blue accent */
+  --accent-foreground: oklch(0.99 0.005 260);
   --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(0.99 0.005 90);
-  --border: oklch(0.9 0.015 260);
-  --input: oklch(0.92 0.012 260);
-  --ring: var(--orange);
+  --destructive-foreground: oklch(0.99 0.005 260);
+  --border: oklch(0.9 0.012 260);
+  --input: oklch(0.92 0.010 260);
+  --ring: oklch(0.48 0.14 250);        /* Professional Royal Blue ring */
 }
 
 @layer base {
@@ -114,7 +128,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--orange);
+  color: var(--accent);
 }
 
 @utility btn-primary {
@@ -123,7 +137,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.85rem 1.4rem;
-  border-radius: 999px;
+  border-radius: 0.5rem;
   background: var(--navy-deep);
   color: var(--primary-foreground);
   font-weight: 600;
@@ -139,14 +153,14 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.85rem 1.4rem;
-  border-radius: 999px;
+  border-radius: 0.5rem;
   background: var(--orange);
-  color: var(--accent-foreground);
+  color: white;
   font-weight: 600;
   font-size: 0.925rem;
   transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
-  box-shadow: 0 12px 32px -14px color-mix(in oklab, var(--orange) 70%, transparent);
-  &:hover { transform: translateY(-1px); filter: brightness(1.03); }
+  box-shadow: 0 8px 24px -10px color-mix(in oklab, var(--orange) 50%, transparent);
+  &:hover { transform: translateY(-1px); filter: brightness(1.05); }
 }
 
 @utility btn-ghost {
@@ -155,7 +169,7 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.85rem 1.4rem;
-  border-radius: 999px;
+  border-radius: 0.5rem;
   border: 1px solid color-mix(in oklab, var(--navy-deep) 18%, transparent);
   color: var(--navy-deep);
   font-weight: 600;
@@ -167,10 +181,10 @@
 @utility card-surface {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 1.25rem;
+  border-radius: 1rem;
   box-shadow: var(--shadow-card);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-  &:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); border-color: color-mix(in oklab, var(--orange) 35%, var(--border)); }
+  &:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); border-color: color-mix(in oklab, oklch(0.52 0.14 260) 35%, var(--border)); }
 }
 
 @utility section-pad {
@@ -180,7 +194,7 @@
 
 @utility grad-hero {
   background:
-    radial-gradient(1200px 500px at 85% -10%, color-mix(in oklab, var(--orange) 22%, transparent), transparent 60%),
+    radial-gradient(1200px 500px at 85% -10%, color-mix(in oklab, oklch(0.52 0.14 260) 15%, transparent), transparent 60%),
     radial-gradient(900px 500px at -10% 20%, color-mix(in oklab, var(--navy) 35%, transparent), transparent 60%),
     linear-gradient(180deg, var(--navy-deep), oklch(0.22 0.08 260));
 }

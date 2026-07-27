@@ -1,0 +1,32 @@
+app/countries/[country]/page.tsx(23,23): error TS2339: Property 'heroDesc' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(65,19): error TS2339: Property 'heroDesc' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(89,17): error TS2339: Property 'stats' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(89,28): error TS7006: Parameter 'st' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(111,17): error TS2339: Property 'entities' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(111,31): error TS7006: Parameter 'entity' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(149,86): error TS2339: Property 'taxation' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(153,88): error TS2339: Property 'taxation' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(157,88): error TS2339: Property 'taxation' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(164,21): error TS2339: Property 'taxation' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(164,45): error TS7006: Parameter 'point' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(164,52): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(180,47): error TS2339: Property 'trademarks' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(189,85): error TS2339: Property 'trademarks' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(190,98): error TS2339: Property 'trademarks' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(194,101): error TS2339: Property 'trademarks' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(219,23): error TS2339: Property 'banking' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(219,44): error TS7006: Parameter 'opt' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(226,39): error TS2339: Property 'banking' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(233,23): error TS2339: Property 'banking' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(233,49): error TS7006: Parameter 'req' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(256,19): error TS2339: Property 'packages' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(256,33): error TS7006: Parameter 'pkg' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(276,40): error TS7006: Parameter 'feat' implicitly has an 'any' type.
+app/countries/[country]/page.tsx(313,17): error TS2339: Property 'faqs' does not exist on type 'CountryItem'.
+app/countries/[country]/page.tsx(313,27): error TS7006: Parameter 'faq' implicitly has an 'any' type.
+app/countries/page.tsx(53,28): error TS2339: Property 'heroDesc' does not exist on type 'CountryItem'.
+app/countries/page.tsx(59,68): error TS2339: Property 'taxation' does not exist on type 'CountryItem'.
+app/countries/page.tsx(63,64): error TS2339: Property 'trademarks' does not exist on type 'CountryItem'.
+app/page.tsx(216,85): error TS2339: Property 'stats' does not exist on type 'CountryItem'.
+app/page.tsx(216,114): error TS2339: Property 'stats' does not exist on type 'CountryItem'.
+lib/data/resources.ts(291,5): error TS2322: Type '"founder-stories"' is not assignable to type '"formation" | "tax" | "trademark" | "banking" | "comparison" | "playbook" | "governance" | "manual" | "insight" | "whitepaper"'.

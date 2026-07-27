@@ -35,20 +35,20 @@ export function TrustSignals() {
           {items.map((item, idx) => (
             <div
               key={item.metric}
-              className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-orange-500/30 hover:shadow-md hover:-translate-y-1 transition-all animate-fade-up"
+              className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:border-blue-500/30 hover:shadow-md hover:-translate-y-1 transition-all animate-fade-up"
               style={{ animationDelay: `${idx * 150}ms`, animationFillMode: "both" }}
             >
-              <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
                 <item.icon className="w-6 h-6" />
               </div>
               <div>
                 <div className="text-xl font-bold font-display text-slate-900 dark:text-white leading-tight">
                   {item.metric}
                 </div>
-                <div className="text-xs font-semibold text-orange-500 uppercase tracking-wider mt-0.5">
+                <div className="text-[11px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider mt-1">
                   {item.label}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                <div className="text-[13px] text-slate-500 dark:text-slate-400 mt-1.5 leading-relaxed">
                   {item.desc}
                 </div>
               </div>

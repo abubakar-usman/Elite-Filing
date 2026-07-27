@@ -56,11 +56,11 @@ export default function CountriesOverviewPage() {
                 <div className="mt-6 space-y-2 text-xs text-slate-600 dark:text-slate-400">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span><strong>Tax Authority:</strong> {country.taxation.authority}</span>
+                    <span><strong>Tax Authority:</strong> {country.taxation?.authority || 'Local Authority'}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                    <span><strong>IP Office:</strong> {country.trademarks.authority}</span>
+                    <span><strong>IP Office:</strong> {country.trademarks?.authority || 'Local IP Office'}</span>
                   </div>
                 </div>
               </div>
