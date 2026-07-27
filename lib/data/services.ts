@@ -11,6 +11,7 @@ export interface ServiceItem {
   jurisdictionSupport: { country: string; flag: string; duration: string; priceStarting: string; note: string }[];
   packages: { name: string; price: string; period?: string; popular?: boolean; features: string[] }[];
   faqs: { q: string; a: string }[];
+  subServices?: { headline: string; intro: string; includes: string[]; cta?: string }[];
 }
 
 export const servicesData: ServiceItem[] = [
@@ -100,6 +101,39 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Do foreign LLC owners have to pay US income tax?", a: "Single-member US LLCs owned by non-residents are pass-through entities. US income tax applies only to US-sourced income, but Form 5472/1120 filing is mandatory regardless of revenue." },
       { q: "What is the UAE Corporate Tax rate?", a: "UAE introduced a 9% Corporate Tax rate on taxable net profits exceeding AED 375,000. Qualifying Free Zone entities may enjoy 0% rates under specific criteria." }
+    ],
+    subServices: [
+      {
+        headline: "Stay VAT Compliant Wherever You Sell",
+        intro: "VAT rules differ by country and by revenue threshold, and getting registration timing wrong can mean penalties or missed input tax credits. Elite Filing determines whether your registration should be voluntary or mandatory, files your application, and manages your ongoing returns.",
+        includes: [
+          "VAT registration in the UK and UAE",
+          "Determination of mandatory versus voluntary registration",
+          "Quarterly and annual VAT return filing",
+          "VAT compliance review for multi-country sellers"
+        ],
+        cta: "Check My VAT Requirements"
+      },
+      {
+        headline: "Import and Export Legally Across UK and EU Borders",
+        intro: "An EORI number is required for any business importing or exporting goods across UK and EU borders. Elite Filing handles the application and links it to your existing company registration.",
+        includes: [
+          "EORI number application",
+          "Guidance on import, export, or combined trading activity",
+          "Support identifying your primary trading countries"
+        ],
+        cta: "Apply for an EORI Number"
+      },
+      {
+        headline: "Get Your US Individual Taxpayer Identification Number",
+        intro: "If you are a non-US resident earning US-sourced income or need an ITIN to open a business bank account, Elite Filing prepares and submits your Form W-7 application with the required supporting documentation.",
+        includes: [
+          "Form W-7 preparation and submission",
+          "Supporting document review",
+          "Guidance on when an ITIN is required versus an EIN"
+        ],
+        cta: "Apply for an ITIN"
+      }
     ]
   },
   {
@@ -137,6 +171,22 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Is a US trademark valid worldwide?", a: "No, trademarks are territorial. A USPTO trademark protects your mark within the US. For international protection, we file Madrid Protocol or direct country applications." },
       { q: "What happens if my trademark gets rejected?", a: "Our packages include initial attorney responses to non-final office actions to resolve minor examiner objections." }
+    ],
+    subServices: [
+      {
+        headline: "Protect Your Brand Before Someone Else Does",
+        intro: "Your name, logo, and brand identity are among your most valuable assets. Elite Filing helps you search, register, and monitor trademarks across the markets where you operate, and responds on your behalf if a registration is challenged.",
+        includes: [
+          "Trademark search and clearance, including USPTO and UKIPO searches",
+          "Trademark registration in the US, UK, UAE, Canada, and Pakistan",
+          "Copyright registration for original creative and written work",
+          "Class of goods and services selection",
+          "Trademark monitoring for potential infringement",
+          "Office action response and objection handling",
+          "Brand protection strategy for founders expanding into new markets"
+        ],
+        cta: "Check Trademark Availability"
+      }
     ]
   },
   {
@@ -174,6 +224,31 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Why do I need a Registered Agent?", a: "States mandate that every business entity must maintain a registered agent with a physical street address in the formation state to receive legal notices." },
       { q: "Can I use the Registered Agent address as my bank mailing address?", a: "Yes, our commercial Virtual Office plans provide address documentation acceptable for bank verifications." }
+    ],
+    subServices: [
+      {
+        headline: "Meet Your Legal Presence Requirements, Without the Overhead",
+        intro: "Most jurisdictions require a registered agent or registered office with a physical address in the country of incorporation. Elite Filing provides this service in every market we operate in, so you always have a reliable point of contact for legal and government correspondence.",
+        includes: [
+          "Registered agent service in the US",
+          "Registered office address in the UK",
+          "Timely forwarding of legal and compliance notices",
+          "Renewal management so your registration never lapses"
+        ],
+        cta: "Add Registered Agent Service"
+      },
+      {
+        headline: "A Professional Business Address in Every Market You Operate",
+        intro: "Whether you need a mailing address for your LLC, a registered office for your UK company, or a presence address in the UAE, Elite Filing provides virtual office solutions with mail scanning and forwarding.",
+        includes: [
+          "US Business Address (virtual)",
+          "UK Registered Office Address",
+          "UAE Virtual Office",
+          "Canada Business Address",
+          "Digital mail scanning or physical forwarding, your choice"
+        ],
+        cta: "Get a Business Address"
+      }
     ]
   },
   {
@@ -211,6 +286,19 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Can non-US founders open a US bank account remotely?", a: "Yes, via digital banking partners like Mercury and Relay, non-US residents can open US FDIC-insured business bank accounts without traveling." },
       { q: "What causes Stripe account suspensions and how do you prevent them?", a: "Suspensions occur due to mismatched business details, unsupported business categories, or missing compliance terms. We conduct pre-launch compliance checks to prevent flags." }
+    ],
+    subServices: [
+      {
+        headline: "Get Banked, in Any Currency You Need",
+        intro: "Opening a business bank account as a foreign-owned company can be one of the hardest parts of getting started. Elite Filing guides you through documentation requirements and connects you with the right banking and payment partners for your business.",
+        includes: [
+          "Guidance for opening business bank accounts in the US, UK, and UAE",
+          "Multi-currency account setup",
+          "Stripe, PayPal, Wise, and Payoneer setup support",
+          "Merchant account advisory for ecommerce businesses"
+        ],
+        cta: "Get Banking Support"
+      }
     ]
   },
   {
@@ -248,6 +336,19 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Which accounting software do you use?", a: "We specialize in Xero and QuickBooks Online, but can also work with Wave or custom ERP systems." },
       { q: "What if my books are months behind?", a: "We offer catch-up bookkeeping packages to bring past months or years up to compliance quickly." }
+    ],
+    subServices: [
+      {
+        headline: "Keep Your Books Audit-Ready, Every Month",
+        intro: "Compliance does not end at registration. Elite Filing provides ongoing bookkeeping, annual compliance filing, and tax preparation so your financial records are always accurate and ready for review, whether that review comes from a tax authority, an investor, or your own leadership team.",
+        includes: [
+          "Monthly bookkeeping",
+          "Annual compliance filing",
+          "Tax filing and audit support",
+          "Financial recordkeeping aligned to each jurisdiction's requirements"
+        ],
+        cta: "Set Up Ongoing Bookkeeping"
+      }
     ]
   },
   {
@@ -283,6 +384,20 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Why is Wyoming popular for Amazon sellers?", a: "Wyoming has zero state corporate income tax, low annual renewal fees ($62), and strong privacy protections." },
       { q: "What is a US Resale Certificate?", a: "A resale certificate allows ecommerce merchants to purchase inventory from US manufacturers without paying state sales tax." }
+    ],
+    subServices: [
+      {
+        headline: "Get Compliant and Ready to Sell on Amazon, Walmart, and Etsy",
+        intro: "Marketplaces have their own registration and tax requirements on top of standard company formation. Elite Filing sets your business up correctly from the start, so your seller account, sales tax registration, and business structure all line up.",
+        includes: [
+          "Business registration for Amazon, Walmart, Etsy, and Shopify sellers",
+          "Guidance for existing versus new seller accounts",
+          "Sales tax and compliance setup for marketplace sellers",
+          "Support for sole proprietors, partnerships, and private limited entities",
+          "Business consultancy and documentation support for marketplace approval"
+        ],
+        cta: "Set Up My Ecommerce Business"
+      }
     ]
   },
   {
@@ -316,6 +431,22 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Why should I get website development with incorporation?", a: "Having a live, professional corporate website significantly increases bank and merchant gateway (Stripe) approval rates." },
       { q: "How long does website delivery take?", a: "Standard corporate launch websites are delivered within 7 to 10 business days." }
+    ],
+    subServices: [
+      {
+        headline: "Build the Brand and Online Presence Behind Your New Company",
+        intro: "Once your company is registered, Elite Filing's growth partners can help you build the digital presence to support it, from your first website to a full-scale demand generation program.",
+        includes: [
+          "Web Development",
+          "Search Engine Optimization (SEO)",
+          "Digital Marketing",
+          "Lead Generation",
+          "Affiliate Marketing",
+          "Logo Design & Branding",
+          "Company Logo Creation"
+        ],
+        cta: "Explore Growth Add-Ons"
+      }
     ]
   },
   {
@@ -349,6 +480,115 @@ export const servicesData: ServiceItem[] = [
     faqs: [
       { q: "Who conducts the consultancy sessions?", a: "Consultations are conducted by senior corporate strategists and legal/compliance specialists with 10+ years of international experience." },
       { q: "Can you help structure a US Holding company with overseas subsidiaries?", a: "Yes, we frequently design Delaware C-Corp holding structures owning UK, UAE, or Pakistani operational subsidiaries." }
+    ],
+    subServices: [
+      {
+        headline: "Business Strategy & Growth Consulting",
+        intro: "For founders and leadership teams who need a clear, actionable path to their next stage of growth, we help you define strategy, evaluate new markets, and build the frameworks to execute against it.",
+        includes: [
+          "Business Growth Strategy",
+          "Market Entry Strategy",
+          "Go-to-Market (GTM) Planning",
+          "Revenue Growth Frameworks",
+          "Business Model Optimization",
+          "Strategic Partnerships Development",
+          "Competitive Analysis",
+          "Expansion Planning"
+        ]
+      },
+      {
+        headline: "Investment & Capital Raising Advisory",
+        intro: "Whether you're preparing for a seed round or exploring an acquisition, we help you get investor-ready, tell a compelling financial story, and connect with the right capital partners.",
+        includes: [
+          "Investor Readiness Assessment",
+          "Pitch Deck Development",
+          "Financial Model Review",
+          "Investor Outreach Strategy",
+          "Family Office & Private Equity Introductions",
+          "M&A Deal Sourcing",
+          "Due Diligence Support",
+          "Investment Origination Services"
+        ]
+      },
+      {
+        headline: "Sales & Business Development Consulting",
+        intro: "We help you build repeatable, scalable sales systems, from your first structured sales process to enterprise account management.",
+        includes: [
+          "Sales Process Design",
+          "Lead Generation Strategy",
+          "B2B Prospecting Systems",
+          "CRM Implementation",
+          "Sales Team KPI Framework",
+          "Enterprise Sales Consulting",
+          "Channel Partner Development",
+          "Strategic Account Management"
+        ]
+      },
+      {
+        headline: "Digital Transformation Consulting",
+        intro: "From automating manual processes to selecting the right systems, we help businesses modernize how they operate without disrupting the work already underway.",
+        includes: [
+          "Digital Maturity Assessment",
+          "Process Automation",
+          "AI Adoption Strategy",
+          "ERP/CRM Selection & Implementation",
+          "Business Intelligence Dashboards",
+          "Workflow Optimization",
+          "Data Management Strategy"
+        ]
+      },
+      {
+        headline: "Technology & AI Advisory",
+        intro: "As AI reshapes how businesses operate, we help leadership teams identify where it actually creates value, and build a realistic roadmap to implement it.",
+        includes: [
+          "AI Readiness Assessment",
+          "AI Use Case Identification",
+          "AI Product Strategy",
+          "Automation Roadmaps",
+          "Chatbot & AI Agent Implementation",
+          "Cybersecurity Strategy",
+          "Cloud Transformation Planning"
+        ]
+      },
+      {
+        headline: "Marketing & Brand Growth Consulting",
+        intro: "We help you understand how your brand is actually performing, then build the strategy to grow awareness, acquisition, and retention from there.",
+        includes: [
+          "Brand Audit",
+          "Social Media Audit",
+          "Growth Marketing Strategy",
+          "Customer Acquisition Planning",
+          "Partnership Strategy",
+          "PR Strategy Development",
+          "Customer Journey Optimization",
+          "Conversion Rate Optimization"
+        ]
+      },
+      {
+        headline: "Operations Consulting",
+        intro: "Good operations are invisible when they work. We help you build the structure, processes, and performance frameworks that let your business run smoothly as it scales.",
+        includes: [
+          "SOP Development",
+          "Organizational Structure Design",
+          "KPI & Performance Frameworks",
+          "Process Reengineering",
+          "Vendor Management",
+          "Operational Efficiency Programs",
+          "Cost Optimization"
+        ]
+      },
+      {
+        headline: "Startup & SME Advisory",
+        intro: "For early-stage founders and small to mid-sized businesses, we provide hands-on advisory support, from your first business plan to fractional leadership when you're not ready for a full-time hire.",
+        includes: [
+          "Business Plan Development",
+          "Startup Launch Strategy",
+          "Product-Market Fit Assessment",
+          "Scaling Frameworks",
+          "Fundraising Support",
+          "Fractional COO / Growth Advisor Services"
+        ]
+      }
     ]
   }
 ];

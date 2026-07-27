@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ClientLayout } from "@/components/site/ClientLayout";
+import { JsonLd } from "@/components/site/JsonLd";
 
 const SITE_TITLE = "Elite Filing — Form, Launch, and Scale Your Business Globally";
 const SITE_DESCRIPTION =
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
   title: SITE_TITLE,
   description: SITE_DESCRIPTION,
   icons: { icon: "/favicon.png" },
+  alternates: { canonical: "https://elite-filing.com" },
   openGraph: {
     siteName: "Elite Filing",
     type: "website",
@@ -33,6 +35,27 @@ export const viewport: Viewport = {
   themeColor: "#1a2b5c",
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Elite Filing",
+  url: "https://elite-filing.com",
+  logo: "https://elite-filing.com/logo.png",
+  description: SITE_DESCRIPTION,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-302-555-0134",
+    contactType: "customer service",
+    availableLanguage: ["English"],
+  },
+  sameAs: [
+    "https://linkedin.com/company/elite-filing",
+    "https://instagram.com/elitefiling",
+    "https://twitter.com/elitefiling",
+  ],
+  areaServed: ["US", "GB", "AE", "CA", "PK"],
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -43,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
         />
+        <JsonLd schema={organizationSchema} />
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
@@ -50,3 +74,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+

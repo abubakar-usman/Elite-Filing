@@ -6,6 +6,7 @@ import { ArrowRight, Clock } from "lucide-react";
 export const metadata: Metadata = {
   title: "Knowledge Center & Guides — Elite Filing",
   description: "Explore formation guides, tax compliance articles, trademark tutorials, banking guides, and country comparison guides.",
+  alternates: { canonical: "https://elite-filing.com/resources" },
 };
 
 export default function ResourcesPage() {
@@ -41,9 +42,9 @@ export default function ResourcesPage() {
                   </span>
                 </div>
 
-                <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors leading-snug">
                   {article.title}
-                </h2>
+                </h3>
 
                 <p className="mt-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {article.summary}

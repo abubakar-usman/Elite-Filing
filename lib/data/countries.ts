@@ -11,7 +11,6 @@ export interface CountryItem {
   }[];
   packageOption?: string;
   sectionCta: string;
-  faqPrompts: string;
   heroDesc?: string;
   stats?: { label: string; key: string }[];
   entities?: { name: string; bestFor: string; taxOverview: string; processingTime: string }[];
@@ -20,6 +19,7 @@ export interface CountryItem {
   banking?: { options: string[]; recommendation: string; requirements: string[] };
   packages?: { name: string; price: string; features: string[]; popular?: boolean }[];
   faqs?: { q: string; a: string }[];
+  heroImage?: string;
 }
 
 export const countriesData: CountryItem[] = [
@@ -95,7 +95,13 @@ export const countriesData: CountryItem[] = [
     ],
     packageOption: "Complete Package — formation, EIN, registered agent, and first-year compliance bundled into a single fee, for founders who want the full setup handled in one engagement.",
     sectionCta: "Start Your US Company",
-    faqPrompts: "FAQ prompts for content team to answer: Do I need to be a US resident to form an LLC? What is the difference between an LLC and a C-Corporation for a foreign founder? Do I need an ITIN before I can open a US bank account? How does Form 5472 affect a foreign-owned singlemember LLC?"
+        heroImage: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=2070&auto=format&fit=crop",
+    faqs: [
+      { q: "Do I need to be a US resident to form an LLC?", a: "No, non-US residents can legally form a US LLC and operate it from anywhere in the world." },
+      { q: "What is the difference between an LLC and a C-Corporation for a foreign founder?", a: "LLCs are pass-through entities, meaning profits are not taxed at the corporate level. C-Corporations pay corporate tax, and shareholders pay tax on dividends. Venture capital investors strongly prefer C-Corporations." },
+      { q: "Do I need an ITIN before I can open a US bank account?", a: "Many modern digital banks (like Mercury) do not require an ITIN to open an account, though traditional brick-and-mortar banks typically do." },
+      { q: "How does Form 5472 affect a foreign-owned single-member LLC?", a: "Even if your US LLC has no US-sourced income, a foreign-owned single-member LLC must file Form 5472 annually. Failure to file incurs a $25,000 IRS penalty." }
+    ]
   },
   {
     slug: "united-kingdom",
@@ -162,7 +168,13 @@ export const countriesData: CountryItem[] = [
       }
     ],
     sectionCta: "Start Your UK Company",
-    faqPrompts: "FAQ prompts: How long does it take to register a UK LTD company? When is VAT registration mandatory versus voluntary? What is a confirmation statement and how often do I need to file one? Can a non-UK resident be a company director?"
+        heroImage: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop",
+    faqs: [
+      { q: "How long does it take to register a UK LTD company?", a: "Registration typically takes 24 to 48 hours once submitted to Companies House." },
+      { q: "When is VAT registration mandatory versus voluntary?", a: "Mandatory VAT registration is required if your taxable turnover exceeds £90,000 in a 12-month period. You can voluntarily register before this threshold to reclaim VAT on business expenses." },
+      { q: "What is a confirmation statement and how often do I need to file one?", a: "A confirmation statement verifies that company details are up to date and must be filed annually with Companies House." },
+      { q: "Can a non-UK resident be a company director?", a: "Yes, a non-UK resident can be a director of a UK LTD company." }
+    ]
   },
   {
     slug: "uae",
@@ -214,7 +226,13 @@ export const countriesData: CountryItem[] = [
       }
     ],
     sectionCta: "Start Your UAE Company",
-    faqPrompts: "FAQ prompts: What is the difference between Mainland, Free Zone, and Offshore company formation? Do I need a local sponsor to form a Mainland company? Am I eligible for a residency visa through my company? What are the current UAE corporate tax thresholds?"
+        heroImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop",
+    faqs: [
+      { q: "What is the difference between Mainland, Free Zone, and Offshore company formation?", a: "Mainland allows trading anywhere in the UAE and locally. Free Zones offer 100% foreign ownership and customs benefits but restrict local trading. Offshore is strictly for international business and asset holding." },
+      { q: "Do I need a local sponsor to form a Mainland company?", a: "No, recent changes allow 100% foreign ownership for most commercial and industrial activities in the Mainland." },
+      { q: "Am I eligible for a residency visa through my company?", a: "Yes, forming a Mainland or Free Zone company typically makes you eligible for an investor or employment visa." },
+      { q: "What are the current UAE corporate tax thresholds?", a: "A 9% corporate tax applies to taxable income exceeding AED 375,000. Qualifying Free Zone persons may benefit from a 0% rate on qualifying income." }
+    ]
   },
   {
     slug: "canada",
@@ -258,7 +276,13 @@ export const countriesData: CountryItem[] = [
       }
     ],
     sectionCta: "Start Your Canadian Company",
-    faqPrompts: "FAQ prompts: Should I incorporate federally or provincially? What is a NUANS name search and do I need one? When do I need to register for GST/HST? Can a non-resident own 100 percent of a Canadian corporation?"
+        heroImage: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=2070&auto=format&fit=crop",
+    faqs: [
+      { q: "Should I incorporate federally or provincially?", a: "Federal incorporation offers nationwide name protection and allows operating in any province, but requires extra-provincial registration in the province where you operate. Provincial incorporation limits operations primarily to that province." },
+      { q: "What is a NUANS name search and do I need one?", a: "A NUANS search checks for existing identical or similar corporate names. It is required for federal and most provincial incorporations, unless opting for a numbered company." },
+      { q: "When do I need to register for GST/HST?", a: "Registration is mandatory once your worldwide gross revenues from taxable sales exceed $30,000 CAD in a single calendar quarter or over four consecutive calendar quarters." },
+      { q: "Can a non-resident own 100 percent of a Canadian corporation?", a: "Yes, a non-resident can own 100% of the shares. However, some jurisdictions previously required resident directors, but changes in recent years have relaxed these rules in certain provinces." }
+    ]
   },
   {
     slug: "pakistan",
@@ -301,6 +325,12 @@ export const countriesData: CountryItem[] = [
       }
     ],
     sectionCta: "Start Your Pakistan Company",
-    faqPrompts: "FAQ prompts: What is the difference between a Single Member Company and a Private Limited Company? Do I need PSEB registration for a software or IT services business? How often do I need to file sales tax returns? What documents do I need for SECP registration?"
+        heroImage: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=2071&auto=format&fit=crop",
+    faqs: [
+      { q: "What is the difference between a Single Member Company and a Private Limited Company?", a: "An SMC requires only one director and shareholder, while a Private Limited Company requires at least two directors and shareholders." },
+      { q: "Do I need PSEB registration for a software or IT services business?", a: "Yes, registering with the Pakistan Software Export Board (PSEB) is highly recommended as it provides tax exemptions on IT exports and facilitates easy repatriation of profits." },
+      { q: "How often do I need to file sales tax returns?", a: "Sales tax returns are filed monthly with the FBR (or provincial authorities like PRA/SRB for services)." },
+      { q: "What documents do I need for SECP registration?", a: "You typically need CNIC copies of the directors, a verified registered office address, and the Memorandum and Articles of Association." }
+    ]
   }
 ];

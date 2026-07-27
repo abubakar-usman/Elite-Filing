@@ -61,8 +61,9 @@ export function MobileNav({ setOpen, onOpenConsultation }: MobileNavProps) {
   ];
 
   return (
-    <div className="absolute top-full left-0 right-0 mt-1 mx-2 sm:mx-4 p-4 bg-white dark:bg-slate-950 backdrop-blur-xl border border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl z-50 max-h-[80vh] overflow-y-auto overscroll-contain">
-      <nav className="flex flex-col gap-1">
+    <div className="absolute top-full left-0 right-0 mt-1 mx-2 sm:mx-4 bg-white dark:bg-slate-950 backdrop-blur-xl border border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl z-50 max-h-[80vh] flex flex-col overflow-hidden">
+      {/* Scrollable nav links */}
+      <nav className="flex flex-col gap-1 p-4 overflow-y-auto overscroll-contain flex-1 min-h-0">
 
         {/* Home */}
         <Link
@@ -199,29 +200,29 @@ export function MobileNav({ setOpen, onOpenConsultation }: MobileNavProps) {
             {isActive(n.to) && <ChevronRight className="w-4 h-4 text-blue-500" />}
           </Link>
         ))}
-
-        {/* Action Buttons */}
-        <div className="pt-3 mt-2 border-t border-slate-100 dark:border-slate-800 space-y-2 px-1">
-          <Link
-            href="/login"
-            onClick={() => setOpen(false)}
-            className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-center"
-          >
-            Sign In to Portal
-          </Link>
-          <button
-            type="button"
-            onClick={() => {
-              setOpen(false);
-              if (onOpenConsultation) onOpenConsultation();
-            }}
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-sm shadow-blue-600/20 transition-all text-center cursor-pointer"
-          >
-            <Phone className="w-4 h-4" />
-            Book a Consultation
-          </button>
-        </div>
       </nav>
+
+      {/* Sticky Action Buttons — always visible at bottom */}
+      <div className="p-3 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 space-y-2 shrink-0">
+        <Link
+          href="/login"
+          onClick={() => setOpen(false)}
+          className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-center"
+        >
+          Sign In to Portal
+        </Link>
+        <button
+          type="button"
+          onClick={() => {
+            setOpen(false);
+            if (onOpenConsultation) onOpenConsultation();
+          }}
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 shadow-sm shadow-orange-500/20 transition-all text-center cursor-pointer"
+        >
+          <Phone className="w-4 h-4" />
+          Book a Consultation
+        </button>
+      </div>
     </div>
   );
 }

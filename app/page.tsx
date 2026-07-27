@@ -22,11 +22,13 @@ import { TrustSignals } from "@/components/site/TrustSignals";
 import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { servicesData } from "@/lib/data/services";
 import { countriesData } from "@/lib/data/countries";
+import { JsonLd } from "@/components/site/JsonLd";
 
 export const metadata: Metadata = {
   title: "Elite Filing — Form, Launch, and Scale Your Business Globally",
   description:
     "Elite Filing helps founders register companies, manage tax and compliance, and expand across the US, UK, UAE, Canada, and Pakistan — with transparent pricing and dedicated specialists.",
+  alternates: { canonical: "https://elite-filing.com" },
   openGraph: {
     title: "Elite Filing — Form, Launch, and Scale Your Business Globally",
     description:
@@ -59,9 +61,25 @@ const howItWorksSteps = [
   { n: "03", t: "You're Ready to Operate", d: "Once approved, you receive your registration documents and, if needed, ongoing support for tax, compliance, and banking." },
 ];
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Elite Filing",
+  url: "https://elite-filing.com",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://elite-filing.com/services?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function HomePage() {
   return (
     <>
+      <JsonLd schema={websiteSchema} />
       <Hero />
       <TrustSignals />
       <Overview />
@@ -70,7 +88,6 @@ export default function HomePage() {
       <WhyChoose />
       <HowItWorks />
       <TestimonialsSection />
-      <ConsultationCTA />
       <FinalCTA />
     </>
   );
@@ -78,7 +95,7 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[620px] text-white overflow-hidden bg-slate-900">
+    <section className="relative min-h-[640px] text-white overflow-hidden bg-slate-900">
 
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -89,7 +106,7 @@ function Hero() {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/90 via-slate-900/85 to-blue-950/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-950/95 via-slate-900/92 to-blue-950/88" />
       </div>
 
       <div className="container-page pt-20 md:pt-32 pb-24 md:pb-40 relative z-10">
@@ -98,15 +115,15 @@ function Hero() {
             Form, Structure, and Scale Your Business Across <span className="text-blue-400">Global Markets.</span>
           </h1>
 
-          <p className="mt-8 text-xl md:text-2xl text-slate-300 max-w-3xl leading-relaxed font-light">
+          <p className="mt-8 text-xl md:text-2xl text-slate-200 max-w-3xl leading-relaxed">
             Elite Filing is a corporate services and business consulting firm that helps first-time founders, established companies, and global investors register companies, manage tax and regulatory compliance, and expand with confidence across the United States, United Kingdom, United Arab Emirates, Canada, and Pakistan, with additional markets launching soon.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <Link href="/pricing" className="inline-flex items-center gap-2 text-base px-8 py-4 rounded-lg font-semibold text-white bg-orange-500 hover:bg-orange-600 shadow-lg shadow-orange-500/20 hover:shadow-xl hover:shadow-orange-500/25 transition-all hover:-translate-y-0.5">
+            <Link href="/pricing" className="btn-primary-cta inline-flex items-center gap-2">
               Start Your Company <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/schedule" className="inline-flex items-center gap-2 text-base px-8 py-4 rounded-lg font-semibold text-white border border-white/20 hover:bg-white/10 backdrop-blur-md transition-all">
+            <Link href="/schedule" className="btn-secondary-cta inline-flex items-center gap-2">
               <Phone className="w-4 h-4" />
               Book a Free Consultation
             </Link>
@@ -132,6 +149,11 @@ function Overview() {
           <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight text-slate-900 dark:text-white">
             One Partner for Every Stage of Your Business
           </h2>
+          <div className="mt-8">
+            <Link href="/services" className="btn-secondary-cta-dark inline-flex items-center gap-2 text-sm">
+              See All Services <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
         <div className="space-y-5 text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
           <p>
@@ -262,6 +284,13 @@ function WhyChoose() {
             </div>
           ))}
         </div>
+        {/* Section exit CTA */}
+        <div className="mt-14 pt-10 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-slate-300 text-sm max-w-md">See the team and values behind every filing we touch.</p>
+          <Link href="/about" className="btn-secondary-cta inline-flex items-center gap-2 text-sm">
+            Meet the Team <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -277,8 +306,8 @@ function HowItWorks() {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {howItWorksSteps.map((s, idx) => (
-            <div 
-              key={s.n} 
+            <div
+              key={s.n}
               className="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative hover:border-blue-500/30 hover:shadow-lg hover:-translate-y-1 transition-all animate-fade-up"
               style={{ animationDelay: `${idx * 150}ms`, animationFillMode: "both" }}
             >
@@ -287,6 +316,12 @@ function HowItWorks() {
               <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{s.d}</p>
             </div>
           ))}
+        </div>
+        {/* Section exit CTA */}
+        <div className="mt-12 text-center">
+          <Link href="/pricing" className="btn-secondary-cta-dark inline-flex items-center gap-2 text-sm">
+            View Pricing & Get Started <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -316,30 +351,16 @@ function FinalCTA() {
             <p className="mt-5 text-slate-300 text-base md:text-lg">
               Join founders around the world who trust Elite Filing to handle the paperwork, so they can focus on building.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3.5">
-              <Link href="/pricing" className="btn-accent text-sm">Start Your Company Today <ArrowRight className="w-4 h-4" /></Link>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/pricing" className="btn-primary-cta inline-flex items-center gap-2">
+                Start Your Company Today <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link href="/schedule" className="btn-secondary-cta inline-flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                Book a Free Consultation
+              </Link>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ConsultationCTA() {
-  return (
-    <section className="section-pad bg-blue-50/50 dark:bg-blue-950/10 border-y border-blue-100/50 dark:border-blue-900/20">
-      <div className="container-page text-center">
-        <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white">
-          Not Sure Where to Start?
-        </h2>
-        <p className="mt-4 text-base md:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-          Book a free consultation and our team will help you choose the right jurisdiction, entity type, and service package for your goals.
-        </p>
-        <div className="mt-8">
-          <Link href="/contact" className="btn-accent">
-            Book a Free Consultation <ArrowRight className="w-4 h-4 ml-1" />
-          </Link>
         </div>
       </div>
     </section>

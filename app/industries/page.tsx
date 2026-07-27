@@ -7,6 +7,7 @@ import { ArrowRight, ShoppingBag, Cpu, Briefcase, Globe2, Building, Landmark, Lu
 export const metadata: Metadata = {
   title: "Industry Solutions — Elite Filing",
   description: "Specialized corporate structures, tax blueprints, and compliance for E-commerce, SaaS & Tech, Professional Services, Import/Export, Real Estate, and Financial Services.",
+  alternates: { canonical: "https://elite-filing.com/industries" },
 };
 
 const iconMap: Record<string, LucideIcon> = {
@@ -54,9 +55,9 @@ export default function IndustriesOverviewPage() {
                     <IconComponent className="w-7 h-7" />
                   </div>
 
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-orange-500 transition-colors">
                     {ind.title}
-                  </h2>
+                  </h3>
 
                   <p className="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                     {ind.shortDesc}

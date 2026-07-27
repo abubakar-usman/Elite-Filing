@@ -7,6 +7,7 @@ import { ArrowRight, CheckCircle2, Building2, Receipt, Shield, MapPin, Landmark,
 export const metadata: Metadata = {
   title: "Corporate Services — Elite Filing",
   description: "Explore Elite Filing's 9 core service categories: Company Formation, Tax & Compliance, Trademark & IP, Registered Agent, Business Banking, Accounting, Ecommerce Setup, Growth, and Consultancy.",
+  alternates: { canonical: "https://elite-filing.com/services" },
 };
 
 const iconMap: Record<string, LucideIcon> = {
