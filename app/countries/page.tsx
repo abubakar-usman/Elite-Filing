@@ -13,12 +13,15 @@ export default function CountriesOverviewPage() {
     <div className="py-12">
       {/* Hero */}
       <section className="container-page py-12 text-center max-w-4xl mx-auto">
-        <div className="eyebrow mx-auto mb-4">Global Coverage</div>
-        <h1 className="font-display text-4xl sm:text-6xl font-bold text-navy-deep dark:text-white leading-tight">
-          Incorporate & Scale Across <span className="text-orange">Five Primary Markets</span>.
+        <div className="eyebrow mx-auto mb-4">Where We Operate</div>
+        <h1 className="font-display text-4xl sm:text-5xl font-bold text-navy-deep dark:text-white leading-tight">
+          Where We Operate
         </h1>
         <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-          Each jurisdiction has unique legal, tax, trademark, and banking advantages. Explore our dedicated country guides to choose the right fit for your expansion.
+          Elite Filing supports company formation and compliance across five markets today, with new jurisdictions added as our footprint grows.
+        </p>
+        <p className="mt-4 text-base text-slate-500 dark:text-slate-400">
+          Every country page below lists the exact services available in that market. If you operate across multiple countries, our team can coordinate registrations and compliance for all of your entities from a single point of contact.
         </p>
       </section>
 

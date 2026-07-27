@@ -14,12 +14,12 @@ export default function ContactPage() {
       {/* Hero Header */}
       <section className="bg-slate-900 text-white py-16 md:py-20 border-b border-slate-800 text-center">
         <div className="container-page max-w-4xl">
-          <div className="eyebrow !text-orange-400 mx-auto mb-4">Contact & Support Hub</div>
-          <h1 className="font-display text-4xl sm:text-6xl font-bold text-white leading-tight">
-            We&apos;re Here to Support Your <span className="text-orange">Global Growth</span>.
+          <div className="eyebrow !text-orange-400 mx-auto mb-4">Get in Touch</div>
+          <h1 className="font-display text-4xl sm:text-5xl font-bold text-white leading-tight">
+            Let&apos;s Talk About Your Business
           </h1>
           <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
-            Connect directly with an international corporate specialist via WhatsApp, live Calendly scheduling, email, or visit our physical office hubs.
+            Whether you&apos;re ready to register or still exploring your options, our team is here to help you figure out the right next step.
           </p>
 
           {/* Direct Quick Action Buttons */}

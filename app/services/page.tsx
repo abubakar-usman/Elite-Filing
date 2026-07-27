@@ -26,12 +26,15 @@ export default function ServicesPage() {
     <div className="py-12">
       {/* Hero */}
       <section className="container-page py-12 text-center max-w-4xl mx-auto">
-        <div className="eyebrow mx-auto mb-4">Complete Services Architecture</div>
-        <h1 className="font-display text-4xl sm:text-6xl font-bold text-navy-deep dark:text-white leading-tight">
-          Nine Specialized Services to <span className="text-orange">Form, Protect & Scale</span> Your Business.
+        <div className="eyebrow mx-auto mb-4">Our Services</div>
+        <h1 className="font-display text-4xl sm:text-5xl font-bold text-navy-deep dark:text-white leading-tight">
+          Every Service Your Business Needs, in One Place
         </h1>
         <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-          From your initial corporate entity filing to tax registrations, international trademarks, business banking, and monthly bookkeeping — our specialists manage every stage.
+          From company formation to tax filing, trademark protection, and business consultancy, Elite Filing supports your business at every stage, across every market we serve.
+        </p>
+        <p className="mt-4 text-base text-slate-500 dark:text-slate-400">
+          Our services fall into nine categories. Explore each one below, or visit a country page to see exactly what&apos;s available where you want to register.
         </p>
       </section>
 

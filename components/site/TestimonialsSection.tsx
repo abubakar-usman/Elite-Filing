@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Star, CheckCircle2 } from "lucide-react";
+import { Star, CheckCircle2, User } from "lucide-react";
 import { testimonialsData } from "@/lib/data/testimonials";
 
 export function TestimonialsSection() {
@@ -16,7 +16,7 @@ export function TestimonialsSection() {
     <section className="section-pad bg-slate-50 dark:bg-slate-900/50">
       <div className="container-page">
         <div className="max-w-3xl mb-10">
-          <div className="eyebrow">Client Success Stories</div>
+          <div className="eyebrow">What Our Clients Say</div>
           <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white">
             Trusted by founders forming businesses worldwide.
           </h2>
@@ -82,14 +82,8 @@ export function TestimonialsSection() {
 
               {/* Author Footer */}
               <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
-                <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700">
-                  <Image
-                    src={item.avatar}
-                    alt={item.name}
-                    fill
-                    sizes="44px"
-                    className="object-cover"
-                  />
+                <div className="relative w-11 h-11 rounded-full overflow-hidden shrink-0 border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                  <User className="w-5 h-5 text-slate-400" />
                 </div>
                 <div>
                   <div className="font-semibold text-sm text-slate-900 dark:text-white flex items-center gap-1.5">

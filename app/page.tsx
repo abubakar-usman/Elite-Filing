@@ -17,12 +17,12 @@ import {
   Users2,
   LucideIcon,
 } from "lucide-react";
-import { FAQSection } from "./FAQSection";
+// import { FAQSection } from "./FAQSection";
 import { TrustSignals } from "@/components/site/TrustSignals";
 import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { servicesData } from "@/lib/data/services";
 import { countriesData } from "@/lib/data/countries";
-import { IndustriesSlider } from "@/components/site/IndustriesSlider";
+// import { IndustriesSlider } from "@/components/site/IndustriesSlider";
 
 export const metadata: Metadata = {
   title: "Elite Filing — Form, Launch, and Scale Your Business Globally",
@@ -48,17 +48,16 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 const why = [
-  { icon: Globe2, title: "Proven Across Global Markets", desc: "Hands-on filing experience in five jurisdictions — advice grounded in real filings, not templates." },
-  { icon: Receipt, title: "Transparent, Upfront Pricing", desc: "You'll always know what you're paying for. No hidden add-ons, no surprise renewal fees." },
-  { icon: Lock, title: "Confidentiality by Default", desc: "Sensitive company and personal data handled with strict confidentiality at every step." },
-  { icon: Users2, title: "One Team, Every Stage", desc: "From formation to compliance, work with specialists who already know your business." },
+  { icon: Globe2, title: "Proven Expertise Across Global Markets", desc: "Our team has hands-on experience registering and maintaining companies across five countries and counting, so you get advice grounded in real filings, not generic templates." },
+  { icon: Receipt, title: "Transparent, Upfront Pricing", desc: "You will always know what you are paying for before you commit. No hidden add-ons, no surprise renewal fees." },
+  { icon: Lock, title: "Confidentiality You Can Rely On", desc: "We handle sensitive company and personal information with strict confidentiality and secure document handling at every step." },
+  { icon: Users2, title: "One Team, Every Stage", desc: "From formation to trademark to ongoing compliance, you work with people who already know your business, instead of starting over with a new provider each time." },
 ];
 
-const lifecycleSteps = [
-  { n: "01", t: "Start", d: "Strategic incorporation, holding company formation, and jurisdictional structuring for global entry." },
-  { n: "02", t: "Operate", d: "Developing robust SOPs, corporate governance charters, and internal financial controls." },
-  { n: "03", t: "Scale", d: "Navigating regulatory compliance, managing cross-border tax, and raising institutional capital." },
-  { n: "04", t: "Expand", d: "Aggressive market scaling, M&A advisory, post-merger integration, and digital transformation." },
+const howItWorksSteps = [
+  { n: "01", t: "Tell Us What You Need", d: "Choose your service and country, and complete a short online application. Most forms take less than five minutes." },
+  { n: "02", t: "We Prepare and File", d: "Our specialists prepare your documents, file with the relevant government body, and keep you updated at every stage." },
+  { n: "03", t: "You're Ready to Operate", d: "Once approved, you receive your registration documents and, if needed, ongoing support for tax, compliance, and banking." },
 ];
 
 export default function HomePage() {
@@ -68,13 +67,13 @@ export default function HomePage() {
       <TrustSignals />
       <Overview />
       <ServicesGrid />
-      <IndustriesSlider />
+      {/* <IndustriesSlider /> */}
       <Countries />
       <WhyChoose />
       <HowItWorks />
       <TestimonialsSection />
       <ConsultationCTA />
-      <FAQSection />
+      {/* <FAQSection /> */}
       <FinalCTA />
     </>
   );
@@ -98,29 +97,25 @@ function Hero() {
 
       <div className="container-page pt-20 md:pt-32 pb-24 md:pb-40 relative z-10">
         <div className="max-w-4xl animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm">
-            <span>Start</span> · <span>Operate</span> · <span>Scale</span> · <span>Expand</span>
-          </div>
-
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl leading-[1.05] font-semibold text-white tracking-tight">
-            Architecting the Future of <span className="text-orange">Global Enterprise.</span>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-semibold text-white tracking-tight">
+            Form, Structure, and Scale Your Business Across <span className="text-orange-500">Global Markets.</span>
           </h1>
 
           <p className="mt-8 text-xl md:text-2xl text-slate-300 max-w-3xl leading-relaxed font-light">
-            Transforming visionary companies into globally compliant, scalable, and resilient organizations. Elite Filing is your strategic partner for cross-border expansion, corporate governance, and complex structuring.
+            Elite Filing is a corporate services and business consulting firm that helps entrepreneurs, established companies, and global investors register companies, manage tax and regulatory compliance, and expand with confidence across the United States, United Kingdom, United Arab Emirates, Canada, and Pakistan, with additional markets launching soon.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <Link href="/schedule" className="btn-accent text-base px-8 py-4 shadow-xl shadow-orange-500/20">
-              Book an Advisory Session <ArrowRight className="w-5 h-5 ml-2" />
+            <Link href="/pricing" className="btn-accent text-base px-8 py-4 shadow-xl shadow-orange-500/20">
+              Start Your Company <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
-            <Link href="/services" className="btn-ghost !text-white !border-white/20 hover:!bg-white/10 text-base px-8 py-4 backdrop-blur-md">
-              Explore Our Services
+            <Link href="/schedule" className="btn-ghost !text-white !border-white/20 hover:!bg-white/10 text-base px-8 py-4 backdrop-blur-md">
+              Book a Free Consultation
             </Link>
           </div>
 
           <p className="mt-8 text-sm text-slate-400 max-w-xl">
-            Trusted by venture-backed startups and multinational corporations across the US, UK, UAE, Canada, and Pakistan.
+            Transparent pricing, precise execution, and a dedicated specialist managing every filing, so you can focus on running your business.
           </p>
         </div>
 
@@ -137,19 +132,15 @@ function Overview() {
         <div>
           <div className="eyebrow">What we do</div>
           <h2 className="mt-3 text-4xl md:text-5xl font-semibold leading-tight text-slate-900 dark:text-white">
-            One partner for every stage of your business.
+            One Partner for Every Stage of Your Business
           </h2>
         </div>
         <div className="space-y-5 text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
           <p>
-            Elite Filing is a corporate services and business consulting firm built for founders who
-            need more than a form-filling service. We help you choose the right jurisdiction, register
-            correctly the first time, and stay compliant year after year.
+            Elite Filing is a corporate services and business consulting firm built for founders who need more than a form-filling service. We help you choose the right jurisdiction, register your company correctly the first time, and stay compliant year after year. From your first LLC or private limited company to trademark protection, tax registration, business banking, and ongoing bookkeeping, our team manages the process so you can focus on building your business.
           </p>
           <p>
-            From your first LLC or private limited company to trademark protection, tax registration,
-            business banking, and ongoing bookkeeping — our team manages the process so you can focus
-            on building your business.
+            We work with startups launching their first entity, ecommerce sellers expanding into new marketplaces, and established companies restructuring across multiple countries. Wherever you are in your journey, we bring the same commitment to precision, transparency, and professionalism.
           </p>
         </div>
       </div>
@@ -164,7 +155,7 @@ function ServicesGrid() {
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <div className="eyebrow">Nine Core Categories</div>
-            <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white">What you can do with Elite Filing</h2>
+            <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white">What You Can Do With Elite Filing</h2>
           </div>
           <Link href="/services" className="btn-ghost">Explore all services <ArrowRight className="w-4 h-4" /></Link>
         </div>
@@ -210,9 +201,9 @@ function Countries() {
         <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
           <div className="max-w-2xl">
             <div className="eyebrow">Countries We Cover</div>
-            <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white">Wherever you want to build, we take you there.</h2>
+            <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white">Wherever You Want to Build, We Can Take You There</h2>
             <p className="mt-4 text-base text-slate-600 dark:text-slate-300">
-              We currently support company formation, taxation, trademark, and banking across five key markets.
+              We currently support company formation and compliance in five key markets, with new jurisdictions added regularly.
             </p>
           </div>
           <Link href="/countries" className="btn-ghost">View All Country Guides <ArrowRight className="w-4 h-4" /></Link>
@@ -251,7 +242,7 @@ function WhyChoose() {
       <div className="container-page relative">
         <div className="max-w-2xl">
           <div className="eyebrow !text-orange-400">Why Elite Filing</div>
-          <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-white">Why founders choose Elite Filing.</h2>
+          <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-white">Why Founders Choose Elite Filing</h2>
         </div>
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {why.map((w) => (
@@ -274,11 +265,11 @@ function HowItWorks() {
     <section className="section-pad bg-slate-50 dark:bg-slate-900/50">
       <div className="container-page">
         <div className="max-w-2xl mb-14">
-          <div className="eyebrow">The Business Lifecycle</div>
-          <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white">A long-term partner from formation to global expansion.</h2>
+          <div className="eyebrow">How It Works</div>
+          <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 dark:text-white">From Application to Approved, in Three Steps</h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-4">
-          {lifecycleSteps.map((s, idx) => (
+        <div className="grid gap-6 md:grid-cols-3">
+          {howItWorksSteps.map((s, idx) => (
             <div 
               key={s.n} 
               className="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm relative hover:border-orange-500/30 hover:shadow-lg hover:-translate-y-1 transition-all animate-fade-up"
@@ -304,14 +295,13 @@ function FinalCTA() {
           <div className="relative max-w-2xl">
             <div className="eyebrow !text-orange-400">Ready when you are</div>
             <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-white">
-              Your business, registered right, wherever you want to grow.
+              Your Business, Registered Right, Wherever You Want to Grow
             </h2>
             <p className="mt-5 text-slate-300 text-base md:text-lg">
-              Join thousands of founders around the world who trust Elite Filing to handle legal paperwork — so they can focus on building.
+              Join founders around the world who trust Elite Filing to handle the paperwork, so they can focus on building.
             </p>
             <div className="mt-8 flex flex-wrap gap-3.5">
               <Link href="/pricing" className="btn-accent text-sm">Start Your Company Today <ArrowRight className="w-4 h-4" /></Link>
-              <Link href="/contact" className="btn-ghost !text-white !border-white/25 hover:!bg-white/10 text-sm">Book a Free Consultation</Link>
             </div>
           </div>
         </div>

@@ -4,27 +4,27 @@ export function TrustSignals() {
   const items = [
     {
       icon: Globe2,
-      metric: "50+ Jurisdictions",
-      label: "Global Corporate Coverage",
-      desc: "Structuring cross-border entities across North America, Europe, Middle East, and Asia."
+      metric: "Global Founders",
+      label: "Trusted by founders in over 20 countries",
+      desc: "Providing reliable corporate services for entrepreneurs worldwide."
     },
     {
       icon: FileCheck,
-      metric: "$2B+ Assets",
-      label: "Under Advisory Structures",
-      desc: "Protecting corporate wealth through optimized holding companies and SPVs."
+      metric: "Multi-Market",
+      label: "Registrations completed across 5+ jurisdictions",
+      desc: "US, UK, UAE, Canada, and Pakistan."
     },
     {
       icon: ShieldCheck,
-      metric: "99.8% Compliance",
-      label: "Regulatory Audit Success",
-      desc: "Rigorous state, federal, and international annual compliance management."
+      metric: "Expert Team",
+      label: "Licensed partners and in-house compliance specialists",
+      desc: "Direct filing with state departments and registries."
     },
     {
       icon: Users,
-      metric: "500+ Enterprises",
-      label: "Long-term Strategic Partners",
-      desc: "Advising private equity, venture-backed startups, and multinational corporations."
+      metric: "Clear Pricing",
+      label: "Transparent, upfront pricing with no surprise charges",
+      desc: "You'll always know what you're paying for before you commit."
     }
   ];
 

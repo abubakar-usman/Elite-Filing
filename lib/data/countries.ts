@@ -36,7 +36,7 @@ export const countriesData: CountryItem[] = [
     slug: "united-states",
     name: "United States",
     flag: "🇺🇸",
-    tagline: "The world's leading market for tech, e-commerce, and global investment.",
+    tagline: "LLCs, C-Corps, and full IRS and state compliance support.",
     heroDesc: "Form a Delaware, Wyoming, Florida, or California entity with an official EIN tax ID, Registered Agent, and US bank account. Designed for international founders operating globally.",
     stats: [
       { key: "1 - 3 Days", label: "Average Incorporation Time" },
@@ -132,7 +132,7 @@ export const countriesData: CountryItem[] = [
     slug: "united-kingdom",
     name: "United Kingdom",
     flag: "🇬🇧",
-    tagline: "Gateway to European trade, financial prestige, and rapid company registration.",
+    tagline: "LTD registration, Companies House filings, and VAT support.",
     heroDesc: "Incorporate a UK Limited Company (LTD) within 24 hours. Includes official Companies House registration, London registered office address, HMRC VAT setup, and UK multi-currency banking.",
     stats: [
       { key: "24 Hours", label: "Companies House Registration" },
@@ -221,7 +221,7 @@ export const countriesData: CountryItem[] = [
     slug: "uae",
     name: "United Arab Emirates",
     flag: "🇦🇪",
-    tagline: "Tax-efficient haven for global entrepreneurs, crypto, trading, & wealth growth.",
+    tagline: "Mainland, Free Zone, and Offshore company formation.",
     heroDesc: "Launch a UAE Free Zone or Mainland company in Dubai, Abu Dhabi, or Sharjah. Benefit from 0% personal income tax, 100% foreign ownership, and world-class UAE banking access.",
     stats: [
       { key: "0% Personal Tax", label: "Zero income & capital gains tax" },
@@ -310,7 +310,7 @@ export const countriesData: CountryItem[] = [
     slug: "canada",
     name: "Canada",
     flag: "🇨🇦",
-    tagline: "Trusted North American brand reputation, innovation incentives, & trade access.",
+    tagline: "Federal and provincial incorporation with GST/HST registration.",
     heroDesc: "Incorporate federally or provincially in Ontario, British Columbia, or Alberta. Obtain CRA Business Number, GST/HST registration, and Canadian corporate banking.",
     stats: [
       { key: "2 - 4 Days", label: "Corporate Registration Time" },
@@ -398,7 +398,7 @@ export const countriesData: CountryItem[] = [
     slug: "pakistan",
     name: "Pakistan",
     flag: "🇵🇰",
-    tagline: "Rapidly growing tech, IT exports, textiles, and manufacturing market.",
+    tagline: "SECP registration, NTN, sales tax, and FBR compliance.",
     heroDesc: "Incorporate a Private Limited Company with the SECP, obtain FBR NTN and Sales Tax Registration (STRN), open bank accounts, and claim 0% tax benefits on IT exports.",
     stats: [
       { key: "3 - 7 Days", label: "SECP Incorporation Time" },

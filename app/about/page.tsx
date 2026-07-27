@@ -33,26 +33,22 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About Elite Filing"
-        title="Built for founders who refuse to cut corners."
-        description="Elite Filing was founded on a simple premise: registering and running a business across borders should be precise, transparent, and free of surprises. We built the team, playbooks, and systems to make that real."
+        title="Built for Founders Who Refuse to Cut Corners"
+        description="Elite Filing is a corporate services and business consulting firm helping entrepreneurs and investors form, structure, and scale companies across the world's leading markets."
       />
 
       <section className="section-pad">
         <div className="container-page grid gap-12 lg:grid-cols-2 items-start">
           <div>
-            <div className="eyebrow">Our story</div>
-            <h2 className="mt-3 text-3xl md:text-4xl font-semibold">A firm shaped by real filings, not template libraries.</h2>
+            <div className="eyebrow">Our Story</div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-semibold">Why Elite Filing Exists</h2>
           </div>
           <div className="space-y-5 text-foreground/75 leading-relaxed">
             <p>
-              We started Elite Filing after watching too many founders lose time, money, and momentum
-              to providers that treated business formation like a checkout. Wrong entity choices,
-              missed filings, invisible renewal fees — every one of them avoidable with the right team.
+              Registering and running a compliant business across international markets should not require a legal team of your own. Founders too often lose weeks, and sometimes months, navigating unfamiliar government portals, inconsistent advice, and service providers who disappear once the initial filing is complete. Elite Filing was founded to remove that friction.
             </p>
             <p>
-              Today, Elite Filing is a full-service corporate and consulting firm with hands-on
-              experience across the US, UK, UAE, Canada, and Pakistan. We work with startups, ecommerce
-              operators, and established multinationals — with the same standard of care for every one.
+              We pair multi-jurisdictional expertise with a disciplined, transparent process, so entrepreneurs, established companies, ecommerce sellers, and global investors can register a company, register for tax, protect their brand, and remain compliant, without the delays and back-and-forth that typically accompany this work. We currently operate across the United States, United Kingdom, United Arab Emirates, Canada, and Pakistan, and we are actively expanding into new markets, including France, Germany, and Turkey.
             </p>
           </div>
         </div>
@@ -62,7 +58,7 @@ export default function AboutPage() {
         <div className="container-page text-center max-w-4xl mx-auto">
           <div className="eyebrow">Our Mission</div>
           <p className="mt-6 text-2xl md:text-3xl font-medium leading-relaxed text-navy-deep">
-            Give businesses of every size access to the same level of corporate expertise, compliance discipline, and personalised service that was once reserved for companies with in-house legal and finance teams.
+            Our mission is simple: give businesses of every size access to the same level of corporate expertise, compliance discipline, and personalised service that was once reserved for companies with in-house legal and finance teams.
           </p>
           <p className="mt-6 text-lg text-foreground/70">
             Whether you are filing your first LLC or managing entities across four countries, we hold ourselves to the same standard of precision and care.
@@ -111,14 +107,12 @@ export default function AboutPage() {
       <section className="section-pad">
         <div className="container-page grid gap-10 lg:grid-cols-2 items-start">
           <div>
-            <div className="eyebrow">Our team</div>
-            <h2 className="mt-3 text-3xl md:text-4xl font-semibold">The people behind Elite Filing.</h2>
+            <div className="eyebrow">Our Team</div>
+            <h2 className="mt-3 text-3xl md:text-4xl font-semibold">The People Behind Elite Filing</h2>
           </div>
           <p className="text-foreground/75 leading-relaxed text-lg">
-            Elite Filing is a distributed team of corporate lawyers, chartered accountants, licensed
-            registered agents, and business consultants. We hire locally in every jurisdiction we
-            operate in — so when you file in the UAE, a UAE specialist is on the other side of the
-            email. <span className="text-foreground/55 italic">(Individual team bios coming soon.)</span>
+            Our team includes formation specialists, tax advisors, trademark professionals, and business consultants with direct experience in each of the jurisdictions we serve. Rather than generalists handling every market, we assign specialists who focus on specific countries and service areas, so your filing is handled by someone who genuinely knows the rules.
+            <span className="text-foreground/55 italic"> (Individual team bios and photos to be added by the marketing team before launch.)</span>
           </p>
         </div>
       </section>
@@ -127,7 +121,7 @@ export default function AboutPage() {
         <div className="container-page">
           <div className="rounded-3xl bg-surface-alt p-10 md:p-14 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold max-w-2xl mx-auto">
-              Ready to work with a team that treats your business like it matters?
+              Ready to Work With a Team That Treats Your Business Like It Matters?
             </h2>
             <div className="mt-8 flex justify-center">
               <Link href="/contact" className="btn-accent">Book a Free Consultation</Link>
