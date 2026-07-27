@@ -144,7 +144,7 @@ export default function AboutPage() {
 
               <div>
                 <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-                  Muhammad Abubakar
+                  Najeeb Ullah Khan Salar
                 </h2>
                 <p className="text-amber-400 font-medium text-lg mt-1">
                   Founder & Chief Executive Officer — Elite Filing
