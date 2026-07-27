@@ -126,7 +126,7 @@ export default function AboutPage() {
               <Image3DCard
                 src="/DSC_8242.JPG"
                 alt="Founder & CEO of Elite Filing"
-                title="Muhammad Abubakar"
+                title="Najeeb Ullah Khan Salar"
                 subtitle="Founder & Chief Executive Officer"
                 badge="Founder & CEO"
                 aspectRatio="aspect-[3/4]"
