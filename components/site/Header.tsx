@@ -38,28 +38,31 @@ export function Header({ onOpenConsultation }: HeaderProps) {
 
   return (
     <div className="w-full sticky top-0 z-50 transition-all duration-300 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800">
-      <header className="relative flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 transition-all duration-300">
+      <header className="relative flex items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 transition-all duration-300">
         <div className="w-full max-w-7xl mx-auto flex items-center justify-between">
 
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+            className="flex items-center gap-0 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
             onClick={closeMobileMenu}
           >
-            <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9">
+            <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20">
               <Image
-                src="/logo.png"
+                src="/logo_new.png"
                 alt="Elite Filing"
-                width={36}
-                height={36}
+                width={80}
+                height={80}
                 priority
                 className="object-contain w-full h-full"
               />
             </div>
-            <div className="leading-none flex flex-col justify-center">
-              <div className="font-bold tracking-tight text-slate-900 dark:text-white text-base sm:text-lg">
-                Elite Filing
+            <div className="flex flex-col items-center justify-center pt-0.5 -ml-2 sm:-ml-3">
+              <div className="font-serif tracking-widest text-[#1a2b5c] dark:text-blue-100 text-base sm:text-lg uppercase leading-none" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
+                ELITE FILING
+              </div>
+              <div className="font-sans font-bold tracking-[0.22em] text-[#f47b20] text-[6px] sm:text-[7px] mt-1 uppercase leading-none w-full text-center">
+                FORM.LAUNCH.GROW
               </div>
             </div>
           </Link>

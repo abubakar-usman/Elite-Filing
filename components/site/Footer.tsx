@@ -102,13 +102,17 @@ export function Footer() {
           
           {/* Column 1: Brand & Office Hubs */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-3 w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg pr-2">
-              <div className="bg-white rounded-lg p-1 shrink-0 h-10 w-10 flex items-center justify-center">
-                <Image src="/logo.png" alt="Elite Filing" width={36} height={36} className="h-full w-full object-contain" />
+            <Link href="/" className="flex items-center gap-0 w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg pr-2">
+              <div className="relative flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 shrink-0">
+                <Image src="/logo_new.png" alt="Elite Filing" width={80} height={80} className="w-full h-full object-contain" />
               </div>
-              <div>
-                <div className="font-display text-xl font-bold text-white tracking-tight">Elite Filing</div>
-                <div className="text-[9px] tracking-[0.2em] font-bold text-blue-400 uppercase mt-0.5">Corporate Services</div>
+              <div className="flex flex-col items-center justify-center pt-0.5 -ml-2 sm:-ml-3">
+                <div className="font-serif tracking-widest text-white text-base sm:text-lg uppercase leading-none" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
+                  ELITE FILING
+                </div>
+                <div className="font-sans font-bold tracking-[0.22em] text-[#f47b20] text-[6px] sm:text-[7px] mt-1 uppercase leading-none w-full text-center">
+                  FORM.LAUNCH.GROW
+                </div>
               </div>
             </Link>
 

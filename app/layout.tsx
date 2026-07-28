@@ -40,7 +40,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Elite Filing",
   url: "https://elite-filing.com",
-  logo: "https://elite-filing.com/logo.png",
+  logo: "https://elite-filing.com/logo_new.png",
   description: SITE_DESCRIPTION,
   contactPoint: {
     "@type": "ContactPoint",
