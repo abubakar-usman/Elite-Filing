@@ -103,14 +103,14 @@ export function Footer() {
           {/* Column 1: Brand & Office Hubs */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-1 w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg pr-2">
-              <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 shrink-0">
-                <Image src="/logo_new.png" alt="Elite Filing" width={48} height={48} className="w-full h-full object-contain" />
+              <div className="relative flex items-center justify-center w-20 h-20 shrink-0">
+                <Image src="/logo_new.png" alt="Elite Filing" width={80} height={80} className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col items-center justify-center pt-0.5 -ml-1">
-                <div className="font-serif tracking-widest text-white text-sm sm:text-base uppercase leading-none" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
+                <div className="font-serif tracking-widest text-white text-base sm:text-lg uppercase leading-none" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
                   ELITE FILING
                 </div>
-                <div className="font-sans font-bold tracking-[0.22em] text-[#f47b20] text-[5px] sm:text-[6px] mt-1 uppercase leading-none w-full text-center">
+                <div className="font-sans font-bold tracking-[0.22em] text-[#f47b20] text-[6px] sm:text-[7px] mt-1 uppercase leading-none w-full text-center">
                   FORM.LAUNCH.GROW
                 </div>
               </div>

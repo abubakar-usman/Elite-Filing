@@ -44,24 +44,24 @@ export function Header({ onOpenConsultation }: HeaderProps) {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-1 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md"
+            className="flex items-center gap-1 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md -my-5"
             onClick={closeMobileMenu}
           >
-            <div className="relative flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12">
+            <div className="relative flex items-center justify-center w-20 h-20">
               <Image
                 src="/logo_new.png"
                 alt="Elite Filing"
-                width={48}
-                height={48}
+                width={80}
+                height={80}
                 priority
                 className="object-contain w-full h-full"
               />
             </div>
             <div className="flex flex-col items-center justify-center pt-0.5 -ml-1">
-              <div className="font-serif tracking-widest text-[#1a2b5c] dark:text-blue-100 text-sm sm:text-base uppercase leading-none" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
+              <div className="font-serif tracking-widest text-[#1a2b5c] dark:text-blue-100 text-base sm:text-lg uppercase leading-none" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
                 ELITE FILING
               </div>
-              <div className="font-sans font-bold tracking-[0.22em] text-[#f47b20] text-[5px] sm:text-[6px] mt-1 uppercase leading-none w-full text-center">
+              <div className="font-sans font-bold tracking-[0.22em] text-[#f47b20] text-[6px] sm:text-[7px] mt-1 uppercase leading-none w-full text-center">
                 FORM.LAUNCH.GROW
               </div>
             </div>
