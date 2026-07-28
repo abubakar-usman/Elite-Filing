@@ -44,17 +44,17 @@ export function Header({ onOpenConsultation }: HeaderProps) {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-1 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md -my-5"
+            className="flex items-center gap-0 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md -my-5"
             onClick={closeMobileMenu}
           >
-            <div className="relative flex items-center justify-center w-20 h-20">
+            <div className="relative flex items-center justify-center w-20 h-20 translate-y-1.5">
               <Image
                 src="/logo_new.png"
                 alt="Elite Filing"
                 width={80}
                 height={80}
                 priority
-                className="object-contain w-full h-full"
+                className="object-contain w-full h-full scale-110"
               />
             </div>
             <div className="flex flex-col items-center justify-center pt-0.5 -ml-1">

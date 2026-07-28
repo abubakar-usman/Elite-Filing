@@ -102,9 +102,9 @@ export function Footer() {
           
           {/* Column 1: Brand & Office Hubs */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-1 w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg pr-2">
-              <div className="relative flex items-center justify-center w-20 h-20 shrink-0">
-                <Image src="/logo_new.png" alt="Elite Filing" width={80} height={80} className="w-full h-full object-contain" />
+            <Link href="/" className="flex items-center gap-0 w-fit focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-lg pr-2">
+              <div className="relative flex items-center justify-center w-20 h-20 shrink-0 translate-y-1.5">
+                <Image src="/logo_new.png" alt="Elite Filing" width={80} height={80} className="w-full h-full object-contain scale-110" />
               </div>
               <div className="flex flex-col items-center justify-center pt-0.5 -ml-1">
                 <div className="font-serif tracking-widest text-white text-base sm:text-lg uppercase leading-none" style={{ fontFamily: "'Fraunces', serif", fontWeight: 500 }}>
