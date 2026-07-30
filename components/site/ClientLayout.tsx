@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/components/site/Header";
-import { Footer } from "@/components/site/Footer";
+import { Header } from "@/components/header/Header";
+import { Footer } from "@/components/footer/Footer";
 import { ConsultationModal } from "@/components/site/ConsultationModal";
 import { StickyCTA } from "@/components/site/StickyCTA";
 import { Toaster } from "sonner";

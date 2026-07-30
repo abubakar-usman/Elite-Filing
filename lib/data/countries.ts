@@ -20,6 +20,7 @@ export interface CountryItem {
   packages?: { name: string; price: string; features: string[]; popular?: boolean }[];
   faqs?: { q: string; a: string }[];
   heroImage?: string;
+  comingSoon?: boolean;
 }
 
 export const countriesData: CountryItem[] = [
@@ -332,5 +333,39 @@ export const countriesData: CountryItem[] = [
       { q: "How often do I need to file sales tax returns?", a: "Sales tax returns are filed monthly with the FBR (or provincial authorities like PRA/SRB for services)." },
       { q: "What documents do I need for SECP registration?", a: "You typically need CNIC copies of the directors, a verified registered office address, and the Memorandum and Articles of Association." }
     ]
-  }
+  },
+  {
+    slug: "france",
+    name: "France",
+    flag: "🇫🇷",
+    tagline: "",
+    pageHeadline: "",
+    intro: "",
+    serviceCategories: [],
+    sectionCta: "",
+    comingSoon: true,
+  },
+  {
+    slug: "germany",
+    name: "Germany",
+    flag: "🇩🇪",
+    tagline: "",
+    pageHeadline: "",
+    intro: "",
+    serviceCategories: [],
+    sectionCta: "",
+    comingSoon: true,
+  },
+  {
+    slug: "turkey",
+    name: "Turkey",
+    flag: "🇹🇷",
+    tagline: "",
+    pageHeadline: "",
+    intro: "",
+    serviceCategories: [],
+    sectionCta: "",
+    comingSoon: true,
+  },
 ];
+
