@@ -184,17 +184,28 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">Services</h4>
-            <ul className="mt-6 space-y-3 text-[13px] text-slate-400">
-              {servicesData.map((s) => (
-                <li key={s.slug}>
-                  <Link href={`/services/${s.slug}`} className="hover:text-blue-400 transition-colors block">
-                    {s.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+  <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">Services</h4>
+  <ul className="mt-6 space-y-3 text-[13px] text-slate-400">
+    {/* 1. We slice the array to only show the first 5 items */}
+    {servicesData.slice(0, 5).map((s) => (
+      <li key={s.slug}>
+        <Link href={`/services/${s.slug}`} className="hover:text-blue-400 transition-colors block">
+          {s.title}
+        </Link>
+      </li>
+    ))}
+    {servicesData.length > 5 && (
+      <li className="pt-2">
+        <Link 
+          href="/services" 
+          className="text-blue-400 font-medium hover:text-blue-300 transition-colors flex items-center gap-1"
+        >
+          View All Services <span className="text-[10px]">→</span>
+        </Link>
+      </li>
+    )}
+  </ul>
+</div>
 
           {/* Countries */}
           <div>
@@ -213,17 +224,28 @@ export function Footer() {
 
           {/* Industries */}
           <div>
-            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">Industries</h4>
-            <ul className="mt-6 space-y-3 text-[13px] text-slate-400">
-              {industriesData.map((ind) => (
-                <li key={ind.slug}>
-                  <Link href={`/industries/${ind.slug}`} className="hover:text-blue-400 transition-colors block">
-                    {ind.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+  <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">Industries</h4>
+  <ul className="mt-6 space-y-3 text-[13px] text-slate-400">
+    {/* 1. Only show the first 5 industries */}
+    {industriesData.slice(0, 5).map((ind) => (
+      <li key={ind.slug}>
+        <Link href={`/industries/${ind.slug}`} className="hover:text-blue-400 transition-colors block">
+          {ind.title}
+        </Link>
+      </li>
+    ))}
+    {industriesData.length > 5 && (
+      <li className="pt-2">
+        <Link 
+          href="/industries" 
+          className="text-blue-400 font-medium hover:text-blue-300 transition-colors flex items-center gap-1"
+        >
+          View All Industries <span className="text-[10px]">→</span>
+        </Link>
+      </li>
+    )}
+  </ul>
+</div>
 
           {/* Company */}
           <div>
@@ -266,18 +288,32 @@ export function Footer() {
         </div>
 
         {/* Legal bar */}
-        <div className="border-t border-slate-800/80 bg-slate-950/50 py-8">
-          <div className="container-page flex flex-col md:flex-row items-center justify-between gap-6 text-[13px] text-slate-500">
-            <div>© {new Date().getFullYear()} Elite Filing Co. All rights reserved.</div>
-            <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 gap-y-3">
-              {legalLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="hover:text-slate-300 transition-colors">
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
+        <div className="border-t border-orange-500/10 bg-[#020617] py-8">
+  <div className="container-page flex flex-col md:flex-row items-center justify-between gap-6 text-[13px] text-slate-400">
+    
+    {/* Copyright Text */}
+    <div className="font-medium">
+      © {new Date().getFullYear()} <span className="text-white">Elite Filing Co.</span> All rights reserved.
+    </div>
+
+    {/* Legal Links */}
+    <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-8 gap-y-3">
+      {legalLinks.map((link) => (
+        <Link 
+          key={link.href} 
+          href={link.href} 
+          // 3. Hover changed to Orange-500
+          // 4. Added "group" for the animated underline effect
+          className="relative group hover:text-orange-500 transition-colors duration-300"
+        >
+          {link.label}
+          {/* 5. Animated Orange Underline */}
+          <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+      ))}
+    </div>
+  </div>
+</div>
       </div>
     </footer>
   );
