@@ -79,14 +79,10 @@ const testimonials: TestimonialItem[] = [
 ];
 
 export function TestimonialsSection() {
-  // Duplicating the testimonials array ensures a seamless, infinite loop for the slider
   const sliderItems = [...testimonials, ...testimonials];
 
   return (
     <section className="pt-10 pb-24 bg-grey border-b border-slate-200 overflow-hidden">
-      {/* 
-        Injecting the keyframe animation and hover pause directly here.
-      */}
       <style dangerouslySetInnerHTML={{
         __html: `
         @keyframes scroll-marquee {
@@ -96,7 +92,6 @@ export function TestimonialsSection() {
         .animate-marquee {
           animation: scroll-marquee 40s linear infinite;
         }
-        /* This pauses the entire track when a user hovers over it */
         .animate-marquee:hover {
           animation-play-state: paused;
         }
@@ -104,7 +99,6 @@ export function TestimonialsSection() {
       }} />
 
       <div className="container-page">
-        {/* Header Area */}
         <div className="max-w-3xl mb-16">
           <div className="eyebrow">What Our Clients Say</div>
           <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900 leading-tight">
@@ -117,9 +111,7 @@ export function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Auto-scrolling Slider Area */}
       <div className="relative w-full flex">
-        {/* Changed from pb-8 to py-6 so the top shadow glow doesn't get clipped on hover */}
         <div className="flex w-max animate-marquee py-6 items-stretch">
           {sliderItems.map((item, index) => (
             <div
@@ -128,7 +120,6 @@ export function TestimonialsSection() {
             >
               <div className="group h-full flex flex-col p-8 md:p-10 rounded-3xl bg-white dark:bg-slate-950 border border-slate-200/60 dark:border-slate-800/60 shadow-sm transition-all duration-500 ease-out whitespace-normal cursor-default hover:-translate-y-1.5 hover:border-orange/60 hover:shadow-[0_12px_40px_-12px_color-mix(in_oklab,var(--orange)_25%,transparent)] dark:hover:shadow-[0_12px_40px_-12px_color-mix(in_oklab,var(--orange)_15%,transparent)]">
                 
-                {/* Tags row */}
                 <div className="flex justify-between items-start mb-6">
                   <div className="flex flex-col gap-2">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-1 rounded border border-blue-100 w-fit">
@@ -143,14 +134,12 @@ export function TestimonialsSection() {
                   </span>
                 </div>
 
-                {/* Quote body */}
+                {/* FIXED LINE BELOW: Using &quot; instead of " */}
                 <p className="text-slate-700 dark:text-slate-300 italic text-base leading-relaxed mb-8 grow">
-                  "{item.quote}"
+                  &quot;{item.quote}&quot;
                 </p>
 
-                {/* Client Info */}
                 <div className="pt-6 border-t border-slate-100 dark:border-slate-800/60 flex items-center gap-4 mt-auto">
-                  {/* Icon animates to orange on group-hover */}
                   <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center text-slate-400 shrink-0 transition-all duration-500 ease-out group-hover:bg-orange/10 group-hover:text-orange group-hover:scale-105">
                     <User size={20} />
                   </div>
@@ -161,7 +150,6 @@ export function TestimonialsSection() {
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
           ))}
@@ -170,7 +158,6 @@ export function TestimonialsSection() {
     </section>
   );
 }
-
 export function TrustSignals() {
   const items = [
     {
