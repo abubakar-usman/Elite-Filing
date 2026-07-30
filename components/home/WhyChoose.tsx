@@ -30,7 +30,7 @@ const reasons: { icon: LucideIcon; title: string; desc: string }[] = [
 
 export function WhyChoose() {
   return (
-    <section className="section-pad bg-slate-950 text-white relative overflow-hidden animate-fade-up">
+    <section className="section-pad bg-slate-950 text-white relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src={backgroundImage}
@@ -39,7 +39,10 @@ export function WhyChoose() {
           className="object-cover opacity-10"
         />
       </div>
+      
+      {/* Background Ambient Glow */}
       <div className="pointer-events-none absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-blue-500/15 blur-3xl" />
+
       <div className="container-page relative z-10">
         <div className="max-w-2xl">
           <div className="eyebrow !text-blue-400">Why Elite Filing</div>
@@ -47,25 +50,43 @@ export function WhyChoose() {
             Why Founders Choose Elite Filing
           </h2>
         </div>
+
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {reasons.map((w) => (
             <div
               key={w.title}
-              className="group hover:-translate-y-1 transition-transform duration-300 p-6 rounded-2xl hover:bg-white/5 border border-transparent hover:border-white/10"
+              className="group relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 p-6 transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/30"
             >
-              <div className="w-12 h-12 rounded-xl bg-white/10 text-blue-400 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                <w.icon className="w-6 h-6" />
+              {/* 1. CONSTANT ANIMATED GLOW (Always visible) */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent opacity-60 animate-pulse group-hover:animate-none" />
+              
+              {/* 2. HOVER OVERLAY (Light dark-shaded orange) */}
+              <div className="absolute inset-0 bg-orange-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Card Content */}
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-xl bg-white/10 text-orange-400 flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(249,115,22,0.1)] group-hover:shadow-[0_0_25px_rgba(249,115,22,0.4)]">
+                  <w.icon className="w-6 h-6" />
+                </div>
+                <h3 className="mt-5 text-xl font-semibold text-white transition-colors group-hover:text-orange-50">
+                  {w.title}
+                </h3>
+                <p className="mt-2.5 text-xs text-slate-400 leading-relaxed group-hover:text-slate-200 transition-colors">
+                  {w.desc}
+                </p>
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-white">{w.title}</h3>
-              <p className="mt-2.5 text-xs text-slate-300 leading-relaxed">{w.desc}</p>
+              
+              {/* Decorative corner light */}
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-orange-500/10 blur-2xl group-hover:bg-orange-500/20 transition-all" />
             </div>
           ))}
         </div>
+
         <div className="mt-14 pt-10 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
           <p className="text-slate-300 text-sm max-w-md">
             See the team and values behind every filing we touch.
           </p>
-          <Link href="/about" className="btn-secondary-cta inline-flex items-center gap-2 text-sm">
+          <Link href="/about" className="btn-secondary-cta inline-flex items-center gap-2 text-sm transition-transform hover:translate-x-1">
             Meet the Team <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
