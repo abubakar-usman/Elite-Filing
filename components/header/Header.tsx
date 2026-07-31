@@ -269,25 +269,25 @@ function HeaderLogo({ onClick }: { onClick?: () => void }) {
     <Link
       href="/"
       onClick={onClick}
-      className="group flex items-center outline-none transition-transform duration-300 mt-2 sm:mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:rounded-lg focus-visible:ring-offset-2 -ml-2 sm:-ml-3 lg:-ml-5"
+      className="group flex items-center outline-none transition-transform duration-300 mt-2.5 sm:mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:rounded-lg focus-visible:ring-offset-2 -ml-2 sm:-ml-3 lg:-ml-5"
     >
       {/* Logo Graphic — scales down on small screens */}
-      <div className="relative flex items-center justify-center w-[65px] h-[65px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] shrink-0">
+      <div className="relative flex items-center justify-center w-[65px] h-[65px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] shrink-0 mt-1">
         <Image
           src={brand.logoSrc}
           alt={brand.logoAlt}
           width={256}
           height={256}
           priority
-          className="w-full h-full object-contain scale-[1.65]"
+          className="w-full h-full object-contain scale-[1.3]"
           style={{ filter: "drop-shadow(0 2px 4px rgba(17,69,172,0.12))" }}
         />
       </div>
 
       {/* Brand Text — responsive font sizing */}
-      <div className="flex flex-col items-center justify-center z-10 pt-1">
+      <div className="flex flex-col items-center justify-center z-10">
         <span
-          className="font-display font-bold text-[#0e3b96] dark:text-blue-100 uppercase whitespace-nowrap leading-none text-[18px] sm:text-[22px] lg:text-[25px]"
+          className="font-display font-semibold text-[#0e3b96] dark:text-blue-100 uppercase whitespace-nowrap leading-none text-[16px] sm:text-[20px] lg:text-[23px]"
           style={{ letterSpacing: "0.03em" }}
         >
           {brand.name}
