@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   Mail, MapPin, Phone, Send, CheckCircle2, Loader2, 
-  Linkedin, Instagram, Twitter // Added Lucide Icons
+  Linkedin, Instagram, Twitter
 } from "lucide-react";
 import { servicesData } from "@/lib/data/services";
 import { countriesData } from "@/lib/data/countries";
@@ -136,65 +136,61 @@ export function Footer() {
       {/* Main Footer Columns */}
       <div className="bg-slate-950 text-white">
         <div className="container-page py-20 grid gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
-        {/* Brand & Contacts Column */}
-<div className="space-y-6">
-  {/* We use -mt to nudge the whole block up if needed, 
-      and items-start for left alignment */}
-  <div className="flex flex-col items-start w-fit">
-    
-    {/* 1. Logo Icon Container */}
-    {/* We set a small height (h-14) to match the heading heights, 
-        but allow the icon to grow upwards using 'absolute' */}
-    <div className="relative h-20 w-50 -ml-8 mb-0"> 
-      <div className="absolute bottom-0 left-0 w-32 h-32">
-        <Image 
-          src={brand.logoSrc} 
-          alt={brand.logoAlt} 
-          width={128} 
-          height={128} 
-          className="w-full h-full object-contain object-left" 
-        />
-      </div>
-    </div>
+          
+          {/* Brand & Contacts Column */}
+          <div className="space-y-6 flex flex-col items-start">
+            
+            {/* Perfectly aligned stacked Logo Lockup matching the image */}
+            <Link href="/" className="inline-flex flex-col items-center group focus:outline-none">
+              
+              {/* Graphic Mark - Increased size and reduced bottom margin to pull it closer to text */}
+              <div className="relative w-[180px] h-[180px] -mb-12 -mt-15"> 
+                <Image 
+                  src={brand.logoSrc} 
+                  alt={brand.logoAlt} 
+                  width={256} 
+                  height={256} 
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" 
+                />
+              </div>
 
-    {/* 2. Brand Name & Tagline */}
-    {/* This Link now starts at the same vertical level as your other column headings */}
-    <Link href="/" className="flex flex-col items-start group focus:outline-none">
-      <div 
-        className="font-serif tracking-widest text-white text-xl md:text-2xl uppercase leading-none transition-colors group-hover:text-orange-500" 
-        style={{ fontFamily: "'Fraunces', serif" }}
-      >
-        {brand.name}
-      </div>
-      <div className="font-sans font-bold tracking-[0.2em] text-orange-500 text-[10px] mt-2 uppercase leading-none">
-        {brand.tagline}
-      </div>
-    </Link>
-  </div>
+              {/* Title (Serif) */}
+              <div 
+                className="font-serif tracking-[0.03em] text-white text-[22px] md:text-[24px] uppercase leading-none transition-colors group-hover:text-blue-200"
+                style={{ fontFamily: "ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif" }}
+              >
+                {brand.name}
+              </div>
 
-  {/* 3. Description - Perfectly flush with the logo/text above */}
-  <p className="text-[13px] text-slate-400 leading-relaxed pr-6 pt-1">
-    {brand.description}
-  </p>
+              {/* Tagline (Orange Sans-serif with wide tracking) */}
+              <div className="font-sans font-bold tracking-[0.26em] text-[#F07228] text-[8px] md:text-[9px] mt-2 uppercase leading-none pl-[0.26em]">
+                {brand.tagline}
+              </div>
+              
+            </Link>
 
-  {/* Contact Info Section */}
-  <div className="space-y-4 text-[13px] text-slate-300 pt-6 border-t border-slate-800/80 mr-6">
-    <a href={`mailto:${brand.email}`} className="flex items-center gap-3 hover:text-orange-500 transition-colors group">
-      <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center group-hover:bg-orange-500/10">
-        <Mail className="w-4 h-4 text-blue-400 group-hover:text-orange-500" />
-      </div>
-      <span>{brand.email}</span>
-    </a>
-    <div className="flex items-start gap-3">
-      <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center shrink-0">
-        <MapPin className="w-4 h-4 text-blue-400" />
-      </div>
-      <span className="leading-snug text-slate-400 whitespace-pre-line mt-1">
-        {brand.offices}
-      </span>
-    </div>
-  </div>
-</div>
+            <p className="text-[13px] text-slate-400 leading-relaxed pr-6 pt-2">
+              {brand.description}
+            </p>
+
+            {/* Contact Info Section */}
+            <div className="space-y-4 text-[13px] text-slate-300 pt-6 border-t border-slate-800/80 w-full pr-6">
+              <a href={`mailto:${brand.email}`} className="flex items-center gap-3 hover:text-orange-500 transition-colors group">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center group-hover:bg-orange-500/10">
+                  <Mail className="w-4 h-4 text-blue-400 group-hover:text-orange-500" />
+                </div>
+                <span>{brand.email}</span>
+              </a>
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-blue-400" />
+                </div>
+                <span className="leading-snug text-slate-400 whitespace-pre-line mt-1">
+                  {brand.offices}
+                </span>
+              </div>
+            </div>
+          </div>
 
           {/* Services (Sliced to 5) */}
           <div>
@@ -214,38 +210,37 @@ export function Footer() {
           </div>
 
           {/* Jurisdictions */}
-          {/* Jurisdictions */}
-<div>
-  <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">Jurisdictions</h4>
-  <ul className="mt-6 space-y-3.5 text-[13px] text-slate-400">
-    {/* Active Jurisdictions */}
-    {countriesData.map((c) => (
-      <li key={c.slug}>
-        <Link href={`/countries/${c.slug}`} className="hover:text-blue-400 transition-colors flex items-center gap-2 group">
-          <span className="text-base leading-none grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all">{c.flag}</span>
-          <span>{c.name}</span>
-        </Link>
-      </li>
-    ))}
+          <div>
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">Jurisdictions</h4>
+            <ul className="mt-6 space-y-3.5 text-[13px] text-slate-400">
+              {/* Active Jurisdictions */}
+              {countriesData.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/countries/${c.slug}`} className="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                    <span className="text-base leading-none grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all">{c.flag}</span>
+                    <span>{c.name}</span>
+                  </Link>
+                </li>
+              ))}
 
-    {/* Coming Soon Jurisdictions */}
-    {[
-      { name: "Turkey", flag: "🇹🇷" },
-      { name: "France", flag: "🇫🇷" },
-      { name: "Germany", flag: "🇩🇪" }
-    ].map((item) => (
-      <li key={item.name} className="flex items-center justify-between gap-2 text-slate-500/70 select-none">
-        <div className="flex items-center gap-2">
-          <span className="text-base leading-none grayscale opacity-40">{item.flag}</span>
-          <span>{item.name}</span>
-        </div>
-        <span className="text-[8px] bg-slate-900/80 text-slate-500 border border-slate-800 px-1.5 py-0.5 rounded font-mono uppercase tracking-tighter">
-          Soon
-        </span>
-      </li>
-    ))}
-  </ul>
-</div>
+              {/* Coming Soon Jurisdictions */}
+              {[
+                { name: "Turkey", flag: "🇹🇷" },
+                { name: "France", flag: "🇫🇷" },
+                { name: "Germany", flag: "🇩🇪" }
+              ].map((item) => (
+                <li key={item.name} className="flex items-center justify-between gap-2 text-slate-500/70 select-none">
+                  <div className="flex items-center gap-2">
+                    <span className="text-base leading-none grayscale opacity-40">{item.flag}</span>
+                    <span>{item.name}</span>
+                  </div>
+                  <span className="text-[8px] bg-slate-900/80 text-slate-500 border border-slate-800 px-1.5 py-0.5 rounded font-mono uppercase tracking-tighter">
+                    Soon
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Industries (Sliced to 5) */}
           <div>
@@ -296,7 +291,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Legal Bar (Dark Navy Theme) */}
+        {/* Legal Bar */}
         <div className="border-t border-orange-500/10 bg-[#020617] py-8">
           <div className="container-page flex flex-col md:flex-row items-center justify-between gap-6 text-[13px] text-slate-400">
             <div>

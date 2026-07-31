@@ -30,8 +30,10 @@ const images = [
 
 export function Overview() {
   return (
-    <section className="section-pad bg-white dark:bg-slate-950 overflow-hidden">
-      <div className="container-page grid gap-12 lg:gap-16 lg:grid-cols-[1.1fr_1fr] items-center">
+    <section className="section-pad bg-slate-950 overflow-hidden relative">
+      {/* Background ambient glow */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-navy-deep/20 rounded-full blur-[120px] pointer-events-none" />
+      <div className="container-page relative z-10 grid gap-12 lg:gap-16 lg:grid-cols-[1.1fr_1fr] items-center">
         
         {/* Left Column: Text Content & CTA */}
         <div 
@@ -40,7 +42,7 @@ export function Overview() {
         >
           <div className="eyebrow">What we do</div>
           
-          <h2 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight text-slate-900 dark:text-white">
+          <h2 className="mt-4 text-4xl md:text-5xl font-semibold leading-tight text-white">
             One Partner for Every Stage of Your Business
           </h2>
           
@@ -48,9 +50,9 @@ export function Overview() {
             {/* Elegant Orange gradient line anchoring the text */}
             <div className="absolute left-0 top-2 bottom-2 w-[3px] bg-gradient-to-b from-orange via-orange-soft to-transparent rounded-full opacity-90 hidden md:block" />
             
-            <div className="space-y-5 text-sm md:text-[0.95rem] text-slate-600 dark:text-slate-300 leading-loose md:pl-6">
+            <div className="space-y-5 text-sm md:text-[0.95rem] text-slate-300 leading-loose md:pl-6">
               <p>
-                <strong className="text-slate-900 dark:text-white font-semibold">Elite Filing</strong> is a corporate services and business consulting firm built for founders who
+                <strong className="text-white font-semibold">Elite Filing</strong> is a corporate services and business consulting firm built for founders who
                 need more than a form-filling service. We help you choose the right jurisdiction,
                 register your company correctly the first time, and stay compliant year after year. From
                 your first LLC or private limited company to trademark protection, tax registration,
@@ -69,7 +71,7 @@ export function Overview() {
           <div className="mt-10">
             <Link 
               href="/services" 
-              className="btn-secondary-cta-dark group inline-flex items-center gap-2 text-sm"
+              className="btn-secondary-cta group inline-flex items-center gap-2 text-sm"
             >
               See All Services 
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />

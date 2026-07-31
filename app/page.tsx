@@ -8,6 +8,7 @@ import { Countries } from "@/components/home/Countries";
 import { WhyChoose } from "@/components/home/WhyChoose";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { ConsultationCTA } from "@/components/home/ConsultationCTA";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function HomePage() {
       <WhyChoose />
       <HowItWorks />
       <TestimonialsSection />
+      <ConsultationCTA />
       <FinalCTA />
     </>
   );

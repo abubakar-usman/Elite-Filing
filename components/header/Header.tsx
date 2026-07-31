@@ -96,41 +96,51 @@ const actions = {
 function TopBar() {
   return (
     <div
-      className="w-full hidden sm:block border-b border-[#1145AC]/40 relative overflow-hidden"
+      className="w-full relative overflow-hidden"
       style={{
-        background: "linear-gradient(90deg, #04102c 0%, #08255c 50%, #0e3b96 100%)",
+        background: "linear-gradient(105deg, #030b20 0%, #082255 40%, #0e3b96 100%)",
+        boxShadow: "inset 0 -1px 0 0 rgba(255,255,255,0.1)"
       }}
     >
-      {/* Subtle ambient glow to make the top bar look ultra-modern */}
-      <div className="absolute top-0 right-1/4 w-96 h-full bg-[#1145AC]/40 blur-2xl pointer-events-none" />
+      {/* Enhanced Ambient glow accents */}
+      <div className="absolute top-0 right-[15%] w-96 h-[150%] bg-[#1145AC]/40 blur-[80px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-0 left-[20%] w-72 h-[150%] bg-[#F07228]/[0.08] blur-[80px] pointer-events-none rounded-full" />
 
-      {/* Increased height to h-[54px] for better presence and breathing room */}
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-10 h-[54px] flex items-center justify-between gap-4 relative z-10">
+      {/* Increased height from h-10 sm:h-11 to h-11 sm:h-12 */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-11 sm:h-12 flex items-center justify-between gap-3 relative z-10">
         
-        {/* Left — Professional Value Proposition Badge (Factual, no fake claims) */}
-        <div className="flex items-center gap-3 bg-white/[0.05] border border-white/[0.08] rounded-full px-4 py-1.5 backdrop-blur-md shadow-sm">
-          <ShieldCheck className="w-4 h-4 text-[#F88D4F]" />
-          <span className="text-blue-50 text-[13px] font-medium tracking-wide">
-            Expert Corporate Setup & <span className="text-white font-semibold">International Tax Compliance</span>
+        {/* Left — Value Proposition */}
+        <div className="flex items-center gap-2.5 min-w-0 group">
+          <div className="w-[22px] h-[22px] rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/15 transition-colors">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#F88D4F]" />
+          </div>
+          <span className="text-blue-100/90 text-[11.5px] sm:text-[12.5px] font-medium tracking-wide truncate">
+            Expert Corporate Setup & <span className="text-white font-semibold drop-shadow-sm">Tax Compliance</span>
           </span>
         </div>
 
-        {/* Right — Capabilities & CTA (No "free consultation") */}
-        <div className="flex items-center gap-6">
-          <div className="hidden md:flex items-center gap-2 text-[13px] text-blue-200 font-medium">
-            <Globe2 className="w-4 h-4 text-blue-400 opacity-90" />
+        {/* Right — Capabilities & CTA */}
+        <div className="flex items-center gap-4 sm:gap-5 shrink-0">
+          <div className="hidden md:flex items-center gap-2 text-[12px] text-blue-100/80 font-medium tracking-wide">
+            <Globe2 className="w-3.5 h-3.5 text-[#F88D4F]/80" />
             <span>100% Remote Incorporation</span>
           </div>
           
-          <div className="w-px h-5 bg-blue-700/60 hidden md:block" />
+          <div className="w-px h-5 bg-white/10 hidden md:block" />
           
           <a
             href="/pricing"
-            className="group flex items-center gap-2 text-[13px] font-bold text-white bg-[#F07228] hover:bg-[#d45510] rounded-full px-5 py-2 transition-all duration-300 shadow-[0_2px_12px_-2px_rgba(240,114,40,0.5)] hover:shadow-[0_4px_16px_-2px_rgba(240,114,40,0.7)] hover:-translate-y-[1px]"
+            className="group flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-white rounded-full px-4 py-[5px] sm:py-1.5 transition-all duration-300 hover:-translate-y-[0.5px] hover:shadow-lg"
+            style={{
+              background: "linear-gradient(135deg, #F07228 0%, #d45510 100%)",
+              boxShadow: "0 2px 10px -2px rgba(240,114,40,0.5)",
+              border: "1px solid rgba(255,255,255,0.15)"
+            }}
           >
-            <Rocket className="w-4 h-4 text-white/90" />
-            <span>Start Your Formation</span>
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+            <Rocket className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <span className="hidden sm:inline tracking-wide">Start Your Formation</span>
+            <span className="sm:hidden tracking-wide">Get Started</span>
+            <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 opacity-90" />
           </a>
         </div>
 
@@ -147,10 +157,11 @@ interface HeaderProps {
 
 export function Header({ onOpenConsultation }: HeaderProps) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) setOpen(false);
+      if (window.innerWidth >= 1280) setOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -163,52 +174,77 @@ export function Header({ onOpenConsultation }: HeaderProps) {
     };
   }, [open]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const closeMobileMenu = useCallback(() => setOpen(false), []);
 
   return (
     <div className="w-full sticky top-0 z-[100]">
       <TopBar />
-
       <header
-        className="bg-white/98 dark:bg-slate-950/98 backdrop-blur-2xl border-b border-slate-200/70 dark:border-slate-800/70 w-full transition-all duration-300"
-        style={{ boxShadow: "0 2px 24px -6px rgba(17,69,172,0.10), 0 1px 0 0 rgba(17,69,172,0.06)" }}
+        className={cn(
+          "w-full transition-all duration-500 ease-out",
+          scrolled
+            ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-2xl backdrop-saturate-150 border-b border-[#0e3b96]/[0.08] dark:border-slate-800/50"
+            : "bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/30 dark:border-slate-800/30"
+        )}
+        style={{
+          boxShadow: scrolled
+            ? "0 8px 32px -8px rgba(14,59,150,0.10), 0 1px 0 0 rgba(14,59,150,0.04), inset 0 -1px 0 0 rgba(14,59,150,0.05)"
+            : "0 1px 8px -4px rgba(14,59,150,0.06)",
+        }}
       >
-        {/* Adjusted Header Height to h-[104px] to fit the large logo perfectly */}
-        <div className="max-w-[1440px] mx-auto grid grid-cols-[1fr_auto_1fr] items-center h-[104px] px-8 lg:px-10">
+        {/* FIX: Removed flex-1. justify-between combined with the fixed logo box naturally balances the spacing without overlapping! Added gap-4 to prevent any physical collisions. */}
+        <div className="max-w-[1440px] mx-auto flex items-center justify-between h-[80px] sm:h-[90px] xl:h-[104px] px-6 md:px-8 lg:px-10 xl:px-12 gap-4">
           
-          <div className="flex items-center justify-start">
+          {/* Left — Logo */}
+          <div className="flex items-center justify-start shrink-0">
             <HeaderLogo onClick={closeMobileMenu} />
           </div>
 
-          <div className="hidden lg:flex items-center">
+          {/* Center — Desktop Nav */}
+          <div className="hidden xl:flex items-center justify-center shrink-0">
             <DesktopNav />
           </div>
 
-          <div className="flex items-center justify-end gap-2.5">
-            <div className="hidden lg:flex items-center gap-2.5">
+          {/* Right — CTA Buttons + Hamburger */}
+          <div className="flex items-center justify-end gap-2 lg:gap-3 shrink-0">
+            
+            {/* CTA buttons visible on md+ screens */}
+            <div className="hidden md:flex items-center gap-2 lg:gap-3">
               <Link
                 href={actions.signIn.href}
-                className="inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-semibold text-[#0e3b96] bg-[#eef3ff] border border-[#c7d7ff] rounded-xl hover:bg-[#dce9ff] hover:border-[#a5bfff] hover:shadow-sm transition-all duration-200 whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 2xl:gap-2 px-3 2xl:px-5 py-2 text-[12px] 2xl:text-[13px] font-semibold text-[#0e3b96] border border-[#0e3b96]/15 rounded-xl bg-[#0e3b96]/[0.04] hover:bg-[#0e3b96]/[0.10] hover:border-[#0e3b96]/25 transition-all duration-300 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:ring-offset-2"
               >
                 <User className="w-3.5 h-3.5 shrink-0 opacity-70" />
-                <span>{actions.signIn.label}</span>
+                <span className="hidden lg:inline">{actions.signIn.label}</span>
+                <span className="lg:hidden">Portal</span>
               </Link>
               <button
                 type="button"
                 onClick={onOpenConsultation}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-bold text-white rounded-xl whitespace-nowrap transition-all duration-200 hover:scale-[1.02] active:scale-100"
+                className="inline-flex items-center gap-1.5 2xl:gap-2 px-3 2xl:px-5 py-2 text-[12px] 2xl:text-[13px] font-bold text-white rounded-xl whitespace-nowrap transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F07228]/50 focus-visible:ring-offset-2"
                 style={{
                   background: "linear-gradient(135deg, #F07228 0%, #d45510 100%)",
-                  boxShadow: "0 4px 18px -4px rgba(240,114,40,0.60)",
+                  boxShadow: "0 3px 14px -3px rgba(240,114,40,0.50)",
                 }}
               >
                 <Phone className="w-3.5 h-3.5 shrink-0" />
-                <span>{actions.consultation.label}</span>
+                <span className="hidden lg:inline">{actions.consultation.label}</span>
+                <span className="lg:hidden">Consult</span>
               </button>
             </div>
 
+            {/* Hamburger — visible below xl */}
             <button
-              className="lg:hidden p-2 rounded-xl text-[#0e3b96] bg-[#eef3ff] border border-[#c7d7ff] hover:bg-[#dce9ff] transition-colors focus:outline-none"
+              className="xl:hidden p-2.5 rounded-xl text-[#0e3b96] hover:bg-[#0e3b96]/[0.07] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:ring-offset-1"
               onClick={() => setOpen((v) => !v)}
               aria-label="Toggle menu"
               aria-expanded={open}
@@ -227,38 +263,41 @@ export function Header({ onOpenConsultation }: HeaderProps) {
     </div>
   );
 }
+
 function HeaderLogo({ onClick }: { onClick?: () => void }) {
   return (
     <Link
       href="/"
       onClick={onClick}
-      // Added negative margin to pull the entire logo block further to the left edge
-      className="group outline-none flex items-center -ml-4 lg:-ml-8"
+      className="group flex items-center outline-none transition-transform duration-300 mt-2 sm:mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:rounded-lg focus-visible:ring-offset-2 -ml-2 sm:-ml-3 lg:-ml-5"
     >
-      <div className="relative flex items-center justify-center w-24 h-24 shrink-0 transition-transform duration-300 group-hover:scale-[1.05]">
+      {/* Logo Graphic — scales down on small screens */}
+      <div className="relative flex items-center justify-center w-[65px] h-[65px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] shrink-0">
         <Image
           src={brand.logoSrc}
           alt={brand.logoAlt}
           width={256}
           height={256}
           priority
-          // Increased scale from 110 to 1.3 to make the logo graphic significantly larger
-          className="w-full h-full object-contain scale-[1.3]"
+          className="w-full h-full object-contain scale-[1.65]"
           style={{ filter: "drop-shadow(0 2px 4px rgba(17,69,172,0.12))" }}
         />
       </div>
 
-      {/* Adjusted the margin (ml-3) to keep the text perfectly spaced from the newly enlarged graphic */}
-      <div className="flex flex-col justify-center z-10 ml-3">
+      {/* Brand Text — responsive font sizing */}
+      <div className="flex flex-col items-center justify-center z-10 pt-1">
         <span
-          className="font-display font-extrabold text-[#0e3b96] dark:text-blue-100 uppercase whitespace-nowrap leading-none"
-          style={{ fontSize: 22, letterSpacing: "0.14em" }}
+          className="font-display font-bold text-[#0e3b96] dark:text-blue-100 uppercase whitespace-nowrap leading-none text-[18px] sm:text-[22px] lg:text-[25px]"
+          style={{ letterSpacing: "0.03em" }}
         >
           {brand.name}
         </span>
         <span
-          className="font-sans font-bold uppercase leading-none text-[#F07228] mt-1.5"
-          style={{ fontSize: 9, letterSpacing: "0.28em" }}
+          className="font-sans font-bold uppercase leading-none text-[#F07228] mt-[5px] sm:mt-[7px] text-[7px] sm:text-[8px] lg:text-[9px]"
+          style={{ 
+            letterSpacing: "0.26em", 
+            marginLeft: "0.26em" 
+          }}
         >
           {brand.tagline}
         </span>
@@ -275,28 +314,29 @@ function DesktopNav() {
     return pathname === path || pathname?.startsWith(path + "/");
   };
 
-  const base = "inline-flex h-[36px] w-max items-center justify-center rounded-lg px-3.5 text-[13.5px] font-semibold transition-all duration-200 focus:outline-none whitespace-nowrap shrink-0";
+  const base = "relative inline-flex h-[36px] w-max items-center justify-center rounded-lg px-4 text-[13.5px] font-semibold transition-all duration-300 ease-out whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:ring-offset-1";
 
   const navLinkClass = (active: boolean) => cn(
     base,
     active
-      ? "bg-[#eef3ff] text-[#0e3b96] shadow-[inset_0_0_0_1px_rgba(17,69,172,0.18)] dark:bg-blue-900/30 dark:text-blue-300"
-      : "text-slate-500 hover:bg-[#eef3ff] hover:text-[#0e3b96] dark:text-slate-400 dark:hover:bg-blue-900/30 dark:hover:text-blue-300"
+      ? "text-[#0e3b96] dark:text-blue-300"
+      : "text-slate-600 hover:text-[#0e3b96] dark:text-slate-400 dark:hover:text-blue-300"
   );
 
   const triggerClass = (active: boolean) => cn(
     base,
-    "!bg-transparent",
-    "hover:!bg-[#eef3ff] hover:!text-[#0e3b96] dark:hover:!bg-blue-900/30 dark:hover:!text-blue-300",
-    "data-[state=open]:!bg-[#eef3ff] data-[state=open]:!text-[#0e3b96] dark:data-[state=open]:!bg-blue-900/30 dark:data-[state=open]:!text-blue-300",
-    "[&>svg]:opacity-50 data-[state=open]:[&>svg]:opacity-100 data-[state=open]:[&>svg]:text-[#0e3b96]",
+    "!bg-transparent !border-none !shadow-none !ring-0",
+    "hover:!text-[#0e3b96] dark:hover:!text-blue-300",
+    "data-[state=open]:!text-[#0e3b96] dark:data-[state=open]:!text-blue-300",
+    "[&>svg]:opacity-50 [&>svg]:transition-all [&>svg]:duration-300 data-[state=open]:[&>svg]:opacity-100 data-[state=open]:[&>svg]:text-[#0e3b96]",
+    "focus-visible:!ring-2 focus-visible:!ring-[#0e3b96]/40 focus-visible:!ring-offset-1",
     active
-      ? "!text-[#0e3b96] !shadow-[inset_0_0_0_1px_rgba(17,69,172,0.18)] dark:!text-blue-300"
-      : "!text-slate-500 dark:!text-slate-400"
+      ? "!text-[#0e3b96] dark:!text-blue-300"
+      : "!text-slate-600 dark:!text-slate-400"
   );
 
   return (
-    <NavigationMenu className="hidden lg:flex z-[100]">
+    <NavigationMenu className="hidden xl:flex z-[100]">
       <NavigationMenuList className="gap-1">
         {primaryLinks.slice(0, 2).map((link) => (
           <NavigationMenuItem key={link.href}>

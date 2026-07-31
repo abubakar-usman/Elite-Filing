@@ -5,11 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone, ShieldCheck, Globe, Building } from "lucide-react";
 
-// Professional enterprise background images for the slider
+// Premium enterprise background images (Cinematic & Corporate)
 const backgroundImages = [
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop", // Modern boardroom
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", // Skyscraper glass facade
-  "https://images.unsplash.com/photo-1554469384-e58fac16e23a?q=80&w=2069&auto=format&fit=crop", // Global business
+  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070", // Sleek modern glass corporate headquarters
+  "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=2073", // Premium global boardroom & office glass
+  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072", // Executive consulting & international business desk
 ];
 
 export function Hero() {
@@ -26,13 +26,14 @@ export function Hero() {
   return (
     <section className="relative min-h-[75vh] xl:min-h-[760px] flex items-center text-white overflow-hidden bg-[#0B1120]">
       
-      {/* Background Image Slider with Crossfade & Slow Zoom */}
+      {/* Background Image Slider with Cinematic Ken Burns Effect */}
       <div className="absolute inset-0 z-0">
         {backgroundImages.map((src, index) => (
           <div
             key={src}
-            className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out transform ${
-              index === currentImage ? "opacity-100 scale-105" : "opacity-0 scale-100"
+            // 1.5s smooth crossfade for the opacity transition
+            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+              index === currentImage ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
             <Image
@@ -40,20 +41,26 @@ export function Hero() {
               alt="Elite Filing Corporate Global Services"
               fill
               priority={index === 0}
-              className="object-cover"
+              // 8s continuous linear zoom while the image is active
+              className={`object-cover transition-transform duration-[8000ms] ease-out ${
+                index === currentImage ? "scale-110" : "scale-100"
+              }`}
             />
           </div>
         ))}
         
-        {/* Enterprise Gradients for Text Legibility & Section Blending */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1120]/95 via-[#0B1120]/85 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B1120]/20 to-[#0B1120] z-10" />
+        {/* Enterprise Gradients: Multiply layer deepens the image colors for an ultra-premium corporate look */}
+        <div className="absolute inset-0 bg-[#070e1c]/40 mix-blend-multiply z-10" />
+        
+        {/* Smooth structural gradients for perfect text contrast & edge blending */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1120] via-[#0B1120]/90 to-[#0B1120]/20 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0B1120]/30 to-[#0B1120] z-10" />
       </div>
 
       <div className="container-page relative z-20 pt-24 pb-20 md:pt-32 md:pb-28">
         <div className="max-w-[1200px]">
           
-          {/* Eyebrow / Trust Badge - Updated to use the exact brand var(--orange) */}
+          {/* Eyebrow / Trust Badge */}
           <div
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-orange/30 bg-orange/10 backdrop-blur-md mb-8 animate-fade-up shadow-lg shadow-orange/5"
             style={{ animationDelay: "0ms" }}
@@ -64,7 +71,7 @@ export function Hero() {
             </span>
           </div>
 
-          {/* Heading - Breaks onto two lines with exact brand Orange highlight */}
+          {/* Heading */}
           <h1
             className="font-display text-4xl md:text-5xl lg:text-[52px] xl:text-[58px] leading-[1.15] font-semibold text-white tracking-tight animate-fade-up"
             style={{ animationDelay: "150ms" }}
@@ -73,7 +80,7 @@ export function Hero() {
             Across <span className="text-orange">Global Markets.</span>
           </h1>
 
-          {/* Restored original paragraph text with perfect readability */}
+          {/* Paragraph */}
           <p
             className="mt-6 text-base md:text-lg text-slate-300 max-w-3xl leading-relaxed font-light animate-fade-up"
             style={{ animationDelay: "300ms" }}
@@ -103,24 +110,30 @@ export function Hero() {
             className="mt-16 pt-8 border-t border-slate-700/50 flex flex-col sm:flex-row gap-8 sm:gap-16 animate-fade-up"
             style={{ animationDelay: "600ms" }}
           >
-            <div className="flex items-center gap-3.5">
-              <Globe className="w-6 h-6 text-blue-400/90" />
+            <div className="flex items-center gap-3.5 group">
+              <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+                <Globe className="w-5 h-5 text-blue-400" />
+              </div>
               <div>
                 <div className="text-sm font-semibold text-white">5+ Jurisdictions</div>
                 <div className="text-xs text-slate-400 mt-0.5">US, UK, UAE, Canada, Pakistan</div>
               </div>
             </div>
             
-            <div className="flex items-center gap-3.5">
-              <Building className="w-6 h-6 text-blue-400/90" />
+            <div className="flex items-center gap-3.5 group">
+              <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+                <Building className="w-5 h-5 text-blue-400" />
+              </div>
               <div>
                 <div className="text-sm font-semibold text-white">End-to-End Setup</div>
                 <div className="text-xs text-slate-400 mt-0.5">Entity, Tax, IP & Banking</div>
               </div>
             </div>
             
-            <div className="flex items-center gap-3.5">
-              <ShieldCheck className="w-6 h-6 text-blue-400/90" />
+            <div className="flex items-center gap-3.5 group">
+              <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 group-hover:bg-blue-500/20 transition-colors">
+                <ShieldCheck className="w-5 h-5 text-blue-400" />
+              </div>
               <div>
                 <div className="text-sm font-semibold text-white">100% Compliant</div>
                 <div className="text-xs text-slate-400 mt-0.5">Guaranteed strict adherence</div>
@@ -131,7 +144,7 @@ export function Hero() {
         </div>
 
         {/* Ambient Blue Glow Blob */}
-        <div className="pointer-events-none absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-blue-500/15 blur-[120px] animate-floaty" />
+        <div className="pointer-events-none absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[120px] animate-floaty" />
       </div>
     </section>
   );
