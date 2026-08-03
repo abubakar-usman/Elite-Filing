@@ -2,11 +2,11 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { countriesData } from "@/lib/data/countries";
 
-const comingSoon = {
-  flags: ["🇫🇷", "🇩🇪", "🇹🇷"],
-  title: "France, Germany & Turkey",
-  label: "Launching Soon",
-};
+const comingSoon = countriesData.filter((c) => c.comingSoon);
+const comingSoonNames = comingSoon
+  .map((c) => c.name)
+  .join(", ")
+  .replace(/, ([^,]*)$/, " & $1");
 
 export function Countries() {
   return (
@@ -26,18 +26,18 @@ export function Countries() {
               jurisdictions added regularly.
             </p>
           </div>
-          <Link href="/countries" className="btn-ghost group inline-flex items-center gap-2">
-            View All Country Guides 
+          <Link href="/services" className="btn-ghost group inline-flex items-center gap-2">
+            View All Country Services 
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
 
         {/* Grid Section */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {countriesData.map((c) => (
+          {countriesData.filter((c) => !c.comingSoon).map((c) => (
             <Link
               key={c.slug}
-              href={`/countries/${c.slug}`}
+              href={`/services/${c.slug}`}
               className="group relative flex flex-col h-full p-6 md:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-orange/30 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] dark:hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden"
             >
               {/* Elegant Expanding Gradient Top Border */}
@@ -92,20 +92,20 @@ export function Countries() {
               
               {/* Floating Flags Animation */}
               <div className="flex gap-3 text-3xl mb-5 group-hover:-translate-y-2 transition-transform duration-700 ease-out">
-                {comingSoon.flags.map((flag, idx) => (
-                  <span key={idx} className="drop-shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-500">
-                    {flag}
+                {comingSoon.map((c) => (
+                  <span key={c.slug} className="drop-shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                    {c.flag}
                   </span>
                 ))}
               </div>
               
               <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                {comingSoon.title}
+                {comingSoonNames}
               </h3>
               
               {/* Premium Launching Pill */}
               <div className="mt-3.5 inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[10px] uppercase tracking-widest font-bold text-slate-500 dark:text-slate-400 group-hover:bg-orange/10 group-hover:text-orange transition-colors duration-500">
-                {comingSoon.label}
+                Launching Soon
               </div>
             </div>
           </div>

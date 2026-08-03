@@ -7,7 +7,7 @@ export interface CountryItem {
   intro: string;
   serviceCategories: {
     categoryName: string;
-    items: string[];
+    items: { name: string; price: number }[];
   }[];
   packageOption?: string;
   sectionCta: string;
@@ -20,6 +20,7 @@ export interface CountryItem {
   packages?: { name: string; price: string; features: string[]; popular?: boolean }[];
   faqs?: { q: string; a: string }[];
   heroImage?: string;
+  heroImagePosition?: string;
   comingSoon?: boolean;
 }
 
@@ -35,62 +36,62 @@ export const countriesData: CountryItem[] = [
       {
         categoryName: "Company Formation",
         items: [
-          "LLC Registration",
-          "C-Corporation Registration",
-          "S-Corporation Advisory",
-          "Registered Agent Services",
-          "EIN Registration",
-          "Annual Reports & Compliance Support"
+          { name: "LLC Registration", price: 299 },
+          { name: "C-Corporation Registration", price: 399 },
+          { name: "S-Corporation Advisory", price: 199 },
+          { name: "Registered Agent Services", price: 150 },
+          { name: "EIN Registration", price: 100 },
+          { name: "Annual Reports & Compliance Support", price: 250 }
         ]
       },
       {
         categoryName: "Tax & ITIN",
         items: [
-          "ITIN Application (Form W-7)",
-          "EIN Registration",
-          "IRS Compliance Advisory",
-          "Foreign-Owned LLC Compliance",
-          "Form 5472 Filing",
-          "Form 1120 Filing",
-          "Form 1040-NR Filing",
-          "Tax Residency Guidance",
-          "IRS Notice Response Support"
+          { name: "ITIN Application (Form W-7)", price: 350 },
+          { name: "EIN Registration", price: 100 },
+          { name: "IRS Compliance Advisory", price: 200 },
+          { name: "Foreign-Owned LLC Compliance", price: 400 },
+          { name: "Form 5472 Filing", price: 300 },
+          { name: "Form 1120 Filing", price: 500 },
+          { name: "Form 1040-NR Filing", price: 450 },
+          { name: "Tax Residency Guidance", price: 200 },
+          { name: "IRS Notice Response Support", price: 150 }
         ]
       },
       {
         categoryName: "Trademark & IP",
         items: [
-          "USPTO Trademark Search",
-          "Trademark Registration",
-          "Trademark Monitoring",
-          "Office Action Response"
+          { name: "USPTO Trademark Search", price: 199 },
+          { name: "Trademark Registration", price: 899 },
+          { name: "Trademark Monitoring", price: 299 },
+          { name: "Office Action Response", price: 499 }
         ]
       },
       {
         categoryName: "Taxation & Audit",
         items: [
-          "LLC Tax Filing",
-          "Corporate Tax Returns",
-          "Sales Tax Registration",
-          "State Tax Compliance"
+          { name: "LLC Tax Filing", price: 450 },
+          { name: "Corporate Tax Returns", price: 650 },
+          { name: "Sales Tax Registration", price: 299 },
+          { name: "State Tax Compliance", price: 350 }
         ]
       },
       {
         categoryName: "Business Address",
         items: [
-          "US Business Address (Virtual)"
+          { name: "US Business Address (Virtual)", price: 199 }
         ]
       },
       {
         categoryName: "Banking & Payments",
         items: [
-          "US Business Bank Account Guidance",
-          "Multi-Currency Accounts",
-          "Stripe Setup",
-          "PayPal Business Setup",
-          "Wise Business",
-          "Payoneer Setup",
-          "Merchant Account Advisory"
+          { name: "US Business Bank Account Guidance", price: 150 },
+          { name: "Multi-Currency Accounts", price: 100 },
+          { name: "Stripe Setup", price: 199 },
+          { name: "PayPal Business Setup", price: 199 },
+          { name: "Wise Business", price: 99 },
+          { name: "Payoneer Setup", price: 99 },
+          { name: "Merchant Account Advisory", price: 299 }
         ]
       }
     ],
@@ -115,56 +116,56 @@ export const countriesData: CountryItem[] = [
       {
         categoryName: "Company Formation",
         items: [
-          "LTD Company Registration",
-          "Companies House Registration",
-          "UTR Registration",
-          "Confirmation Statement Filing",
-          "Registered Office Address",
-          "Director Services",
-          "Annual Accounts Filing"
+          { name: "LTD Company Registration", price: 199 },
+          { name: "Companies House Registration", price: 99 },
+          { name: "UTR Registration", price: 150 },
+          { name: "Confirmation Statement Filing", price: 99 },
+          { name: "Registered Office Address", price: 150 },
+          { name: "Director Services", price: 500 },
+          { name: "Annual Accounts Filing", price: 350 }
         ]
       },
       {
         categoryName: "Ongoing Corporate Changes",
         items: [
-          "Company Name Change",
-          "Company Structural Change",
-          "Company Closure & Dissolution"
+          { name: "Company Name Change", price: 99 },
+          { name: "Company Structural Change", price: 299 },
+          { name: "Company Closure & Dissolution", price: 399 }
         ]
       },
       {
         categoryName: "Trademark & IP",
         items: [
-          "UKIPO Trademark Registration",
-          "Brand Protection Services"
+          { name: "UKIPO Trademark Registration", price: 799 },
+          { name: "Brand Protection Services", price: 299 }
         ]
       },
       {
         categoryName: "Taxation & VAT",
         items: [
-          "Corporation Tax Filing",
-          "VAT Registration",
-          "VAT Returns",
-          "Annual Accounts"
+          { name: "Corporation Tax Filing", price: 450 },
+          { name: "VAT Registration", price: 199 },
+          { name: "VAT Returns", price: 250 },
+          { name: "Annual Accounts", price: 350 }
         ]
       },
       {
         categoryName: "Trade & Customs",
         items: [
-          "EORI Number Application"
+          { name: "EORI Number Application", price: 99 }
         ]
       },
       {
         categoryName: "Business Address",
         items: [
-          "UK Registered Office Address",
-          "UK Shared Office Space"
+          { name: "UK Registered Office Address", price: 150 },
+          { name: "UK Shared Office Space", price: 299 }
         ]
       },
       {
         categoryName: "Banking & Payments",
         items: [
-          "UK Business Banking Support"
+          { name: "UK Business Banking Support", price: 199 }
         ]
       }
     ],
@@ -188,41 +189,41 @@ export const countriesData: CountryItem[] = [
       {
         categoryName: "Company Formation",
         items: [
-          "Mainland Company Formation",
-          "Free Zone Company Formation",
-          "Offshore Company Formation",
-          "Trade License Processing",
-          "Corporate Bank Account Assistance",
-          "Residency Visa Support",
-          "PRO Services"
+          { name: "Mainland Company Formation", price: 3500 },
+          { name: "Free Zone Company Formation", price: 2500 },
+          { name: "Offshore Company Formation", price: 1900 },
+          { name: "Trade License Processing", price: 500 },
+          { name: "Corporate Bank Account Assistance", price: 800 },
+          { name: "Residency Visa Support", price: 1200 },
+          { name: "PRO Services", price: 600 }
         ]
       },
       {
         categoryName: "Trademark & IP",
         items: [
-          "Trademark Registration",
-          "Brand Protection"
+          { name: "Trademark Registration", price: 1500 },
+          { name: "Brand Protection", price: 500 }
         ]
       },
       {
         categoryName: "Taxation & VAT",
         items: [
-          "Corporate Tax Registration",
-          "VAT Registration",
-          "VAT Filing",
-          "Corporate Tax Returns"
+          { name: "Corporate Tax Registration", price: 300 },
+          { name: "VAT Registration", price: 350 },
+          { name: "VAT Filing", price: 250 },
+          { name: "Corporate Tax Returns", price: 500 }
         ]
       },
       {
         categoryName: "Business Address",
         items: [
-          "UAE Virtual Office"
+          { name: "UAE Virtual Office", price: 600 }
         ]
       },
       {
         categoryName: "Banking & Payments",
         items: [
-          "UAE Corporate Banking Assistance"
+          { name: "UAE Corporate Banking Assistance", price: 800 }
         ]
       }
     ],
@@ -246,38 +247,39 @@ export const countriesData: CountryItem[] = [
       {
         categoryName: "Company Formation",
         items: [
-          "Federal Corporation Registration",
-          "Provincial Corporation Registration",
-          "NUANS Name Search",
-          "GST/HST Registration",
-          "Corporate Tax Registration",
-          "Compliance Support"
+          { name: "Federal Corporation Registration", price: 599 },
+          { name: "Provincial Corporation Registration", price: 499 },
+          { name: "NUANS Name Search", price: 99 },
+          { name: "GST/HST Registration", price: 150 },
+          { name: "Corporate Tax Registration", price: 150 },
+          { name: "Compliance Support", price: 299 }
         ]
       },
       {
         categoryName: "Trademark & IP",
         items: [
-          "Trademark Registration",
-          "IP Advisory"
+          { name: "Trademark Registration", price: 899 },
+          { name: "IP Advisory", price: 199 }
         ]
       },
       {
         categoryName: "Taxation",
         items: [
-          "GST/HST Registration",
-          "Corporate Tax Filing",
-          "Compliance Reporting"
+          { name: "GST/HST Registration", price: 150 },
+          { name: "Corporate Tax Filing", price: 550 },
+          { name: "Compliance Reporting", price: 250 }
         ]
       },
       {
         categoryName: "Business Address",
         items: [
-          "Canada Business Address"
+          { name: "Canada Business Address", price: 299 }
         ]
       }
     ],
     sectionCta: "Start Your Canadian Company",
-        heroImage: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?q=80&w=2070&auto=format&fit=crop",
+        heroImage: "https://images.unsplash.com/photo-1533417457911-4ec911485388?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        heroImagePosition: "center 20%",
     faqs: [
       { q: "Should I incorporate federally or provincially?", a: "Federal incorporation offers nationwide name protection and allows operating in any province, but requires extra-provincial registration in the province where you operate. Provincial incorporation limits operations primarily to that province." },
       { q: "What is a NUANS name search and do I need one?", a: "A NUANS search checks for existing identical or similar corporate names. It is required for federal and most provincial incorporations, unless opting for a numbered company." },
@@ -296,43 +298,109 @@ export const countriesData: CountryItem[] = [
       {
         categoryName: "Company Formation",
         items: [
-          "SECP Company Registration",
-          "Single Member Company (SMC) Registration",
-          "Private Limited Company Registration",
-          "NTN Registration",
-          "Sales Tax Registration",
-          "Chamber Membership",
-          "PSEB Registration",
-          "PEC Registration (where applicable)"
+          { name: "SECP Company Registration", price: 199 },
+          { name: "Single Member Company (SMC) Registration", price: 150 },
+          { name: "Private Limited Company Registration", price: 250 },
+          { name: "NTN Registration", price: 50 },
+          { name: "Sales Tax Registration", price: 99 },
+          { name: "Chamber Membership", price: 150 },
+          { name: "PSEB Registration", price: 199 },
+          { name: "PEC Registration (where applicable)", price: 299 }
         ]
       },
       {
         categoryName: "Trademark & IP",
         items: [
-          "Trademark Search",
-          "Trademark Registration",
-          "IP Protection Support"
+          { name: "Trademark Search", price: 50 },
+          { name: "Trademark Registration", price: 199 },
+          { name: "IP Protection Support", price: 150 }
         ]
       },
       {
         categoryName: "Taxation",
         items: [
-          "Income Tax Returns",
-          "Sales Tax Returns",
-          "Tax Advisory",
-          "Tax Audit Support",
-          "FBR Compliance"
+          { name: "Income Tax Returns", price: 150 },
+          { name: "Sales Tax Returns", price: 99 },
+          { name: "Tax Advisory", price: 99 },
+          { name: "Tax Audit Support", price: 299 },
+          { name: "FBR Compliance", price: 150 }
         ]
       }
     ],
     sectionCta: "Start Your Pakistan Company",
-        heroImage: "https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=2071&auto=format&fit=crop",
+        heroImage: "https://images.unsplash.com/photo-1608020932658-d0e19a69580b?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        heroImagePosition: "center 30%",
     faqs: [
       { q: "What is the difference between a Single Member Company and a Private Limited Company?", a: "An SMC requires only one director and shareholder, while a Private Limited Company requires at least two directors and shareholders." },
       { q: "Do I need PSEB registration for a software or IT services business?", a: "Yes, registering with the Pakistan Software Export Board (PSEB) is highly recommended as it provides tax exemptions on IT exports and facilitates easy repatriation of profits." },
       { q: "How often do I need to file sales tax returns?", a: "Sales tax returns are filed monthly with the FBR (or provincial authorities like PRA/SRB for services)." },
       { q: "What documents do I need for SECP registration?", a: "You typically need CNIC copies of the directors, a verified registered office address, and the Memorandum and Articles of Association." }
     ]
-  }
+  },
+  {
+    slug: "china",
+    name: "China",
+    flag: "🇨🇳",
+    tagline: "WFOE, JV, and Rep Office formation in mainland China.",
+    pageHeadline: "Establish Your Business Presence in China",
+    intro: "China offers vast market access for global companies. Elite Filing will soon provide end-to-end support for Wholly Foreign-Owned Enterprises (WFOEs), Joint Ventures, and Representative Offices in mainland China.",
+    serviceCategories: [],
+    sectionCta: "Notify Me",
+    comingSoon: true,
+  },
+  {
+    slug: "hong-kong",
+    name: "Hong Kong",
+    flag: "🇭🇰",
+    tagline: "Private limited company registration in Asia's premier financial hub.",
+    pageHeadline: "Register a Company in Hong Kong",
+    intro: "Hong Kong is Asia's leading gateway for international business — offering zero capital gains tax, low corporate tax, and straightforward company formation. Elite Filing will soon offer comprehensive Hong Kong incorporation services.",
+    serviceCategories: [],
+    sectionCta: "Notify Me",
+    comingSoon: true,
+  },
+  {
+    slug: "japan",
+    name: "Japan",
+    flag: "🇯🇵",
+    tagline: "KK and GK company formation for Asia's third-largest economy.",
+    pageHeadline: "Incorporate Your Company in Japan",
+    intro: "Japan offers a highly stable, innovative economy with a strong rule of law. Elite Filing will soon support Kabushiki Kaisha (KK) and Godo Kaisha (GK) company formation for foreign founders.",
+    serviceCategories: [],
+    sectionCta: "Notify Me",
+    comingSoon: true,
+  },
+  {
+    slug: "france",
+    name: "France",
+    flag: "🇫🇷",
+    tagline: "SARL and SAS company formation in the heart of Europe.",
+    pageHeadline: "Register Your Company in France",
+    intro: "France offers a large consumer market and EU single-market access. Elite Filing will soon provide SARL and SAS formation services with full administrative support.",
+    serviceCategories: [],
+    sectionCta: "Notify Me",
+    comingSoon: true,
+  },
+  {
+    slug: "germany",
+    name: "Germany",
+    flag: "🇩🇪",
+    tagline: "GmbH and UG formation in Europe's largest economy.",
+    pageHeadline: "Incorporate a Company in Germany",
+    intro: "Germany is Europe's economic powerhouse. Elite Filing will soon support GmbH and UG (haftungsbeschränkt) company formation for international founders.",
+    serviceCategories: [],
+    sectionCta: "Notify Me",
+    comingSoon: true,
+  },
+  {
+    slug: "turkey",
+    name: "Turkey",
+    flag: "🇹🇷",
+    tagline: "A.Ş. and Ltd. Şti. formation bridging Europe and Asia.",
+    pageHeadline: "Register Your Company in Turkey",
+    intro: "Turkey offers a strategic location bridging Europe and Asia with a fast-growing economy. Elite Filing will soon support Joint Stock (A.Ş.) and Limited Liability (Ltd. Şti.) company formation.",
+    serviceCategories: [],
+    sectionCta: "Notify Me",
+    comingSoon: true,
+  },
 ];
-

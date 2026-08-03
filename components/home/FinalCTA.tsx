@@ -29,7 +29,7 @@ export function FinalCTA() {
               can focus on building.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/pricing" className="btn-primary-cta inline-flex items-center gap-2">
+              <Link href="/services" className="btn-primary-cta inline-flex items-center gap-2">
                 Start Your Company Today <ArrowRight className="w-4 h-4" />
               </Link>
               <Link href="/schedule" className="btn-secondary-cta inline-flex items-center gap-2">

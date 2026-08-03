@@ -11,21 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "", changeFrequency: "weekly" as const, priority: 1.0 },
     { path: "/about", changeFrequency: "monthly" as const, priority: 0.8 },
     { path: "/services", changeFrequency: "monthly" as const, priority: 0.9 },
-    { path: "/countries", changeFrequency: "monthly" as const, priority: 0.9 },
     { path: "/industries", changeFrequency: "monthly" as const, priority: 0.8 },
-    { path: "/pricing", changeFrequency: "monthly" as const, priority: 0.9 },
     { path: "/resources", changeFrequency: "weekly" as const, priority: 0.8 },
     { path: "/contact", changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 
-  const serviceEntries = servicesData.map((s) => ({
-    path: `/services/${s.slug}`,
-    changeFrequency: "monthly" as const,
-    priority: 0.85,
-  }));
-
   const countryEntries = countriesData.map((c) => ({
-    path: `/countries/${c.slug}`,
+    path: `/services/${c.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.85,
   }));
@@ -42,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const all = [...staticEntries, ...serviceEntries, ...countryEntries, ...industryEntries, ...resourceEntries];
+  const all = [...staticEntries, ...countryEntries, ...industryEntries, ...resourceEntries];
 
   return all.map((e) => ({
     url: `${BASE_URL}${e.path}`,

@@ -62,7 +62,7 @@ export default async function DashboardPage() {
               <span>Document Center</span>
             </Link>
             <Link
-              href="/pricing"
+              href="/services"
               className="px-4 py-2.5 rounded-xl font-semibold text-white bg-orange-500 hover:bg-orange-600 transition-colors shadow-md text-xs flex items-center gap-2"
             >
               <span>Form New Company</span>

@@ -9,7 +9,7 @@ import { ArrowRight, Phone, ShieldCheck, Globe, Building } from "lucide-react";
 const backgroundImages = [
   "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2070", // Sleek modern glass corporate headquarters
   "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=2073", // Premium global boardroom & office glass
-  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072", // Executive consulting & international business desk
+  "https://images.unsplash.com/photo-1668120084348-efc2ba0ad31d?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Executive consulting & international business desk
 ];
 
 export function Hero() {
@@ -96,7 +96,7 @@ export function Hero() {
             className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up"
             style={{ animationDelay: "450ms" }}
           >
-            <Link href="/pricing" className="btn-primary-cta flex items-center gap-2 group">
+            <Link href="/services" className="btn-primary-cta flex items-center gap-2 group">
               Start Your Company <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link href="/schedule" className="btn-secondary-cta flex items-center gap-2">

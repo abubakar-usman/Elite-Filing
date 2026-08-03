@@ -26,7 +26,7 @@ export function ServicesGrid() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {servicesData.map((s) => (
             <Link
-              href={`/services/${s.slug}`}
+              href="/services"
               key={s.slug}
               // Added `h-full` here to ensure all cards stretch identically
               className="group relative flex flex-col h-full rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-orange/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"

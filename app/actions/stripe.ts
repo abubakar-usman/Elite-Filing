@@ -80,7 +80,7 @@ export async function createCheckoutSession(params: {
         serviceName,
       },
       success_url: `${origin}/dashboard?payment=success&filingId=${filing.id}`,
-      cancel_url: `${origin}/pricing?payment=cancelled`,
+      cancel_url: `${origin}/services?payment=cancelled`,
     });
 
     return { success: true, url: session.url };

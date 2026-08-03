@@ -77,7 +77,7 @@ export function HowItWorks() {
 
         {/* Final CTA */}
         <div className="mt-12 text-center">
-          <Link href="/pricing" className="btn-secondary-cta-dark group inline-flex items-center gap-2 text-sm">
+          <Link href="/services" className="btn-secondary-cta-dark group inline-flex items-center gap-2 text-sm">
             View Pricing & Get Started 
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </Link>

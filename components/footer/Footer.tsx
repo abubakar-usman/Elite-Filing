@@ -37,7 +37,6 @@ const newsletter = {
 
 const companyLinks = [
   { href: "/track", label: "Track Filing Status", highlight: true, badge: "Live" },
-  { href: "/pricing", label: "Pricing & Calculator" },
   { href: "/about", label: "About Us" },
   { href: "/resources", label: "Knowledge Center" },
   { href: "/contact", label: "Contact Us & Offices" },
@@ -198,7 +197,7 @@ export function Footer() {
             <ul className="mt-6 space-y-3 text-[13px] text-slate-400">
               {servicesData.slice(0, 5).map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/services/${s.slug}`} className="hover:text-blue-400 transition-colors block">{s.title}</Link>
+                  <Link href="/services" className="hover:text-blue-400 transition-colors block">{s.title}</Link>
                 </li>
               ))}
               {servicesData.length > 5 && (
@@ -214,9 +213,9 @@ export function Footer() {
             <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-white">Jurisdictions</h4>
             <ul className="mt-6 space-y-3.5 text-[13px] text-slate-400">
               {/* Active Jurisdictions */}
-              {countriesData.map((c) => (
+              {countriesData.filter((c) => !c.comingSoon).map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/countries/${c.slug}`} className="hover:text-blue-400 transition-colors flex items-center gap-2 group">
+                  <Link href={`/services/${c.slug}`} className="hover:text-blue-400 transition-colors flex items-center gap-2 group">
                     <span className="text-base leading-none grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all">{c.flag}</span>
                     <span>{c.name}</span>
                   </Link>
@@ -224,15 +223,11 @@ export function Footer() {
               ))}
 
               {/* Coming Soon Jurisdictions */}
-              {[
-                { name: "Turkey", flag: "🇹🇷" },
-                { name: "France", flag: "🇫🇷" },
-                { name: "Germany", flag: "🇩🇪" }
-              ].map((item) => (
-                <li key={item.name} className="flex items-center justify-between gap-2 text-slate-500/70 select-none">
+              {countriesData.filter((c) => c.comingSoon).map((c) => (
+                <li key={c.slug} className="flex items-center justify-between gap-2 text-slate-500/70 select-none">
                   <div className="flex items-center gap-2">
-                    <span className="text-base leading-none grayscale opacity-40">{item.flag}</span>
-                    <span>{item.name}</span>
+                    <span className="text-base leading-none grayscale opacity-40">{c.flag}</span>
+                    <span>{c.name}</span>
                   </div>
                   <span className="text-[8px] bg-slate-900/80 text-slate-500 border border-slate-800 px-1.5 py-0.5 rounded font-mono uppercase tracking-tighter">
                     Soon

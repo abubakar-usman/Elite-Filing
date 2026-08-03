@@ -19,7 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { servicesData } from "@/lib/data/services";
+
 import { countriesData } from "@/lib/data/countries";
 import { cn } from "@/lib/utils";
 import {
@@ -35,17 +35,12 @@ import {
   ArrowRight,
   Rocket,
   ShieldCheck,
-  TrendingUp,
   ChevronRight,
   Menu,
   X,
   Phone,
   User,
-  Mail,
-  Clock,
-  Star,
   Globe2,
-  type LucideIcon,
 } from "lucide-react";
 
 // ─── Header Data ─────────────────────────────────────────────────────────────
@@ -57,20 +52,26 @@ const brand = {
   tagline: "FORM.LAUNCH.GROW",
 };
 
-const iconMap: Record<string, LucideIcon> = {
-  Building2, Receipt, Shield, MapPin, Landmark,
-  Calculator, ShoppingBag, Sparkles, Briefcase,
-};
+// Theme-matched colors (Navy Deep, Navy, Orange)
+const serviceMenuItems = [
+  { slug: "company-formation", label: "Company Formation", icon: Building2, color: "#0e3b96", bg: "rgba(14,59,150,0.08)", border: "rgba(14,59,150,0.15)" },
+  { slug: "tax-compliance", label: "Tax & Compliance", icon: Receipt, color: "#F07228", bg: "rgba(240,114,40,0.08)", border: "rgba(240,114,40,0.15)" },
+  { slug: "trademark-ip", label: "Trademark & IP", icon: Shield, color: "#1145AC", bg: "rgba(17,69,172,0.08)", border: "rgba(17,69,172,0.15)" },
+  { slug: "registered-agent", label: "Registered Agent", icon: MapPin, color: "#0e3b96", bg: "rgba(14,59,150,0.08)", border: "rgba(14,59,150,0.15)" },
+  { slug: "banking-payments", label: "Banking & Payments", icon: Landmark, color: "#F07228", bg: "rgba(240,114,40,0.08)", border: "rgba(240,114,40,0.15)" },
+  { slug: "accounting", label: "Accounting", icon: Calculator, color: "#1145AC", bg: "rgba(17,69,172,0.08)", border: "rgba(17,69,172,0.15)" },
+  { slug: "ecommerce-setup", label: "Ecommerce Setup", icon: ShoppingBag, color: "#F07228", bg: "rgba(240,114,40,0.08)", border: "rgba(240,114,40,0.15)" },
+  { slug: "growth-marketing", label: "Growth & Marketing", icon: Sparkles, color: "#0e3b96", bg: "rgba(14,59,150,0.08)", border: "rgba(14,59,150,0.15)" },
+  { slug: "business-consultancy", label: "Consultancy", icon: Briefcase, color: "#1145AC", bg: "rgba(17,69,172,0.08)", border: "rgba(17,69,172,0.15)" },
+];
 
-const coreServices = servicesData.filter((s) => s.category === "core");
-const complianceServices = servicesData.filter((s) => s.category === "compliance");
-const growthServices = servicesData.filter((s) => s.category === "growth");
+const activeCountries = countriesData.filter((c) => !c.comingSoon);
+const comingSoonCountries = countriesData.filter((c) => c.comingSoon);
 
 const primaryLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/industries", label: "Industries" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
   { href: "/contact", label: "Contact" },
 ];
@@ -82,7 +83,6 @@ const mobileTopLinks = [
 
 const mobileSimpleLinks = [
   { href: "/industries", label: "Industries" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/resources", label: "Resources" },
   { href: "/contact", label: "Contact" },
 ];
@@ -102,14 +102,10 @@ function TopBar() {
         boxShadow: "inset 0 -1px 0 0 rgba(255,255,255,0.1)"
       }}
     >
-      {/* Enhanced Ambient glow accents */}
       <div className="absolute top-0 right-[15%] w-96 h-[150%] bg-[#1145AC]/40 blur-[80px] pointer-events-none rounded-full" />
       <div className="absolute bottom-0 left-[20%] w-72 h-[150%] bg-[#F07228]/[0.08] blur-[80px] pointer-events-none rounded-full" />
 
-      {/* Increased height from h-10 sm:h-11 to h-11 sm:h-12 */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 h-11 sm:h-12 flex items-center justify-between gap-3 relative z-10">
-        
-        {/* Left — Value Proposition */}
         <div className="flex items-center gap-2.5 min-w-0 group">
           <div className="w-[22px] h-[22px] rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/5 group-hover:bg-white/15 transition-colors">
             <ShieldCheck className="w-3.5 h-3.5 text-[#F88D4F]" />
@@ -119,17 +115,14 @@ function TopBar() {
           </span>
         </div>
 
-        {/* Right — Capabilities & CTA */}
         <div className="flex items-center gap-4 sm:gap-5 shrink-0">
           <div className="hidden md:flex items-center gap-2 text-[12px] text-blue-100/80 font-medium tracking-wide">
             <Globe2 className="w-3.5 h-3.5 text-[#F88D4F]/80" />
             <span>100% Remote Incorporation</span>
           </div>
-          
           <div className="w-px h-5 bg-white/10 hidden md:block" />
-          
-          <a
-            href="/pricing"
+          <Link
+            href="/services"
             className="group flex items-center gap-1.5 text-[11px] sm:text-[12px] font-bold text-white rounded-full px-4 py-[5px] sm:py-1.5 transition-all duration-300 hover:-translate-y-[0.5px] hover:shadow-lg"
             style={{
               background: "linear-gradient(135deg, #F07228 0%, #d45510 100%)",
@@ -141,9 +134,8 @@ function TopBar() {
             <span className="hidden sm:inline tracking-wide">Start Your Formation</span>
             <span className="sm:hidden tracking-wide">Get Started</span>
             <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 opacity-90" />
-          </a>
+          </Link>
         </div>
-
       </div>
     </div>
   );
@@ -201,23 +193,16 @@ export function Header({ onOpenConsultation }: HeaderProps) {
             : "0 1px 8px -4px rgba(14,59,150,0.06)",
         }}
       >
-        {/* FIX: Removed flex-1. justify-between combined with the fixed logo box naturally balances the spacing without overlapping! Added gap-4 to prevent any physical collisions. */}
         <div className="max-w-[1440px] mx-auto flex items-center justify-between h-[80px] sm:h-[90px] xl:h-[104px] px-6 md:px-8 lg:px-10 xl:px-12 gap-4">
-          
-          {/* Left — Logo */}
           <div className="flex items-center justify-start shrink-0">
             <HeaderLogo onClick={closeMobileMenu} />
           </div>
 
-          {/* Center — Desktop Nav */}
           <div className="hidden xl:flex items-center justify-center shrink-0">
             <DesktopNav />
           </div>
 
-          {/* Right — CTA Buttons + Hamburger */}
           <div className="flex items-center justify-end gap-2 lg:gap-3 shrink-0">
-            
-            {/* CTA buttons visible on md+ screens */}
             <div className="hidden md:flex items-center gap-2 lg:gap-3">
               <Link
                 href={actions.signIn.href}
@@ -242,7 +227,6 @@ export function Header({ onOpenConsultation }: HeaderProps) {
               </button>
             </div>
 
-            {/* Hamburger — visible below xl */}
             <button
               className="xl:hidden p-2.5 rounded-xl text-[#0e3b96] hover:bg-[#0e3b96]/[0.07] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:ring-offset-1"
               onClick={() => setOpen((v) => !v)}
@@ -271,7 +255,6 @@ function HeaderLogo({ onClick }: { onClick?: () => void }) {
       onClick={onClick}
       className="group flex items-center outline-none transition-transform duration-300 mt-2.5 sm:mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0e3b96]/40 focus-visible:rounded-lg focus-visible:ring-offset-2 -ml-2 sm:-ml-3 lg:-ml-5"
     >
-      {/* Logo Graphic — scales down on small screens */}
       <div className="relative flex items-center justify-center w-[65px] h-[65px] sm:w-[80px] sm:h-[80px] lg:w-[100px] lg:h-[100px] shrink-0 mt-1">
         <Image
           src={brand.logoSrc}
@@ -284,7 +267,6 @@ function HeaderLogo({ onClick }: { onClick?: () => void }) {
         />
       </div>
 
-      {/* Brand Text — responsive font sizing */}
       <div className="flex flex-col items-center justify-center z-10">
         <span
           className="font-display font-semibold text-[#0e3b96] dark:text-blue-100 uppercase whitespace-nowrap leading-none text-[16px] sm:text-[20px] lg:text-[23px]"
@@ -353,145 +335,104 @@ function DesktopNav() {
             Services
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="w-[820px] p-8 bg-white dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800/80 shadow-2xl shadow-blue-900/5 rounded-2xl">
-              <div className="grid grid-cols-3 gap-8">
-                <div>
-                  <h5 className="mb-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2.5 border-b border-slate-100 dark:border-slate-800/80 pb-3">
-                    <Rocket className="w-4 h-4 text-orange" /> Core Formation
-                  </h5>
-                  <ul className="flex flex-col gap-1.5">
-                    {coreServices.map((service) => {
-                      const Icon = iconMap[service.iconName];
-                      return (
-                        <li key={service.slug}>
-                          <NavigationMenuLink asChild>
-                            <Link href={`/services/${service.slug}`} className="group flex items-center gap-3.5 p-2 -mx-2 rounded-xl hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-200">
-                              {Icon && (
-                                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 text-navy-deep dark:bg-slate-800 dark:text-blue-400 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-blue-100 transition-all duration-200 shrink-0">
-                                  <Icon className="w-4 h-4" />
-                                </div>
-                              )}
-                              <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-navy-deep dark:group-hover:text-white transition-colors">
-                                {service.title}
-                              </span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div>
-                  <h5 className="mb-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2.5 border-b border-slate-100 dark:border-slate-800/80 pb-3">
-                    <ShieldCheck className="w-4 h-4 text-orange" /> Tax & Compliance
-                  </h5>
-                  <ul className="flex flex-col gap-1.5">
-                    {complianceServices.map((service) => {
-                      const Icon = iconMap[service.iconName];
-                      return (
-                        <li key={service.slug}>
-                          <NavigationMenuLink asChild>
-                            <Link href={`/services/${service.slug}`} className="group flex items-center gap-3.5 p-2 -mx-2 rounded-xl hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-200">
-                              {Icon && (
-                                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 text-navy-deep dark:bg-slate-800 dark:text-blue-400 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-blue-100 transition-all duration-200 shrink-0">
-                                  <Icon className="w-4 h-4" />
-                                </div>
-                              )}
-                              <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-navy-deep dark:group-hover:text-white transition-colors">
-                                {service.title}
-                              </span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-
-                <div>
-                  <h5 className="mb-4 text-[11px] font-bold uppercase tracking-widest text-slate-400 flex items-center gap-2.5 border-b border-slate-100 dark:border-slate-800/80 pb-3">
-                    <TrendingUp className="w-4 h-4 text-orange" /> Growth & Scale
-                  </h5>
-                  <ul className="flex flex-col gap-1.5">
-                    {growthServices.map((service) => {
-                      const Icon = iconMap[service.iconName];
-                      return (
-                        <li key={service.slug}>
-                          <NavigationMenuLink asChild>
-                            <Link href={`/services/${service.slug}`} className="group flex items-center gap-3.5 p-2 -mx-2 rounded-xl hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-200">
-                              {Icon && (
-                                <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 text-navy-deep dark:bg-slate-800 dark:text-blue-400 group-hover:bg-white group-hover:shadow-sm border border-transparent group-hover:border-blue-100 transition-all duration-200 shrink-0">
-                                  <Icon className="w-4 h-4" />
-                                </div>
-                              )}
-                              <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-navy-deep dark:group-hover:text-white transition-colors">
-                                {service.title}
-                              </span>
-                            </Link>
-                          </NavigationMenuLink>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-              <div className="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800/80 flex justify-end">
-                <Link href="/services" className="text-[13px] font-semibold text-[#0e3b96] hover:text-[#08255c] dark:text-blue-400 dark:hover:text-white flex items-center gap-1.5 transition-colors">
-                  Explore Complete Service Catalog <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger className={triggerClass(isActive("/countries"))}>
-            Countries
-          </NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <div className="w-[520px] p-8 bg-white dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800/80 shadow-2xl shadow-blue-900/5 rounded-2xl">
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
-                {countriesData.filter((c) => !c.comingSoon).map((country) => (
-                  <li key={country.slug} className="list-none">
+            {/* Mega Menu Surface with solid border and rich shadow */}
+            <div
+              className="bg-white dark:bg-slate-950 rounded-2xl overflow-hidden shadow-2xl border border-[#0e3b96]/15 dark:border-slate-800"
+              style={{
+                width: "1080px",
+                boxShadow: "0 24px 72px -12px rgba(14,59,150,0.18), 0 8px 24px -4px rgba(0,0,0,0.06)",
+              }}
+            >
+              {/* ── Active Countries Grid with Padded Cards ── */}
+              <div className="p-5 grid grid-cols-5 gap-3 bg-slate-50/50 dark:bg-slate-900/10">
+                {activeCountries.map((country) => (
+                  <div 
+                    key={country.slug} 
+                    className="flex flex-col bg-white dark:bg-slate-900 rounded-xl p-4 border border-slate-100 dark:border-slate-800 shadow-sm transition-all duration-300 hover:shadow-md hover:border-[#0e3b96]/20"
+                  >
+                    {/* Country Header */}
                     <NavigationMenuLink asChild>
-                      <Link href={`/countries/${country.slug}`} className="group flex items-center gap-4 p-2.5 -mx-2.5 rounded-xl hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-200">
-                        <div className="text-[22px] leading-none shadow-sm rounded-lg bg-white dark:bg-slate-800 flex items-center justify-center w-12 h-10 border border-slate-200/60 dark:border-slate-700/60 transition-transform group-hover:scale-105 shrink-0">
-                          {country.flag}
-                        </div>
-                        <div className="text-[14.5px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-navy-deep dark:group-hover:text-white transition-colors">
+                      <Link
+                        href={`/services/${country.slug}`}
+                        className="group flex items-center gap-3 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800/80 transition-all duration-300"
+                      >
+                        <span className="text-[22px] leading-none shrink-0 drop-shadow-sm transition-transform group-hover:scale-110">{country.flag}</span>
+                        <span className="text-[13px] font-bold uppercase tracking-wider text-[#0e3b96] dark:text-blue-300 group-hover:text-[#F07228] transition-colors leading-tight">
                           {country.name}
-                        </div>
+                        </span>
                       </Link>
                     </NavigationMenuLink>
-                  </li>
+
+                    {/* Service Items List */}
+                    <ul className="flex flex-col gap-1 flex-1">
+                      {country.serviceCategories.slice(0, 5).map((cat) => {
+                        const svcMeta = serviceMenuItems.find((s) => {
+                          const catLower = cat.categoryName.toLowerCase();
+                          return catLower.includes(s.slug.replace(/-/g, " ").split(" ")[0]);
+                        });
+                        const Icon = svcMeta?.icon;
+                        return (
+                          <li key={cat.categoryName}>
+                            <NavigationMenuLink asChild>
+                              <Link
+                                href={`/services/${country.slug}`}
+                                className="group flex items-center gap-3 p-2 -mx-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors duration-200"
+                              >
+                                {Icon && (
+                                  <span 
+                                    className="w-7 h-7 rounded-md flex items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-105"
+                                    style={{ 
+                                      backgroundColor: svcMeta?.bg,
+                                      borderColor: svcMeta?.border
+                                    }}
+                                  >
+                                    <Icon 
+                                      className="w-3.5 h-3.5 transition-colors" 
+                                      style={{ color: svcMeta?.color }}
+                                    />
+                                  </span>
+                                )}
+                                <span className="text-[12.5px] font-medium text-slate-600 dark:text-slate-300 group-hover:text-[#0e3b96] dark:group-hover:text-blue-300 transition-colors leading-tight">
+                                  {cat.categoryName}
+                                </span>
+                              </Link>
+                            </NavigationMenuLink>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
-              <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800">
-                <h6 className="mb-3 text-[11px] font-bold uppercase tracking-widest text-slate-400">Coming Soon</h6>
-                <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
-                  {countriesData.filter((c) => c.comingSoon).map((country) => (
-                    <li key={country.slug} className="list-none">
-                      <div className="flex items-center gap-4 p-2.5 -mx-2.5 rounded-xl opacity-70">
-                        <div className="text-[22px] leading-none rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center w-12 h-10 border border-slate-200/60 dark:border-slate-700/60 shrink-0">
-                          {country.flag}
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[14.5px] font-semibold text-slate-500 dark:text-slate-400">
-                            {country.name}
-                          </span>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400">
-                            Soon
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
               </div>
-              <div className="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800/80 flex justify-end">
-                <Link href="/countries" className="text-[13px] font-semibold text-[#0e3b96] hover:text-[#08255c] dark:text-blue-400 dark:hover:text-white flex items-center gap-1.5 transition-colors">
-                  Compare all jurisdictions <ArrowRight className="w-4 h-4" />
+
+              {/* ── Coming Soon + Footer ── */}
+              <div
+                className="px-6 py-4 flex items-center justify-between"
+                style={{ 
+                  borderTop: "1px solid rgba(14,59,150,0.10)", 
+                  background: "linear-gradient(to right, rgba(248,250,255,1), rgba(255,255,255,1))" 
+                }}
+              >
+                <div className="flex items-center gap-4 flex-wrap">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#F07228] shrink-0">Coming Soon</span>
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    {comingSoonCountries.map((c) => (
+                      <span
+                        key={c.slug}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11.5px] font-medium text-slate-600 bg-white border border-slate-200/80 shadow-sm"
+                      >
+                        <span className="grayscale opacity-60 text-[14px] leading-none">{c.flag}</span>
+                        {c.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <Link
+                  href="/services"
+                  className="shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0e3b96]/5 text-[13px] font-semibold text-[#0e3b96] hover:bg-[#0e3b96] hover:text-white dark:text-blue-400 dark:hover:text-white transition-all duration-300 group"
+                >
+                  Explore All Services 
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
               </div>
             </div>
@@ -530,7 +471,7 @@ function MobileNav({
 
   return (
     <div className="absolute top-full left-0 right-0 mt-3 mx-4 bg-white dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800/70 shadow-2xl rounded-2xl z-50 max-h-[85vh] flex flex-col overflow-hidden">
-      <nav className="flex flex-col gap-1 p-5 overflow-y-auto overscroll-contain flex-1 min-h-0">
+      <nav className="flex flex-col gap-1 p-5 overflow-y-auto overscroll-contain flex-1 min-h-0 bg-slate-50/30">
         
         {mobileTopLinks.map((link) => (
           <Link
@@ -540,12 +481,12 @@ function MobileNav({
             className={cn(
               "px-4 py-3.5 rounded-xl text-[15.5px] font-semibold transition-colors flex items-center justify-between",
               isActive(link.href)
-                ? "text-navy-deep dark:text-blue-400 bg-blue-50/80 dark:bg-blue-900/20"
-                : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/50"
+                ? "text-[#0e3b96] dark:text-blue-400 bg-[#0e3b96]/5 dark:bg-blue-900/20 border border-[#0e3b96]/10"
+                : "text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200"
             )}
           >
             <span>{link.label}</span>
-            {isActive(link.href) && <ChevronRight className="w-4 h-4 text-navy-deep dark:text-blue-400" />}
+            {isActive(link.href) && <ChevronRight className="w-4 h-4 text-[#0e3b96] dark:text-blue-400" />}
           </Link>
         ))}
 
@@ -555,96 +496,50 @@ function MobileNav({
               className={cn(
                 "px-4 py-3.5 rounded-xl text-[15.5px] font-semibold transition-colors hover:no-underline",
                 isActive("/services")
-                  ? "text-navy-deep dark:text-blue-400 bg-blue-50/80 dark:bg-blue-900/20"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/50"
+                  ? "text-[#0e3b96] dark:text-blue-400 bg-[#0e3b96]/5 dark:bg-blue-900/20 border border-[#0e3b96]/10"
+                  : "text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200"
               )}
             >
-              Services
+              Services by Country
             </AccordionTrigger>
-            <AccordionContent className="pt-2 pb-4 px-2">
+            <AccordionContent className="pt-2 pb-4 px-1">
               <Link
                 href="/services"
                 onClick={close}
-                className="px-4 py-3 mb-2 text-[14px] font-bold text-navy-deep dark:text-blue-400 flex items-center gap-2 rounded-xl bg-blue-50/50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-900/50"
+                className="mx-3 px-4 py-3 mb-4 text-[14px] font-bold text-white flex items-center justify-between rounded-xl transition-all shadow-sm"
+                style={{ background: "linear-gradient(135deg, #0e3b96 0%, #1145AC 100%)" }}
               >
-                View All Services <ArrowRight className="w-4 h-4" />
+                View Global Overview <ArrowRight className="w-4 h-4" />
               </Link>
-              <div className="grid grid-cols-1 gap-1">
-                {servicesData.map((service) => {
-                  const Icon = iconMap[service.iconName];
-                  return (
-                    <Link
-                      key={service.slug}
-                      href={`/services/${service.slug}`}
-                      onClick={close}
-                      className="group flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-blue-50/40 dark:hover:bg-blue-900/20 transition-colors"
-                    >
-                      {Icon && <Icon className="h-4.5 w-4.5 text-slate-400 group-hover:text-navy-deep dark:group-hover:text-blue-400 transition-colors" />}
-                      <span className="text-[14.5px] font-semibold text-slate-600 dark:text-slate-300 group-hover:text-navy-deep dark:group-hover:text-white transition-colors">
-                        {service.title}
-                      </span>
-                    </Link>
-                  );
-                })}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="countries" className="border-b-0">
-            <AccordionTrigger
-              className={cn(
-                "px-4 py-3.5 rounded-xl text-[15.5px] font-semibold transition-colors hover:no-underline",
-                isActive("/countries")
-                  ? "text-navy-deep dark:text-blue-400 bg-blue-50/80 dark:bg-blue-900/20"
-                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/50"
-              )}
-            >
-              Countries
-            </AccordionTrigger>
-            <AccordionContent className="pt-2 pb-4 px-2">
-              <Link
-                href="/countries"
-                onClick={close}
-                className="px-4 py-3 mb-2 text-[14px] font-bold text-navy-deep dark:text-blue-400 flex items-center gap-2 rounded-xl bg-blue-50/50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-900/50"
-              >
-                Compare Jurisdictions <ArrowRight className="w-4 h-4" />
-              </Link>
-              <div className="grid grid-cols-1 gap-1">
-                {countriesData.filter((c) => !c.comingSoon).map((country) => (
+              
+              {/* Active Countries - Padded Cards for Mobile */}
+              <div className="grid grid-cols-1 gap-2 px-3">
+                {activeCountries.map((country) => (
                   <Link
                     key={country.slug}
-                    href={`/countries/${country.slug}`}
+                    href={`/services/${country.slug}`}
                     onClick={close}
-                    className="group flex items-center gap-4 px-4 py-3 rounded-xl hover:bg-blue-50/40 dark:hover:bg-blue-900/20 transition-colors"
+                    className="group flex items-center gap-3 px-3 py-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:border-[#0e3b96]/30 transition-all"
                   >
-                    <div className="text-xl w-6 h-6 flex items-center justify-center">
-                      {country.flag}
+                    <span className="text-[24px] leading-none w-8 text-center shrink-0 drop-shadow-sm">{country.flag}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[14px] font-bold text-[#0e3b96] dark:text-blue-300 uppercase tracking-wide group-hover:text-[#F07228] transition-colors">{country.name}</p>
+                      <p className="text-[11.5px] text-slate-500 truncate">{country.tagline}</p>
                     </div>
-                    <span className="text-[14.5px] font-semibold text-slate-600 dark:text-slate-300 group-hover:text-navy-deep dark:group-hover:text-white transition-colors">
-                      {country.name}
-                    </span>
+                    <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#0e3b96] group-hover:translate-x-0.5 transition-all shrink-0" />
                   </Link>
                 ))}
               </div>
-              <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <h6 className="mb-2 px-4 text-[11px] font-bold uppercase tracking-widest text-slate-400">Coming Soon</h6>
-                <div className="grid grid-cols-1 gap-1">
-                  {countriesData.filter((c) => c.comingSoon).map((country) => (
-                    <div
-                      key={country.slug}
-                      className="flex items-center gap-4 px-4 py-3 rounded-xl opacity-60"
-                    >
-                      <div className="text-xl w-6 h-6 flex items-center justify-center">
-                        {country.flag}
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span className="text-[14.5px] font-semibold text-slate-500 dark:text-slate-400">
-                          {country.name}
-                        </span>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400">
-                          Soon
-                        </span>
-                      </div>
+
+              {/* Coming Soon Countries */}
+              <div className="mt-4 pt-4 border-t border-slate-200/60 dark:border-slate-800 mx-3">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-[#F07228] mb-3">Coming Soon</p>
+                <div className="grid grid-cols-1 gap-2">
+                  {comingSoonCountries.map((country) => (
+                    <div key={country.slug} className="flex items-center gap-3 px-3 py-2 bg-white/60 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800 opacity-80">
+                      <span className="text-[20px] leading-none w-8 text-center shrink-0 grayscale">{country.flag}</span>
+                      <span className="text-[13.5px] font-medium text-slate-500 flex-1">{country.name}</span>
+                      <span className="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#0e3b96]/5 text-[#0e3b96] border border-[#0e3b96]/10">Soon</span>
                     </div>
                   ))}
                 </div>
@@ -661,21 +556,21 @@ function MobileNav({
             className={cn(
               "px-4 py-3.5 rounded-xl text-[15.5px] font-semibold transition-colors flex items-center justify-between",
               isActive(link.href)
-                ? "text-navy-deep dark:text-blue-400 bg-blue-50/80 dark:bg-blue-900/20"
-                : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/50"
+                ? "text-[#0e3b96] dark:text-blue-400 bg-[#0e3b96]/5 dark:bg-blue-900/20 border border-[#0e3b96]/10"
+                : "text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200"
             )}
           >
             <span>{link.label}</span>
-            {isActive(link.href) && <ChevronRight className="w-4 h-4 text-navy-deep dark:text-blue-400" />}
+            {isActive(link.href) && <ChevronRight className="w-4 h-4 text-[#0e3b96] dark:text-blue-400" />}
           </Link>
         ))}
       </nav>
 
-      <div className="p-5 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 space-y-3 shrink-0">
+      <div className="p-5 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950 space-y-3 shrink-0">
         <Link
           href={actions.signIn.href}
           onClick={close}
-          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-[15px] font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-blue-50 hover:text-[#0e3b96] hover:border-blue-200 transition-colors text-center shadow-sm"
+          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl text-[15px] font-semibold text-[#0e3b96] bg-[#0e3b96]/5 border border-[#0e3b96]/15 hover:bg-[#0e3b96]/10 transition-colors text-center shadow-sm"
         >
           <User className="w-4.5 h-4.5" />
           {actions.signIn.label}
