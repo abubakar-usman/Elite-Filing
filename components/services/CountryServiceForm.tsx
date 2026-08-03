@@ -191,7 +191,7 @@ export function CountryServiceForm({ country }: CountryServiceFormProps) {
 
       {/* Right Column: Order Summary & Form (Sticky) */}
       <div className="lg:col-span-5 xl:col-span-5 relative">
-        <div className="sticky top-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-card max-h-[calc(100vh-6rem)] overflow-y-auto overflow-x-hidden">
+        <div className="sticky top-24 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-card overflow-hidden">
           
           {/* Cart Header */}
 <div className="bg-navy-deep p-6 text-white flex items-center justify-between">
