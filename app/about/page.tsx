@@ -246,10 +246,10 @@ export default function AboutPage() {
               Our Mission
             </div>
             <p className="text-xl md:text-2xl lg:text-[28px] font-display leading-relaxed text-slate-900 dark:text-white">
-              Our team includes formation specialists, tax advisors, trademark professionals, and business
-consultants with direct experience in each of the jurisdictions we serve. Rather than generalists
-handling every market, we assign specialists who focus on specific countries and service areas,
-so your filing is handled by someone who genuinely knows the rules.
+              Our mission is simple: give businesses of every size access to the same level of corporate
+              expertise, compliance discipline, and personalised service that was once reserved for companies
+              with in-house legal and finance teams. Whether you are filing your first LLC or managing entities
+              across four countries, we hold ourselves to the same standard of precision and care.
             </p>
           </div>
 
